@@ -1,0 +1,45 @@
+﻿<div class="modal" ng-style="{'width': model.width}">
+    <div class="modal-body">
+        <div ng-class="{
+            'dialog-alert-success': model.icon == 0, 
+            'dialog-alert-info': model.icon == 1, 
+            'dialog-alert-warning': model.icon == 2, 
+            'dialog-alert-error': model.icon == 3}">
+        </div>
+        <div class="dialog-alert-message">
+            <strong>
+                <p dc-highlight-message="model.boldMessage"></p>
+            </strong>
+            <p>{{model.standardMessage}}</p>
+        </div>
+        <div class="row" ng-if="model.checkbox.visible" style="margin-top: 10px;">
+            <input type="checkbox" ng-model="model.checkbox.value" />
+            {{model.checkbox.text}}
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <span ng-show="model.ok.visible" 
+                class="btn btn-block pull-right" 
+                ng-class="{
+                    'btn-primary': model.ok.color == 'primary',
+                    'btn-success': model.ok.color == 'success',
+                    'btn-warning': model.ok.color == 'warning',
+                    'btn-danger': model.ok.color == 'danger',
+                    'dialog-alert-one-button-width': model.buttonCount == 1,
+                    'dialog-alert-two-button-width': model.buttonCount > 1
+                }"
+                ng-click="click('ok');">{{model.ok.text}}</span>
+            <span ng-show="model.cancel.visible" 
+                class="btn btn-block" 
+                style="margin-top:0;"
+                ng-class="{
+                    'btn-primary': model.cancel.color == 'primary',
+                    'btn-success': model.cancel.color == 'success',
+                    'btn-warning': model.cancel.color == 'warning',
+                    'btn-danger': model.cancel.color == 'danger',
+                    'dialog-alert-one-button-width': model.buttonCount == 1,
+                    'dialog-alert-two-button-width': model.buttonCount > 1
+                }"
+                ng-click="click('cancel');">Cancel</span>
+        </div>
+    </div>
+</div>

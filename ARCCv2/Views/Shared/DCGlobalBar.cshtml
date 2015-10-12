@@ -1,0 +1,53 @@
+﻿@model ARCCv2.Controllers.AppController.IndexModel
+
+<header class="dcapp-header app-budget affix">
+
+<!-- Global Bar ----------------------------------- -->
+<div class="global-bar" style="margin-bottom: 0;" ng-controller="globalBarCtrl">
+
+    <div class="pull-left">
+
+        <a href="#" ng-click="routeToPortal()"><i class="dc-logo-small-icon-c"></i> Davis County Government</a>
+                
+        <span class="global-bar-divider-padded"></span>
+                
+        <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Apps <b class="caret"></b></a>
+            <ul class="dropdown-menu column-count-6" role="menu" aria-labelledby="dLabel" style="width: auto;">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Accounts Payable</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Accounts Receivable</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Asset Management</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Auditor</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Budget</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Central Store</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Costing</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Ledger</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Travel Request</a></li>
+            </ul>
+        </div>
+                                
+    </div> 
+    
+    @*@if (Model.IsDevelopmentMode)
+    {
+        <div class="debug-mode">DEBUG MODE</div>
+    }*@
+                                       
+    <div class="pull-right text-right">                                             
+        <div style="display: inline-block; height: 34px; margin-right: 10px; width: 24px;" tooltip="Notifications" tooltip-placement="bottom">
+            <span class="badge badge-important cursor-pointer">{{model.notificationCount}}</span>
+        </div>                
+        <div class="dropdown text-left">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">   <span class="hidden-phone">{{model.signedInUser}}</span>  <span class="visible-phone"><i class="user-mini-icon"></i></span><b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Account</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notifications</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Preferences</a></li>
+                <li class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sign Out</a></li>
+            </ul>
+        </div><div class="spacer1"></div>                
+    
+        <span class="global-bar-divider-padded"></span>
+    </div>
+</div>

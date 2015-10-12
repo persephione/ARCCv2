@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8109C7CB-3B61-474D-8858-36C56B4DD0B9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARCCv2</RootNamespace>
+    <AssemblyName>ARCCv2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ARCCv2.Business">
+      <HintPath>..\ARCCv2.Business\bin\Debug\ARCCv2.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="ARCCv2.Models">
+      <HintPath>..\ARCCv2.Models\bin\Debug\ARCCv2.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\DCApiController.cs" />
+    <Compile Include="API\Shared\GetMyNicknameController.cs" />
+    <Compile Include="API\Shared\HandshakeController.cs" />
+    <Compile Include="API\Shared\SignInController.cs" />
+    <Compile Include="API\Shared\SignOutController.cs" />
+    <Compile Include="API\Shared\VersionDllsController.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\ARCCProposalController.cs" />
+    <Compile Include="Controllers\ARCCScoreController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DeeProposalController.cs" />
+    <Compile Include="Controllers\DeeScoreController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ApplicationNames.cs" />
+    <Compile Include="Helpers\ExceptionMessage.cs" />
+    <Compile Include="Helpers\SharedStrings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\app.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\blueIcon.png" />
+    <Content Include="Content\images\books400x300.jpg" />
+    <Content Include="Content\images\check.png" />
+    <Content Include="Content\images\clock-tower.png" />
+    <Content Include="Content\images\clock400x300.jpg" />
+    <Content Include="Content\images\footer-icon-sprite.png" />
+    <Content Include="Content\images\footer-logo.png" />
+    <Content Include="Content\images\footer.jpg" />
+    <Content Include="Content\images\greenIcon.png" />
+    <Content Include="Content\images\hall400x300.jpg" />
+    <Content Include="Content\images\header.jpg" />
+    <Content Include="Content\images\headerLogo.png" />
+    <Content Include="Content\images\icon-sprite.png" />
+    <Content Include="Content\images\menu-icon-sprite.png" />
+    <Content Include="Content\images\mnts-body.jpg" />
+    <Content Include="Content\images\people400x300.jpg" />
+    <Content Include="Content\images\purpleIcon.png" />
+    <Content Include="Content\images\slider-wildcatmagazine.jpg" />
+    <Content Include="Content\images\statue400x300.jpg" />
+    <Content Include="Content\images\weber.jpg" />
+    <Content Include="Content\images\x.png" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="README.txt" />
+    <Content Include="Scripts\angular-strap\angular-strap.js" />
+    <Content Include="Scripts\angular-strap\angular-strap.min.js" />
+    <Content Include="Scripts\angular-strap\angular-strap.tpl.js" />
+    <Content Include="Scripts\angular-strap\angular-strap.tpl.min.js" />
+    <Content Include="Scripts\Angular\angular-cookies.js" />
+    <Content Include="Scripts\Angular\angular-cookies.min.js" />
+    <Content Include="Scripts\Angular\angular-mocks.js" />
+    <Content Include="Scripts\Angular\angular-resource.js" />
+    <Content Include="Scripts\Angular\angular-resource.min.js" />
+    <Content Include="Scripts\Angular\angular-route.js" />
+    <Content Include="Scripts\Angular\angular-route.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\Angular\angular.js" />
+    <Content Include="Scripts\Angular\angular.min.js" />
+    <Content Include="Scripts\App\Controllers\appCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDashboardCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCProposal\proposalCreateCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCProposal\proposalDetailCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCScore\arccProposalCtrl.js" />
+    <Content Include="Scripts\App\Controllers\DeeProposal\proposalCreateCtrl.js" />
+    <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDashboardCtrl.js" />
+    <Content Include="Scripts\App\Controllers\DeeProposal\proposalDetailCtrl.js" />
+    <Content Include="Scripts\App\Controllers\DeeScore\deeProposalCtrl.js" />
+    <Content Include="Scripts\App\Directives\dcBlur.js" />
+    <Content Include="Scripts\App\Directives\dcCenterModal.js" />
+    <Content Include="Scripts\App\Directives\dcCheck.js" />
+    <Content Include="Scripts\App\Directives\dcCheckList.js" />
+    <Content Include="Scripts\App\Directives\dcFocus.js" />
+    <Content Include="Scripts\App\Directives\dcFormatCurrency.js" />
+    <Content Include="Scripts\App\Directives\dcHighlightMessage.js" />
+    <Content Include="Scripts\App\Directives\dcLock.js" />
+    <Content Include="Scripts\App\Directives\dcNumbersOnly.js" />
+    <Content Include="Scripts\App\Filters\filter.js" />
+    <Content Include="Scripts\App\Services\dateValidation.js" />
+    <Content Include="Scripts\App\Services\home.js" />
+    <Content Include="Scripts\App\Services\parameters.js" />
+    <Content Include="Scripts\App\Services\searchedByCriteria.js" />
+    <Content Include="Scripts\App\Services\shared.js" />
+    <Content Include="Scripts\Angular\angular.min.js.map" />
+    <Content Include="Scripts\Angular\angular-cookies.min.js.map" />
+    <Content Include="Scripts\Angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\Angular\angular-route.min.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\tinavanriper.com-arcc - Web Deploy.pubxml" />
+    <Content Include="Scripts\angular-strap\angular-strap.min.js.map" />
+    <None Include="Scripts\JQuery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\JQuery\jquery-2.1.4.js" />
+    <Content Include="Scripts\JQuery\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\JQuery\jquery-2.1.4.min.map" />
+    <Content Include="Scripts\App\Services\systemError.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\app\app.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\app\main.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\node_modules\ng-table\examples\css\bootstrap.min.css" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo1.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo10.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo11.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo12.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo13.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo14.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo15.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo16.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo17.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo18.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo19.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo2.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo20.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo21.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo22.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo23.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo24.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo25.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo26.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo27.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo28.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo3.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo4.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo5.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo6.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo7.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo8.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\demo9.html" />
+    <Content Include="Scripts\node_modules\ng-table\examples\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\angular-mocks.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\angular-resource.min.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\angular.min.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\ng-table-export.src.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\ng-table-resizable-columns.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\js\require.js" />
+    <Content Include="Scripts\node_modules\ng-table\examples\partials\editRow.html" />
+    <Content Include="Scripts\node_modules\ng-table\Gruntfile.js" />
+    <Content Include="Scripts\node_modules\ng-table\karma.conf.js" />
+    <Content Include="Scripts\node_modules\ng-table\ng-table.css" />
+    <Content Include="Scripts\node_modules\ng-table\ng-table.js" />
+    <Content Include="Scripts\node_modules\ng-table\ng-table.min.css" />
+    <Content Include="Scripts\node_modules\ng-table\ng-table.min.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\ng-table\filters\select-multiple.html" />
+    <Content Include="Scripts\node_modules\ng-table\src\ng-table\filters\select.html" />
+    <Content Include="Scripts\node_modules\ng-table\src\ng-table\filters\text.html" />
+    <Content Include="Scripts\node_modules\ng-table\src\ng-table\header.html" />
+    <Content Include="Scripts\node_modules\ng-table\src\ng-table\pager.html" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\01-intro.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\02-app.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\03-params.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\04-controller.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\05-directive.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\06-pagination.js" />
+    <Content Include="Scripts\node_modules\ng-table\src\scripts\07-outro.js" />
+    <Content Include="Scripts\node_modules\ng-table\test\tableControllerSpec.js" />
+    <Content Include="Scripts\node_modules\ng-table\test\tableParamsSpec.js" />
+    <Content Include="Scripts\node_modules\ng-table\test\tableSpec.js" />
+    <Content Include="Scripts\Startup\dcApps.js" />
+    <Content Include="Scripts\Startup\dcDirectiveModule.js" />
+    <Content Include="Scripts\Startup\homeModule.js" />
+    <Content Include="Scripts\Startup\webAccess.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Shared\DCGlobalBar.cshtml" />
+    <Content Include="Views\Shared\dcMessageBox.cshtml" />
+    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\ARCCProposal\ProposalCreate.cshtml" />
+    <Content Include="Views\ARCCProposal\ProposalDetail.cshtml" />
+    <Content Include="Views\DeeProposal\DeeProposalDashboard.cshtml" />
+    <Content Include="Views\DeeProposal\ProposalCreate.cshtml" />
+    <Content Include="Views\DeeProposal\ProposalDetail.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\ARCCScore\ARCCProposals.cshtml" />
+    <Content Include="Views\ARCCProposal\ARCCProposalDashboard.cshtml" />
+    <Content Include="Views\DeeScore\DeeProposals.cshtml" />
+    <Content Include="Scripts\node_modules\ng-table\.bowerrc" />
+    <Content Include="Scripts\node_modules\ng-table\.editorconfig" />
+    <Content Include="Scripts\node_modules\ng-table\.jshintrc" />
+    <Content Include="Scripts\node_modules\ng-table\.npmignore" />
+    <Content Include="Scripts\node_modules\ng-table\.travis.yml" />
+    <Content Include="Scripts\node_modules\ng-table\bower.json" />
+    <Content Include="Scripts\node_modules\ng-table\CONTRIBUTING.md" />
+    <Content Include="Scripts\node_modules\ng-table\examples\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\node_modules\ng-table\examples\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\node_modules\ng-table\examples\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\node_modules\ng-table\LICENSE" />
+    <Content Include="Scripts\node_modules\ng-table\ng-table.less" />
+    <Content Include="Scripts\node_modules\ng-table\ng-table.map" />
+    <Content Include="Scripts\node_modules\ng-table\package.json" />
+    <Content Include="Scripts\node_modules\ng-table\README.md" />
+    <Content Include="Scripts\node_modules\ng-table\src\styles\ng-table.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="POCO\" />
+    <Folder Include="Scripts\App\Dialogs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>52153</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52153/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

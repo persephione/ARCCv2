@@ -1,0 +1,69 @@
+﻿@using System.Web.Optimization
+
+<!-- App Bar -------------------------------------- -->
+<div class="app-bar" data-ng-controller="appCtrl" data-ng-cloak="">
+           
+    <!-- Title -->
+    <div class="pull-left app-title">
+        @*<div class="app-bar-logo app-dc-system-admin"></div>*@
+        ARCC Test - Header
+    </div>            
+            
+    <!-- Items -->
+    <div class="pull-right text-right">
+ 
+        <!-- Settings -->            
+        @*        <i class="settings-icon-l"
+           data-placement="bottom-left" 
+           bs-popover="'Popover/Settings'" 
+           data-unique="1">
+            <span style="display: inline-block; height: 38px; width: 44px;" tooltip="Settings" tooltip-placement="bottom"></span>
+        </i> *@
+                                     
+        <!-- Help -->
+        @*<i class="help-icon-l" ng-click="displayHelp()">
+            <span style="display: inline-block; height: 38px; width: 44px;" tooltip="Help" tooltip-placement="bottom"></span>
+        </i>*@                            
+    </div>
+</div>
+
+<!-- Main Menu Bar -------------------------------- -->
+@*<div class="navbar navbar-dcapp navbar-static-top" bs-navbar>
+        <div class="navbar-inner text-center">
+            <ul class="nav">
+                <li data-match-route="/Home/SampleHomePage/" class="">
+                    <div class="navbar-dcapp-divider"></div>
+                    <a href="#!/Home/SampleHomePage/">Home</a>
+                </li><li class="dropdown" data-match-route="/Account/SampleAccountPage/"><div class="navbar-dcapp-divider"></div>
+                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                         <ul class="dropdown-menu text-left" role="menu" aria-labelledby="drop1">
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#!/Account/SampleAccountPage/">Sub Account Page</a></li>
+                         </ul>
+                     </li>
+            </ul>
+        </div>
+    </div>*@
+
+</header>
+
+<!--[if lt IE 9]>
+    <div class="alert affix" style="box-shadow: -5px 2px 10px #888888; right: 0; z-index: 300;">
+        <div class="warning-small-icon-c"></div>
+        <strong>Warning:</strong> This site requires Internet Explorer 9 or higher.        
+    </div>
+<![endif]-->
+
+<div data-ng-view="" class="container-content-padded"></div>
+@*<div class="app-version">
+    <a class="muted" href="#!/App/DetailedApplicationVersionInformation">Version @Model.AssemblyInformationalVersion</a>
+</div>*@
+
+@section Scripts
+{
+    @Scripts.Render("~/App/Startup")
+    @Scripts.Render("~/App/Controllers")
+    @Scripts.Render("~/App/Dialogs")
+    @Scripts.Render("~/App/Directives")
+    @Scripts.Render("~/App/Filters")
+    @Scripts.Render("~/App/Services")
+}
