@@ -63,17 +63,51 @@ namespace ARCCv2.Business.Managers
         /// <returns>number of records saved to db</returns>
         public int CreateScoresForProposal(int proposalID)
         {
-            return 0;
+            // get all the active committee members
+            var userList = userQueries.GetAllActiveCommitteeMembers();
+
+            foreach (var user in userList)
+                Uow.ARCCScoreRepository.Add(CreateScore(proposalID, user));
+
+            return Uow.SaveChanges();
         }
+
+        /// <summary>
+        /// Helper method. Makes a new score record for a proposal and committee member. - tina
+        /// </summary>
+        /// <param name="proposalID">unique proposal id</param>
+        /// <param name="user">committee member score is tied to</param>
+        /// <returns>new ARCC Score recored</returns>
+        protected ARCCScore CreateScore(int proposalID, User user)
+        {
+            var newScore = new ARCCScore();
+            newScore.ARCCScoreEducExp = 0;
+            newScore.ARCCScoreSupport = 0;
+            newScore.ARCCScoreEvaluation = 0;
+            newScore.ARCCScoreInnovation = 0;
+            newScore.ARCCScoreDissemination = 0;
+            newScore.ARCCScoreTotal = 0;
+            newScore.UserID = user.UserFirstName + " " + user.UserLastName;
+            newScore.ARCCProposalID = proposalID;
+            //newScore.ScoreLastUpdatedBy =                     // TODO: Figure this out later -----------------//
+            newScore.ScoreLastUpdatedDate = DateTime.Now;
+            return newScore;
+    }
 
         /// <summary>
         /// Updates an arcc score record - tina
         /// </summary>
         /// <param name="scoreID">unique score id</param>
         /// <returns></returns>
-        public int UpdateARCCScore(int scoreID)
+        public int UpdateARCCScore(ARCCScore arccScore)
         {
-            return 0;
+            // check the record exists in db
+            var scoreExists = arccQueries.DoesScoreExist(arccScore.ARCCScoreID);
+
+            if (scoreExists != false)
+                Uow.ARCCScoreRepository.Update(arccScore);
+
+            return Uow.SaveChanges();
         }
     }
 

@@ -13,8 +13,8 @@ namespace ARCCv2.Models
         public string UserLastName { get; set; }
         public string UserEmail { get; set; }
         public int UserTypeID { get; set; }
+        public bool UserIsActive { get; set; }
         public string UserLastUpdatedBy { get; set; }
         public DateTime UserLastUpdatedDate { get; set; }
-
     }
 }

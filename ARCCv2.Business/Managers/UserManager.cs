@@ -8,5 +8,6 @@ namespace ARCCv2.Business.Managers
 {
     public class UserManager
     {
+
     }
 }

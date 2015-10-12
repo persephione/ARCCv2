@@ -23,11 +23,17 @@ namespace ARCCv2.Business
         private DeeManager _deeManager { get; set; }
         public DeeManager deeManager => _deeManager ?? (_deeManager = new DeeManager());
 
+        private UserManager _userManager { get; set; }
+        public UserManager userManager => _userManager ?? (_userManager = new UserManager());
+
         private ARCCQueries _arccQueries { get; set; }
         public ARCCQueries arccQueries => _arccQueries ?? (_arccQueries = new ARCCQueries());
 
         private DeeQueries _deeQueries { get; set; }
         public DeeQueries deeQueries => _deeQueries ?? (_deeQueries = new DeeQueries());
+
+        private UserQueries _userQueries { get; set; }
+        public UserQueries userQueries => _userQueries ?? (_userQueries = new UserQueries());
 
     }
 }

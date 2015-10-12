@@ -52,6 +52,7 @@
     <Compile Include="BusinessBase.cs" />
     <Compile Include="DatabaseQueries\ARCCQueries.cs" />
     <Compile Include="DatabaseQueries\DeeQueries.cs" />
+    <Compile Include="DatabaseQueries\UserQueries.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Managers\ARCCManager.cs" />
     <Compile Include="Managers\DeeManager.cs" />
