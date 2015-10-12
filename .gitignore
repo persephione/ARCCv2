@@ -12,6 +12,7 @@
 *.sln
 *.xap
 *.pdb
+*\.vs
 
 # Build results
 
