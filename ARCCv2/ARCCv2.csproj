@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ARCCv2</RootNamespace>
     <AssemblyName>ARCCv2</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -26,6 +26,7 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <UseGlobalApplicationHostFile />
     <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,10 +50,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="ARCCv2.Business">
+    <Reference Include="ARCCv2.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ARCCv2.Business\bin\Debug\ARCCv2.Business.dll</HintPath>
     </Reference>
-    <Reference Include="ARCCv2.Models">
+    <Reference Include="ARCCv2.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ARCCv2.Models\bin\Debug\ARCCv2.Models.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -69,12 +72,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
@@ -114,12 +121,15 @@
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ARCCApiController.cs" />
+    <Compile Include="API\ARCCProposal\GetARCCProposalsController.cs" />
     <Compile Include="API\DCApiController.cs" />
     <Compile Include="API\Shared\GetMyNicknameController.cs" />
     <Compile Include="API\Shared\HandshakeController.cs" />
@@ -197,8 +207,8 @@
     <Content Include="Scripts\Angular\angular.min.js" />
     <Content Include="Scripts\App\Controllers\appCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDashboardCtrl.js" />
-    <Content Include="Scripts\App\Controllers\ARCCProposal\proposalCreateCtrl.js" />
-    <Content Include="Scripts\App\Controllers\ARCCProposal\proposalDetailCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalCreateCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDetailCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCScore\arccProposalCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\proposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDashboardCtrl.js" />
@@ -214,6 +224,7 @@
     <Content Include="Scripts\App\Directives\dcLock.js" />
     <Content Include="Scripts\App\Directives\dcNumbersOnly.js" />
     <Content Include="Scripts\App\Filters\filter.js" />
+    <Content Include="Scripts\App\Services\arccProposal.js" />
     <Content Include="Scripts\App\Services\dateValidation.js" />
     <Content Include="Scripts\App\Services\home.js" />
     <Content Include="Scripts\App\Services\parameters.js" />
@@ -319,8 +330,8 @@
     <Content Include="Views\Shared\DCGlobalBar.cshtml" />
     <Content Include="Views\Shared\dcMessageBox.cshtml" />
     <Content Include="Views\App\Index.cshtml" />
-    <Content Include="Views\ARCCProposal\ProposalCreate.cshtml" />
-    <Content Include="Views\ARCCProposal\ProposalDetail.cshtml" />
+    <Content Include="Views\ARCCProposal\ARCCProposalCreate.cshtml" />
+    <Content Include="Views\ARCCProposal\ARCCProposalDetail.cshtml" />
     <Content Include="Views\DeeProposal\DeeProposalDashboard.cshtml" />
     <Content Include="Views\DeeProposal\ProposalCreate.cshtml" />
     <Content Include="Views\DeeProposal\ProposalDetail.cshtml" />

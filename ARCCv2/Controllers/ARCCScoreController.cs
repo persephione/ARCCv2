@@ -8,10 +8,6 @@ namespace ARCCv2.Controllers
 {
     public class ARCCScoreController : Controller
     {
-        // GET: ARCCScore
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

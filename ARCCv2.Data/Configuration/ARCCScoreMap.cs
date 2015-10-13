@@ -12,20 +12,26 @@ namespace ARCCv2.Data.Configuration
             this.HasKey(t => t.ARCCScoreID);
 
             // Properties
-            //this.Property(t => t.abate_acct_id)
-            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.Property(t => t.ARCCScoreID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            //this.Property(t => t.ssno)
-            //    .HasMaxLength(9);
-
-            //this.Property(t => t.spouse_ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.ScoreLastUpdatedBy)
+                .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("ARCCScore");
-            //this.Property(t => t.abate_acct_id).HasColumnName("abate_acct_id");
-            //this.Property(t => t.client_id).HasColumnName("client_id");
-            //this.Property(t => t.date_entered).HasColumnName("date_entered");
+            this.Property(t => t.ARCCScoreID).HasColumnName("ARCCScoreID");
+            this.Property(t => t.ARCCScoreEducExp).HasColumnName("ARCCScoreEducExp");
+            this.Property(t => t.ARCCScoreSupport).HasColumnName("ARCCScoreSupport");
+            this.Property(t => t.ARCCScoreEvaluation).HasColumnName("ARCCScoreEvaluation");
+            this.Property(t => t.ARCCScoreInnovation).HasColumnName("ARCCScoreInnovation");
+            this.Property(t => t.ARCCScoreDissemination).HasColumnName("ARCCScoreDissemination");
+            this.Property(t => t.ARCCScoreTotal).HasColumnName("ARCCScoreTotal");
+            this.Property(t => t.ARCCScoreComment).HasColumnName("ARCCScoreComment");
+            this.Property(t => t.UserID).HasColumnName("UserID");
+            this.Property(t => t.ARCCProposalID).HasColumnName("ARCCProposalID");
+            this.Property(t => t.ScoreLastUpdatedBy).HasColumnName("ScoreLastUpdatedBy");
+            this.Property(t => t.ScoreLastUpdatedDate).HasColumnName("ScoreLastUpdatedDate");
         }
     }
 }

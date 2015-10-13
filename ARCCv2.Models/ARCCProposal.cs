@@ -35,7 +35,7 @@ namespace ARCCv2.Models
         public string ARCCReplacementARCCYear { get; set; }
         public bool ARCCPartiallyFunded { get; set; }
         public int ARCCPartiallyFundedPercent { get; set; }
-        public int ARCCLastUpdatedBy { get; set; }
+        public string ARCCLastUpdatedBy { get; set; }
         public DateTime ARCCLastUpdatedDate { get; set; }
     }
 }

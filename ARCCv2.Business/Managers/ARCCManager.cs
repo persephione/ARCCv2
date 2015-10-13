@@ -1,19 +1,21 @@
-﻿using System;
+﻿using ARCCv2.Data;
+using ARCCv2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ARCCv2.Models;
+
 
 namespace ARCCv2.Business.Managers
 {
     public class ARCCManager : BusinessBase
     {
         /// <summary>
-        /// Gets all the arcc proposals -  tina
+        /// Gets arcc proposals for specific user, or if userName is empty will get all of them. - tina
         /// </summary>
         /// <returns>list of arcc proposal records</returns>
-        public List<ARCCProposal> GetARCCProposals() => Uow.ARCCProposalRepository.GetAll().ToList();
+        public List<ARCCProposal> GetARCCProposals(string userName = "") => 
+            userName.Length < 1 ? Uow.ARCCProposalRepository.GetAll().ToList() :
+            arccQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.ARCCProposalID).ToList() ?? null;
 
         /// <summary>
         /// Saves new or existing arcc proposal record to db - tina
@@ -28,7 +30,7 @@ namespace ARCCv2.Business.Managers
                 // check if proposal exists in db
                 var proposalExists = arccQueries.DoesProposalExist(arccProposal.ARCCProposalID);
 
-                if (proposalExists != false)
+                if (proposalExists)
                     Uow.ARCCProposalRepository.Update(arccProposal);    
             }
             else
@@ -36,7 +38,7 @@ namespace ARCCv2.Business.Managers
                 // check if there's a duplicate in db
                 var duplicate = arccQueries.CheckForDuplicateProposal(arccProposal.ARCCName, arccProposal.ARCCDirector);
 
-                if (duplicate != true)
+                if (!duplicate)
                     Uow.ARCCProposalRepository.Add(arccProposal);
             }
             return Uow.SaveChanges();
@@ -64,10 +66,10 @@ namespace ARCCv2.Business.Managers
         public int CreateScoresForProposal(int proposalID)
         {
             // get all the active committee members
-            var userList = userQueries.GetAllActiveCommitteeMembers();
+            var memberList = userQueries.GetAllActiveCommitteeMembers();
 
-            foreach (var user in userList)
-                Uow.ARCCScoreRepository.Add(CreateScore(proposalID, user));
+            foreach (var member in memberList)
+                Uow.ARCCScoreRepository.Add(CreateScore(proposalID, member));
 
             return Uow.SaveChanges();
         }
@@ -87,9 +89,9 @@ namespace ARCCv2.Business.Managers
             newScore.ARCCScoreInnovation = 0;
             newScore.ARCCScoreDissemination = 0;
             newScore.ARCCScoreTotal = 0;
-            newScore.UserID = user.UserFirstName + " " + user.UserLastName;
+            newScore.UserID = user.UserID;
             newScore.ARCCProposalID = proposalID;
-            //newScore.ScoreLastUpdatedBy =                     // TODO: Figure this out later -----------------//
+            newScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
             newScore.ScoreLastUpdatedDate = DateTime.Now;
             return newScore;
     }
@@ -101,14 +103,16 @@ namespace ARCCv2.Business.Managers
         /// <returns></returns>
         public int UpdateARCCScore(ARCCScore arccScore)
         {
-            // check the record exists in db
+            // check if the record exists in db
             var scoreExists = arccQueries.DoesScoreExist(arccScore.ARCCScoreID);
 
-            if (scoreExists != false)
+            if (scoreExists)
+            {
                 Uow.ARCCScoreRepository.Update(arccScore);
-
-            return Uow.SaveChanges();
+                return Uow.SaveChanges();
+            }
+            else
+                return 0;           
         }
     }
-
 }

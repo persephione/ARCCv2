@@ -16,11 +16,14 @@ namespace ARCCv2.Business.DatabaseQueries
         /// </summary>
         /// <param name="id">unique primary key</param>
         /// <returns>true or false</returns>
-        public bool DoesProposalExist(int id)
-        {
-            var existingRecord = Uow.ARCCProposalRepository.GetById(id);
-            return existingRecord != null ? true : false;
-        }
+        public bool DoesProposalExist(int id) => Uow.ARCCProposalRepository.GetById(id) != null ? true : false;
+
+        /// <summary>
+        /// Checks if score exists in db - tina
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true or false</returns>
+        public bool DoesScoreExist(int id) => Uow.ARCCScoreRepository.GetById(id) != null ? true : false;
 
         /// <summary>
         /// Checks if there's already a duplicate of the exact proposal in db using unique primary key - tina
@@ -28,35 +31,29 @@ namespace ARCCv2.Business.DatabaseQueries
         /// <param name="proposalName">name of proposal</param>
         /// <param name="directorName">director name</param>
         /// <returns>true or false</returns>
-        public bool CheckForDuplicateProposal(string proposalName, string directorName)
-        {
-            var duplicate = Uow.ARCCProposalRepository.GetAll()
-                                .Where(x => x.ARCCName == proposalName)
-                                .Where(x => x.ARCCDirector == directorName).FirstOrDefault();
+        public bool CheckForDuplicateProposal(string proposalName, string directorName) => 
+            Uow.ARCCProposalRepository.GetAll()
+            .Where(x => x.ARCCName == proposalName)
+            .Where(x => x.ARCCDirector == directorName).Any();
 
-            return duplicate != null ? true : false;
-        }
+        /// <summary>
+        /// Gets all proposals created by a specific user - tina
+        /// </summary>
+        /// <param name="userName">unique user name to filter by</param>
+        /// <returns>list of proposals</returns>
+        public HashSet<ARCCProposal> GetAllProposalsForUser(string userName) => 
+            Uow.ARCCProposalRepository.GetAll()
+            .Where(x => x.ARCCUsername == userName).ToHashSet();
 
         /// <summary>
         /// Gets all scores associated with a proposal - tina
         /// </summary>
         /// <param name="proposalID">unique proposal id</param>
         /// <returns>list of arcc score records</returns>
-        public HashSet<ARCCScore> GetAllScoresForProposal(int proposalID)
-        {
-            return Uow.ARCCScoreRepository.GetAll()
-                .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
-        }
+        public HashSet<ARCCScore> GetAllScoresForProposal(int proposalID) => 
+            Uow.ARCCScoreRepository.GetAll()
+            .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
 
-        /// <summary>
-        /// Checks if score exists in db - tina
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>true or false</returns>
-        public bool DoesScoreExist(int id)
-        {
-            var existingRecord = Uow.ARCCScoreRepository.GetById(id);
-            return existingRecord != null ? true : false;
-        }
+
     }
 }

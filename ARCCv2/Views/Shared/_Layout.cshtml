@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 <!DOCTYPE html>
-<html lang="en" data-ng-app="App"> @*This is the place we load the homeModule!!*@
+<html lang="en" ng-app="App" > @*This is the place we load the homeModule!!*@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <base href="@Url.Action("Index")" />
@@ -38,6 +38,8 @@
     </head>
     <body>
         @*@Html.Partial("DCGlobalBar")*@
+
+        
 
         @RenderBody()
     

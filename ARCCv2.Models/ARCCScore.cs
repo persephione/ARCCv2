@@ -16,7 +16,7 @@ namespace ARCCv2.Models
         public int ARCCScoreDissemination { get; set; }
         public int ARCCScoreTotal { get; set; }
         public string ARCCScoreComment { get; set; }
-        public string UserID { get; set; }
+        public int UserID { get; set; }
         public int ARCCProposalID { get; set; }
         public string ScoreLastUpdatedBy { get; set; }
         public DateTime ScoreLastUpdatedDate { get; set; }

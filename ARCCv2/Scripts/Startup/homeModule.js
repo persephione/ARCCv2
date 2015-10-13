@@ -2,43 +2,42 @@
     'ui.bootstrap',
     'ngCookies',
     'ngRoute',
-    'ngTable'
+    'ngTable',
+    'mgcrea.ngStrap'
 ]).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     //Index is default route
     $routeProvider.when('/', {
         redirectTo: "Home/Welcome/"
     })
-    .when('/Home/Welcome/', {
+    .when('/Home/Welcome', {
         templateUrl: 'Home/Welcome',
         controller: 'appCtrl'
     })
-    .when('/ARCCProposal/ARCCProposalDashboard/', {
+    .when('/ARCCProposal/ARCCProposalDashboard', {
         templateUrl: 'ARCCProposal/ARCCProposalDashboard',
         controller: 'arccProposalDashboardCtrl'
     })
-    .when('/ARCCProposal/proposalCreate/', {
-        templateUrl: 'ARCCProposal/proposalCreate',
-        controller: 'proposalCreateCtrl'
+    .when('/ARCCProposal/ARCCProposalCreate', {
+        templateUrl: 'ARCCProposal/ARCCProposalCreate',
+        controller: 'arccProposalCreateCtrl'
     })
-    .when('/ARCCProposal/proposalDetail/', {
-        templateUrl: 'ARCCProposal/proposalDetail',
-        controller: 'proposalDetailCtrl'
+    .when('/ARCCProposal/ARCCProposalDetail', {
+        templateUrl: 'ARCCProposal/ARCCProposalDetail',
+        controller: 'arccProposalDetailCtrl'
     })
-    .when('/DeeProposal/DeeProposalDashboard/', {
+    .when('/DeeProposal/DeeProposalDashboard', {
         templateUrl: 'DeeProposal/DeeProposalDashboard',
         controller: 'deeProposalDashboardCtrl'
     })
-    .when('/DeeProposal/proposalCreate/', {
-        templateUrl: 'DeeProposal/proposalCreate',
-        controller: 'proposalCreateCtrl'
+    .when('/DeeProposal/DeeProposalCreate', {
+        templateUrl: 'DeeProposal/DeeProposalCreate',
+        controller: 'deeProposalCreateCtrl'
     })
-    .when('/DeeProposal/proposalDetail/', {
-        templateUrl: 'DeeProposal/proposalDetail',
-        controller: 'proposalDetailCtrl'
+    .when('/DeeProposal/DeeProposalDetail', {
+        templateUrl: 'DeeProposal/DeeProposalDetail',
+        controller: 'deeProposalDetailCtrl'
     })
-
-    
     .otherwise({
         redirectTo: '/'
     });
@@ -46,5 +45,4 @@
     // Specify HTML5 mode (using the History APIs) or HashBang syntax.
     $locationProvider.html5Mode(false).hashPrefix('!');
     //$locationProvider.html5Mode(true);
-
 }]);

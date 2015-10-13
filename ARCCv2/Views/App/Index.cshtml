@@ -1,12 +1,12 @@
 ﻿@using System.Web.Optimization
 
 <!-- App Bar -------------------------------------- -->
-<div class="app-bar" data-ng-controller="appCtrl" data-ng-cloak="">
-           
+<div class="app-bar" ng-controller="appCtrl" data-ng-cloak="">
     <!-- Title -->
     <div class="pull-left app-title">
         @*<div class="app-bar-logo app-dc-system-admin"></div>*@
-        ARCC Test - Header
+        @Html.Partial("_Header")
+        <br />
     </div>            
             
     <!-- Items -->

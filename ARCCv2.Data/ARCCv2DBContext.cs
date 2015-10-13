@@ -12,7 +12,7 @@ namespace ARCCv2.Data
             Database.SetInitializer<ARCCv2DbContext>(null);
         }
 
-        public ARCCv2DbContext() : base(nameOrConnectionString: "ARCCv2")
+        public ARCCv2DbContext() : base(nameOrConnectionString: "ARCCDBContext")
         {
         }
 

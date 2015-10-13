@@ -8,5 +8,6 @@ namespace ARCCv2.Business.DatabaseQueries
 {
     public class DeeQueries : BusinessBase
     {
+
     }
 }

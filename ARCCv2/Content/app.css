@@ -1,5 +1,44 @@
-﻿/* =======================================================================================
-Application Specific Styles
-======================================================================================= */
-
+﻿
+@import url("https://www.weber.edu/prebuilt/importfonts.css");
+#header {
+    height: 200px;
+    width: 100%;
+}
+.headerBG {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+.headerLogo {
+    z-index: 10;
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    left: 70px;
+    top: 65px;
+}
+.headerDiv {
+    z-index: 10;
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    width: 800px;
+    color: #cac6c1;
+    font-size: 14px;
+}
+.pageTitle {
+    text-align:center;
+}
+/* Trade Gothic Extended */
+@font-face {
+    font-family: TradeGothicLTStd-Extended;
+    src: url('webfonts/2730EE_7_0.eot');
+    src: url('webfonts/2730EE_7_0.eot?#iefix') format('embedded-opentype'),
+        url('webfonts/2730EE_7_0.woff') format('woff'),
+        url('webfonts/2730EE_7_0.ttf') format('truetype');
+}
+.tradeGothic {
+    font-family: TradeGothicLTStd-Extended;
+    color: #492365;
+}
 

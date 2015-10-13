@@ -30,7 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ARCCv2.Models">
+    <Reference Include="ARCCv2.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ARCCv2.Models\bin\Debug\ARCCv2.Models.dll</HintPath>
     </Reference>
     <Reference Include="System" />

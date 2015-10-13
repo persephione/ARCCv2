@@ -16,16 +16,18 @@ namespace ARCCv2.App_Start
                 "~/Scripts/Angular/angular-cookies.js",
                 "~/Scripts/Angular/angular-resource.js",
                 "~/Scripts/Angular/angular-route.js",
+                "~/Scripts/angular-strap/angular-strap.js",
+                "~/Scripts/angular-strap/angular-strap.tpl.js",
                 "~/Scripts/angular-ui/ui-bootstrap.js",
-                "~/Scripts/angular-ui/ui-bootstrap-tpls.js", 
-                "~/Scripts/Startup/homeModule.js",
-                "~/Scripts/Startup/webAccess.js"
-                            ));
+                "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                "~/Scripts/Bootstrap/bootstrap.js"
+                ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/Content/app.css",
-                "~/Content/bootstrap.css"
-                )); //Application Specific Styles
+                "~/Content/bootstrap.css",
+                "~/Content/bootstrap-theme.css"
+                ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

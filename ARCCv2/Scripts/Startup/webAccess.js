@@ -4,8 +4,7 @@ function ($rootScope, $http, $q, $route, $log) {
     return {
         Get: function (controllerName) {
             return new WebAccess(controllerName);
-        }//,
-        //SignIn: askForPassword
+        }
     };
 
     function WebAccess(controllerName) {
@@ -51,60 +50,60 @@ function ($rootScope, $http, $q, $route, $log) {
         }).success(function (data, status, headers, config) {
             deferred.resolve(data);
         })
-            //.error(function (data, status, headers, config) {
-            //var message = "";
-            //var title = undefined;
-            //if (status == 500) {
-                // If the message list exists so we need to de-serialize it
-                // This should be working for both the MessageList and ColumnMessageList
-                //if (angular.isString(data.ExceptionType) && data.ExceptionType.indexOf("MessageList") > -1) {
-                    //message = angular.fromJson(data.ExceptionMessage);
-                //} else {
-                    //if (angular.isString(data.ExceptionType) && data.ExceptionType.indexOf("NotSignedIn") > -1) {
-                        //$log.error("User has been redirected to the SignIn screen after getting a 'NotSignedIn' message from the server.");
-                        //dcCookie.delete(dcSessionKey.Get()); // clear this out to prevent additional error messages - we already know that we're not signed in
+            .error(function (data, status, headers, config) {
+            var message = "";
+            var title = undefined;
+            if (status == 500) {
+                 //If the message list exists so we need to de-serialize it
+                 //This should be working for both the MessageList and ColumnMessageList
+                if (angular.isString(data.ExceptionType) && data.ExceptionType.indexOf("MessageList") > -1) {
+                    message = angular.fromJson(data.ExceptionMessage);
+                } else {
+                    if (angular.isString(data.ExceptionType) && data.ExceptionType.indexOf("NotSignedIn") > -1) {
+                        $log.error("User has been redirected to the SignIn screen after getting a 'NotSignedIn' message from the server.");
+                        dcCookie.delete(dcSessionKey.Get()); // clear this out to prevent additional error messages - we already know that we're not signed in
                         //askForPassword();
-                    //} else {
-                        //if (angular.isString(data.ExceptionType) && data.ExceptionType.indexOf("NotAuthorized") > -1) {
-                        //    message = "You are not Authorized to perform this operation.";
-                        //} else {
-                        //    if (angular.isObject(data)) {
-                        //        if (data.ExceptionMessage) {
-                        //            if (data.ExceptionMessage.indexOf("No Session Key") > -1) {
-                        //                askForPassword();
-                        //            } else {
-                        //                message = data.ExceptionMessage;
-                        //                title = "Application Error:";
-                        //            }
-                        //        } else {
-                        //            if (data.Message) {
-                        //                message = "Server Request Failed with a status of: " + status + "\n\nMessage: " + data.Message + "\n\nMessageDetail: " + data.MessageDetail;
-                        //            } else {
-                        //                message = "Server Request Failed with a status of: " + status;
-                        //            }
-                        //        }
-                        //    }
-                        //}
-                    //}
-                    //if (message.length > 0) {
-                        //systemError.open(message, title);
-                    //}
-                //}
-            //} else {
-                //if (status >= 400 && status < 600) {
-                    //message = "Server Request Failed with a status of: " + status + "\n\nMessage: " + data.Message + "\n\nMessageDetail: " + data.MessageDetail;
-                //}
-                //if (status > 0 && message.length < 1) {
-                //    message = "Unhandled error code: " + status;
-                //}
-                //if (message.length > 0) {
-                    //systemError.open(message, title);
-                //}
-            //}
-            //deferred.reject(message);
-       // });
+                    } else {
+                        if (angular.isString(data.ExceptionType) && data.ExceptionType.indexOf("NotAuthorized") > -1) {
+                            message = "You are not Authorized to perform this operation.";
+                        } else {
+                            if (angular.isObject(data)) {
+                                if (data.ExceptionMessage) {
+                                    if (data.ExceptionMessage.indexOf("No Session Key") > -1) {
+                                        //askForPassword();
+                                    } else {
+                                        message = data.ExceptionMessage;
+                                        title = "Application Error:";
+                                    }
+                                } else {
+                                    if (data.Message) {
+                                        message = "Server Request Failed with a status of: " + status + "\n\nMessage: " + data.Message + "\n\nMessageDetail: " + data.MessageDetail;
+                                    } else {
+                                        message = "Server Request Failed with a status of: " + status;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (message.length > 0) {
+                        systemError.open(message, title);
+                    }
+                }
+            } else {
+                if (status >= 400 && status < 600) {
+                    message = "Server Request Failed with a status of: " + status + "\n\nMessage: " + data.Message + "\n\nMessageDetail: " + data.MessageDetail;
+                }
+                if (status > 0 && message.length < 1) {
+                    message = "Unhandled error code: " + status;
+                }
+                if (message.length > 0) {
+                    systemError.open(message, title);
+                }
+            }
+            deferred.reject(message);
+        });
 
-        //return deferred.promise;
+        return deferred.promise;
     }
 
     //function askForPassword() {
