@@ -1,7 +1,9 @@
-﻿
-@import url("https://www.weber.edu/prebuilt/importfonts.css");
+﻿@import url("https://www.weber.edu/prebuilt/importfonts.css");
+html, body {
+  height: 100%;
+}
 #header {
-    height: 200px;
+    height: 150px;
     width: 100%;
 }
 .headerBG {
@@ -11,23 +13,29 @@
 }
 .headerLogo {
     z-index: 10;
-    height: 80px;
-    width: 400px;
+    height: 60px;
+    width: 280px;
     position: absolute;
-    left: 70px;
-    top: 65px;
+    left: 75px;
+    top: 45px;
 }
 .headerDiv {
     z-index: 10;
     position: absolute;
     left: 100px;
-    top: 20px;
+    top: 10px;
     width: 800px;
     color: #cac6c1;
     font-size: 14px;
 }
 .pageTitle {
     text-align:center;
+}
+.headerLinks {
+    color: #cac6c1;
+}
+a.headerLinks:hover {
+  color: #fdfef8;
 }
 /* Trade Gothic Extended */
 @font-face {

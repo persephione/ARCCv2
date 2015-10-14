@@ -8,5 +8,10 @@ namespace ARCCv2.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult UserDashboard()
+        {
+            return PartialView();
+        }
     }
 }

@@ -130,6 +130,7 @@
   <ItemGroup>
     <Compile Include="API\ARCCApiController.cs" />
     <Compile Include="API\ARCCProposal\GetARCCProposalsController.cs" />
+    <Compile Include="API\ARCCProposal\SaveOrUpdateARCCProposalController.cs" />
     <Compile Include="API\DCApiController.cs" />
     <Compile Include="API\Shared\GetMyNicknameController.cs" />
     <Compile Include="API\Shared\HandshakeController.cs" />
@@ -356,11 +357,13 @@
     <Content Include="Scripts\node_modules\ng-table\package.json" />
     <Content Include="Scripts\node_modules\ng-table\README.md" />
     <Content Include="Scripts\node_modules\ng-table\src\styles\ng-table.less" />
+    <Content Include="Views\Home\UserDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="POCO\" />
     <Folder Include="Scripts\App\Dialogs\" />
+    <Folder Include="Views\SaveOrUpdateARCCProposal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
