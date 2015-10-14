@@ -12,20 +12,26 @@ namespace ARCCv2.Data.Configuration
             this.HasKey(t => t.DeeHardwareBudgetID);
 
             // Properties
-            //this.Property(t => t.abate_acct_id)
-            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.Property(t => t.DeeHardwareBudgetID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            //this.Property(t => t.ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.DeeHardwareName)
+                .HasMaxLength(50);
 
-            //this.Property(t => t.spouse_ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.DeeHardwareLastUpdatedBy)
+                .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("DeeHardwareBudget");
-            //this.Property(t => t.abate_acct_id).HasColumnName("abate_acct_id");
-            //this.Property(t => t.client_id).HasColumnName("client_id");
-            //this.Property(t => t.date_entered).HasColumnName("date_entered");
+            this.Property(t => t.DeeHardwareBudgetID).HasColumnName("DeeHardwareBudgetID");
+            this.Property(t => t.DeeProposalID).HasColumnName("DeeProposalID");
+            this.Property(t => t.DeeHardwareName).HasColumnName("DeeHardwareName");
+            this.Property(t => t.DeeHardwareDeeBudget).HasColumnName("DeeHardwareARCCBudget");
+            this.Property(t => t.DeeHardwareCollegeBudget).HasColumnName("DeeHardwareCollegeBudget");
+            this.Property(t => t.DeeHardwareDeptBudget).HasColumnName("DeeHardwareDeptBudget");
+            this.Property(t => t.DeeHardwareOtherBudget).HasColumnName("DeeHardwareOtherBudget");
+            this.Property(t => t.DeeHardwareLastUpdatedBy).HasColumnName("DeeHardwareLastUpdatedBy");
+            this.Property(t => t.DeeHardwareLastUpdatedDate).HasColumnName("DeeHardwareLastUpdatedDate");
         }
     }
 }

@@ -11,6 +11,6 @@ namespace ARCCv2.Models
         public int UserTypeID { get; set; }
         public string UserTypeDescription { get; set; }
         public string UserTypeLastUpdatedBy { get; set; }
-        public string UserTypeLastUpdatedDate { get; set; }
+        public DateTime UserTypeLastUpdatedDate { get; set; }
     }
 }

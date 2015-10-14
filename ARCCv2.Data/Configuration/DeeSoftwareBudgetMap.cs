@@ -12,20 +12,26 @@ namespace ARCCv2.Data.Configuration
             this.HasKey(t => t.DeeSoftwareBudgetID);
 
             // Properties
-            //this.Property(t => t.abate_acct_id)
-            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.Property(t => t.DeeSoftwareBudgetID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            //this.Property(t => t.ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.DeeSoftwareName)
+                .HasMaxLength(50);
 
-            //this.Property(t => t.spouse_ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.DeeSoftwareLastUpdatedBy)
+                .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("DeeSoftwareBudget");
-            //this.Property(t => t.abate_acct_id).HasColumnName("abate_acct_id");
-            //this.Property(t => t.client_id).HasColumnName("client_id");
-            //this.Property(t => t.date_entered).HasColumnName("date_entered");
-    }
+            this.Property(t => t.DeeSoftwareBudgetID).HasColumnName("DeeSoftwareBudgetID");
+            this.Property(t => t.DeeProposalID).HasColumnName("DeeProposalID");
+            this.Property(t => t.DeeSoftwareName).HasColumnName("DeeSoftwareName");
+            this.Property(t => t.DeeSoftwareDeeBudget).HasColumnName("DeeSoftwareARCCBudget");
+            this.Property(t => t.DeeSoftwareCollegeBudget).HasColumnName("DeeSoftwareCollegeBudget");
+            this.Property(t => t.DeeSoftwareDeptBudget).HasColumnName("DeeSoftwareDeptBudget");
+            this.Property(t => t.DeeSoftwareOtherBudget).HasColumnName("DeeSoftwareOtherBudget");
+            this.Property(t => t.DeeSoftwareLastUpdatedBy).HasColumnName("DeeSoftwareLastUpdatedBy");
+            this.Property(t => t.DeeSoftwareLastUpdatedDate).HasColumnName("DeeSoftwareLastUpdatedDate");
+        }
     }
 }

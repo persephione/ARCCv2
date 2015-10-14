@@ -12,20 +12,28 @@ namespace ARCCv2.Data.Configuration
             this.HasKey(t => t.ARCCSoftwareBudgetID);
 
             // Properties
-            //this.Property(t => t.abate_acct_id)
-            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.Property(t => t.ARCCSoftwareBudgetID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            //this.Property(t => t.ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.ARCCSoftwareName)
+                .HasMaxLength(50);
 
-            //this.Property(t => t.spouse_ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.ARCCSoftwareLastUpdatedBy)
+                .HasMaxLength(50);
+
+
 
             // Table & Column Mappings
             this.ToTable("ARCCSoftwareBudget");
-            //this.Property(t => t.abate_acct_id).HasColumnName("abate_acct_id");
-            //this.Property(t => t.client_id).HasColumnName("client_id");
-            //this.Property(t => t.date_entered).HasColumnName("date_entered");
+            this.Property(t => t.ARCCSoftwareBudgetID).HasColumnName("ARCCSoftwareBudgetID");
+            this.Property(t => t.ARCCProposalID).HasColumnName("ARCCProposalID");
+            this.Property(t => t.ARCCSoftwareName).HasColumnName("ARCCSoftwareName");
+            this.Property(t => t.ARCCSoftwareARCCBudget).HasColumnName("ARCCSoftwareARCCBudget");
+            this.Property(t => t.ARCCSoftwareCollegeBudget).HasColumnName("ARCCSoftwareCollegeBudget");
+            this.Property(t => t.ARCCSoftwareDeptBudget).HasColumnName("ARCCSoftwareDeptBudget");
+            this.Property(t => t.ARCCSoftwareOtherBudget).HasColumnName("ARCCSoftwareOtherBudget");
+            this.Property(t => t.ARCCSoftwareLastUpdatedBy).HasColumnName("ARCCSoftwareLastUpdatedBy");
+            this.Property(t => t.ARCCSoftwareLastUpdatedDate).HasColumnName("ARCCSoftwareLastUpdatedDate");
         }
     }
 }

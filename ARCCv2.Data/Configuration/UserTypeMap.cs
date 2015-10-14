@@ -12,20 +12,21 @@ namespace ARCCv2.Data.Configuration
             this.HasKey(t => t.UserTypeID);
 
             // Properties
-            //this.Property(t => t.abate_acct_id)
-            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.Property(t => t.UserTypeID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            //this.Property(t => t.ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.UserTypeDescription)
+                .HasMaxLength(200);
 
-            //this.Property(t => t.spouse_ssno)
-            //    .HasMaxLength(9);
+            this.Property(t => t.UserTypeLastUpdatedBy)
+                .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("UserType");
-            //this.Property(t => t.abate_acct_id).HasColumnName("abate_acct_id");
-            //this.Property(t => t.client_id).HasColumnName("client_id");
-            //this.Property(t => t.date_entered).HasColumnName("date_entered");
+            this.Property(t => t.UserTypeID).HasColumnName("UserTypeID");
+            this.Property(t => t.UserTypeDescription).HasColumnName("UserTypeDescription");
+            this.Property(t => t.UserTypeLastUpdatedBy).HasColumnName("UserTypeLastUpdatedBy");
+            this.Property(t => t.UserTypeLastUpdatedDate).HasColumnName("UserTypeLastUpdatedDate");
         }
     }
 }
