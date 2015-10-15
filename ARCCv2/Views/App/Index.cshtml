@@ -6,13 +6,6 @@
         @Html.Partial("_Header")
     </div>
 
-    <!-- Title -->
-    <div class="pull-left app-title">
-        @*<div class="app-bar-logo app-dc-system-admin"></div>*@
-
-        <br />
-    </div>
-
     <!-- Items -->
     <div class="pull-right text-right">
 
@@ -31,23 +24,6 @@
     </div>
 </div>
 
-<!-- Main Menu Bar -------------------------------- -->
-@*<div class="navbar navbar-dcapp navbar-static-top" bs-navbar>
-        <div class="navbar-inner text-center">
-            <ul class="nav">
-                <li data-match-route="/Home/SampleHomePage/" class="">
-                    <div class="navbar-dcapp-divider"></div>
-                    <a href="#!/Home/SampleHomePage/">Home</a>
-                </li><li class="dropdown" data-match-route="/Account/SampleAccountPage/"><div class="navbar-dcapp-divider"></div>
-                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                         <ul class="dropdown-menu text-left" role="menu" aria-labelledby="drop1">
-                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#!/Account/SampleAccountPage/">Sub Account Page</a></li>
-                         </ul>
-                     </li>
-            </ul>
-        </div>
-    </div>*@
-
 </header>
 
 <!--[if lt IE 9]>
@@ -57,10 +33,12 @@
     </div>
 <![endif]-->
 
-<div data-ng-view="" class="container"></div>
-@*<div class="app-version">
-        <a class="muted" href="#!/App/DetailedApplicationVersionInformation">Version @Model.AssemblyInformationalVersion</a>
-    </div>*@
+<div data-ng-view="" class="container-fluid"></div>
+
+<div >
+    @Html.Partial("_Footer")
+</div>
+
 
 @section Scripts
 {

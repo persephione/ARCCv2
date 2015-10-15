@@ -10,6 +10,6 @@ namespace ARCCv2.API
         /// </summary>
         /// <param name="arccProposal">arcc proposal object</param>
         /// <returns>Number of records saved in db</returns>
-        public int Post([FromBody] ARCCProposal arccProposal) => arccManager.SaveOrUpdateARCCProposal(arccProposal);
+        public int Post([FromBody] ARCCv2.Models.ARCCProposal arccProposal) => arccManager.SaveOrUpdateARCCProposal(arccProposal);
     }
 }

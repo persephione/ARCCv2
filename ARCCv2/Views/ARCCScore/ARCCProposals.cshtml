@@ -1,97 +1,54 @@
-﻿<div class="line-break"></div>
+﻿@*<div class="line-break"></div>*@
 <div class="row">
-    <div class="col-lg-2">
-        <h3 style="display: inline-block;">Treasurer Deposits</h3>
+    <div class="col-lg-12">
+        <h3 style="display: inline-block;">List of ARCC and Dee Proposals</h3>
     </div>
 
     @* Status Button Bar -------------------------------------- *@
-    <div class="col-lg-4 pull-right">
-        <div class="pull-right">
-            <ul class="button-bar">
-                <li data-ng-click="setViewStatus(0); model.selectedStatus = 'Unforwarded'" data-ng-class="{'active': model.statusId === 0}">
-                    Unforwarded
-                </li>
-                <li data-ng-click="setViewStatus(1); model.selectedStatus = 'Forwarded'" data-ng-class="{'active': model.statusId === 1}">
-                    Forwarded
-                </li>
-            </ul>
-        </div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-8 pull-right">
+        <button class="btn btn-primary" data-ng-click="setSelection(1, 'Active ARCC Proposals');" ng-class="{'btn-success': model.selected == 1}">
+            Active ARCC Proposals</button>
+        <button class="btn btn-primary" data-ng-click="setSelection(2, 'Active Dee Proposals');" ng-class="{'btn-success': model.selected == 2}">
+            Active Dee Proposals</button>
+        <button class="btn btn-default" data-ng-click="setSelection(3, 'Archived ARCC Proposals');" ng-class="{'btn-success': model.selected == 3}">
+            Archived ARCC Proposals</button>
+        <button class="btn btn-default" data-ng-click="setSelection(4, 'Archived Dee Proposals');" ng-class="{'btn-success': model.selected == 4}">
+            Archived Dee Proposals</button>
     </div>
 </div>
-<div class="line-break"></div>
+<br /><br />
 
-@* The rest of the header stuff -------------------------------- *@
+<div class="line-break"></div>
 <div class="row">
     <div class="col-lg-2 pull-left">
-        <div class="title pull-left">{{model.selectedStatus}}</div>
-    </div>
-
-    <div class="">
-        <div class="btn-group" ng-if="model.selectedStatus !== 'Voided'">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Set Selected Item Status To... <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li ng-repeat="status in model.setToStatuses"
-                    ng-show="status.show"
-                    ng-class="status.divider ? 'divider' : ''">
-                    <a ng-click="status.click()">{{status.description}}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="pull-right">
-            <i class="search-icon no-hover"
-               tooltip="Search"
-               tooltip-placement="top"
-               data-ng-click="search()"></i>
-        </div>
-    </div>
-
-    <div data-ng-show="model.searchString.length > 0">
-        <div class="pull-left">
-            <p class="title title-condensed">
-                Search Results <span class="text-small italic no-bold" ng-if="model.contracts.length == 1">({{model.contracts.length}} Item)</span>
-                <span class="text-small italic no-bold" ng-if="model.contracts.length > 1">({{model.contracts.length}} Items)</span>
-            </p>
-            <span class="text-small text-gray italic"><span class="bold">Searched By </span><span class="arrow-right-gray"></span>{{model.searchString}}</span>
-        </div>
+        <div class="title pull-left">{{model.batchStatus}}</div>
     </div>
 </div>
+<br />
 
-@* Table of Deposit Records -------------------------------------- *@
-<table ng-table="tableParams" show-filter="true" class="table table-striped table-hover ng-table-responsive">
-    <tr data-ng-repeat="deposit in $data">
-        <td data-title="'ProposalID'" sortable="'DepositID'" filter="{ 'DepositID': 'text' }" class="col-lg-1" ng-click="viewDeposit(deposit)">{{deposit.DepositID}}</td>
-        <td data-title="'Amount'" sortable="'Amount'" filter="{ 'Amount': 'text' }" class="col-lg-1" ng-click="viewDeposit(deposit)">{{deposit.Amount | currency}}</td>
-        <td data-title="'Over/Short'" sortable="'OverShort'" filter="{ 'OverShort': 'text' }" class="col-lg-1" ng-click="viewDeposit(deposit)">{{deposit.OverShort | currency}}</td>
-        <td data-title="'Created'" sortable="'CreatedDate'" filter="{ 'CreatedDateViewValue': 'customDateFilter' }" class="col-lg-1" ng-click="viewDeposit(deposit)">
-            {{deposit.CreatedDateViewValue | date: 'M/dd/yyyy'}}
+<table ng-table="tableParams" show-filter="true" class="table table-striped ng-table-responsive">
+    <tr data-ng-repeat="proposal in $data">
+        <td class="col-lg-1" data-title="'Proposal #'" sortable="'ProposalID'" filter="{ 'ProposalID': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.ProposalID}}
         </td>
-        <td data-title="'Created By'" sortable="'CreatedBy'" filter="{ 'CreatedBy': 'text' }" class="col-lg-1" ng-click="viewDeposit(deposit)">{{deposit.CreatedBy}}</td>
-        <td data-title="'Status'" sortable="'Status'" filter="{ 'Status': 'text' }" class="col-lg-1" ng-click="viewDeposit(deposit)">{{deposit.Status}}</td>
-        <td data-title="''" ng-click="viewDeposit(deposit)"></td>
-        <td width="70" data-title="'Controls'" class="">
-            <i class="menu-icon" data-unique="1" data-placement="left" tooltip="Deposit Menu" tooltip-placement="left" bs-popover
-               data-content-template="Banking/PopoverDepositActions"></i>
+
+
+        <td class="col-lg-1" data-title="'Proposal Name'" sortable="'ProposalName'" filter="{ 'ProposalName': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.ProposalName}}
+        </td>
+
+        <td class="col-lg-1" data-title="'Last Updated Date'" sortable="'LastUpdatedDate'" filter="{ 'LastUpdatedDate': 'text' }" ng-click="viewDetail(proposal)">
+            {{batch.LastUpdatedDate | date: 'M/dd/yyyy' }}
+        </td>
+
+        <td class="col-lg-1" data-title="'Entered By'" sortable="'EnteredBy'" filter="{ 'EnteredBy': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.EnteredBy}}
+        </td>
+
+        <td class="col-lg-1" data-title="'Status'" sortable="'Status'" filter="{ 'EnteredBy': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.Status}}
         </td>
     </tr>
 </table>
 
-@* ng-templates -------------------------------------- *@
-<script type="text/ng-template" id="ng-table/headers/checkbox.html">
-    <input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value="" />
-</script>
-
-<script type="text/ng-template" id="ng-table/filters/customDateFilter.html">
-    <div class="input-group" style="width:125px; margin:auto;">
-        <input type="text" dc-payment-submit-date
-               class="form-control"
-               datepicker-popup="MM/dd/yyyy"
-               ng-model="params.filter()[name]"
-               is-open="datePicker.isOpen"
-               datepicker-options="dateOptions" />
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="openFrom($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-        </span>
-    </div>
-</script>

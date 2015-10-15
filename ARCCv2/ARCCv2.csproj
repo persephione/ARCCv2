@@ -131,7 +131,13 @@
     <Compile Include="API\ARCCApiController.cs" />
     <Compile Include="API\ARCCProposal\GetARCCProposalsController.cs" />
     <Compile Include="API\ARCCProposal\SaveOrUpdateARCCProposalController.cs" />
+    <Compile Include="API\ARCCProposal\SaveOrUpdateDeeProposalController.cs" />
+    <Compile Include="API\ARCCScore\GetARCCScoresController.cs" />
+    <Compile Include="API\ARCCScore\SaveOrUpdateARCCScoreController.cs" />
     <Compile Include="API\DCApiController.cs" />
+    <Compile Include="API\DeeProposal\GetDeeProposalsController.cs" />
+    <Compile Include="API\DeeProposal\SaveOrUpdateDeeScoreController.cs" />
+    <Compile Include="API\DeeScore\GetDeeScoresController.cs" />
     <Compile Include="API\Shared\GetMyNicknameController.cs" />
     <Compile Include="API\Shared\HandshakeController.cs" />
     <Compile Include="API\Shared\SignInController.cs" />
@@ -186,6 +192,7 @@
     <Content Include="Content\images\weber.jpg" />
     <Content Include="Content\images\x.png" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="Content\wsu.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="README.txt" />
@@ -210,11 +217,12 @@
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDetailCtrl.js" />
-    <Content Include="Scripts\App\Controllers\ARCCScore\arccProposalCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ARCCScore\arccProposalsCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\proposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\proposalDetailCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeScore\deeProposalCtrl.js" />
+    <Content Include="Scripts\App\Controllers\userDashboardCtrl.js" />
     <Content Include="Scripts\App\Directives\dcBlur.js" />
     <Content Include="Scripts\App\Directives\dcCenterModal.js" />
     <Content Include="Scripts\App\Directives\dcCheck.js" />
@@ -226,7 +234,10 @@
     <Content Include="Scripts\App\Directives\dcNumbersOnly.js" />
     <Content Include="Scripts\App\Filters\filter.js" />
     <Content Include="Scripts\App\Services\arccProposal.js" />
+    <Content Include="Scripts\App\Services\arccScore.js" />
     <Content Include="Scripts\App\Services\dateValidation.js" />
+    <Content Include="Scripts\App\Services\deeProposal.js" />
+    <Content Include="Scripts\App\Services\deeScore.js" />
     <Content Include="Scripts\App\Services\home.js" />
     <Content Include="Scripts\App\Services\parameters.js" />
     <Content Include="Scripts\App\Services\searchedByCriteria.js" />
@@ -363,7 +374,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="POCO\" />
     <Folder Include="Scripts\App\Dialogs\" />
-    <Folder Include="Views\SaveOrUpdateARCCProposal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

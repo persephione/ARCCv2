@@ -9,15 +9,9 @@ namespace ARCCv2.Controllers
 {
     public class ARCCProposalController : Controller
     {
-        public ActionResult ARCCProposalDashboard()
-        {
-            return PartialView();
-        }
+        public ActionResult ARCCProposalDashboard() => PartialView();
 
-        public ActionResult ARCCProposalCreate()
-        {
-            return PartialView();
-        }
+        public ActionResult ARCCProposalCreate() => PartialView();
 
         [HttpPost]
         public ActionResult ARCCProposalCreate(HttpPostedFileBase file)
@@ -48,9 +42,6 @@ namespace ARCCv2.Controllers
             return Redirect(refUri + "#!/ARCCProposal/ProposalDetails");
         }
 
-        public ActionResult ARCCProposalDetail()
-        {
-            return PartialView();
-        }
+        public ActionResult ARCCProposalDetail() => PartialView();
     }
 }

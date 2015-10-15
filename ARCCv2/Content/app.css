@@ -1,7 +1,12 @@
 ﻿@import url("https://www.weber.edu/prebuilt/importfonts.css");
 html, body {
   height: 100%;
+  width: 98vw;
 }
+
+button:focus {outline:0 !important;}
+
+/*** Header ***/
 #header {
     height: 150px;
     width: 100%;
@@ -37,6 +42,19 @@ html, body {
 a.headerLinks:hover {
   color: #fdfef8;
 }
+
+/*** Footer ***/
+.footerRight {
+    float:left;
+    display:table;
+    border-left:1px solid rgb(115, 115, 115);
+    width:50%;
+}
+#footerColumn {
+    display:table-cell;
+    padding:0px 0px 0px 50px;
+}
+
 /* Trade Gothic Extended */
 @font-face {
     font-family: TradeGothicLTStd-Extended;

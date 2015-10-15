@@ -8,6 +8,6 @@ namespace ARCCv2.Controllers
 {
     public class ARCCScoreController : Controller
     {
-        
+        public ActionResult ARCCProposals() => PartialView();
     }
 }

@@ -1,1 +1,51 @@
-﻿
+﻿<div class="row">
+    <div class="col-lg-12">
+        <h3 style="display: inline-block;">List of ARCC and Dee Proposals</h3>
+    </div>
+
+    @* Status Button Bar -------------------------------------- *@
+    <div class="col-lg-9"></div>
+    <div class="col-lg-3 pull-right">
+        <button class="btn btn-primary" data-ng-click="setSelection(1, 'ARCC Proposals');" ng-class="{'btn-success': model.selected == 1}">
+            ARCC Proposals
+        </button>
+        <button class="btn btn-primary" data-ng-click="setSelection(2, 'Dee Proposals');" ng-class="{'btn-success': model.selected == 2}">
+            Dee Proposals
+        </button>
+    </div>
+</div>
+<br /><br />
+
+<div class="line-break"></div>
+<div class="row">
+    <div class="col-lg-2 pull-left">
+        <div class="title pull-left">{{model.batchStatus}}</div>
+    </div>
+</div>
+<br />
+
+<table ng-table="tableParams" show-filter="true" class="table table-striped ng-table-responsive">
+    <tr data-ng-repeat="proposal in $data">
+        <td class="col-lg-1" data-title="'Proposal #'" sortable="'ProposalID'" filter="{ 'ProposalID': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.ProposalID}}
+        </td>
+
+
+        <td class="col-lg-1" data-title="'Proposal Name'" sortable="'ProposalName'" filter="{ 'ProposalName': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.ProposalName}}
+        </td>
+
+        <td class="col-lg-1" data-title="'Last Updated Date'" sortable="'LastUpdatedDate'" filter="{ 'LastUpdatedDate': 'text' }" ng-click="viewDetail(proposal)">
+            {{batch.LastUpdatedDate | date: 'M/dd/yyyy' }}
+        </td>
+
+        <td class="col-lg-1" data-title="'Entered By'" sortable="'EnteredBy'" filter="{ 'EnteredBy': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.EnteredBy}}
+        </td>
+
+        <td class="col-lg-1" data-title="'Status'" sortable="'Status'" filter="{ 'EnteredBy': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.Status}}
+        </td>
+    </tr>
+</table>
+

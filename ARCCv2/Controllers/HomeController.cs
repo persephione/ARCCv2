@@ -4,14 +4,8 @@ namespace ARCCv2.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Welcome()
-        {
-            return PartialView();
-        }
+        public ActionResult Welcome() => PartialView();
 
-        public ActionResult UserDashboard()
-        {
-            return PartialView();
-        }
+        public ActionResult UserDashboard() => PartialView();
     }
 }

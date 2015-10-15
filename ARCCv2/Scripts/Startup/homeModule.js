@@ -14,6 +14,10 @@
         templateUrl: 'Home/Welcome',
         controller: 'appCtrl'
     })
+    .when('/Home/UserDashboard', {
+        templateUrl: 'Home/UserDashboard',
+        controller: 'userDashboardCtrl'
+    })
     .when('/ARCCProposal/ARCCProposalDashboard', {
         templateUrl: 'ARCCProposal/ARCCProposalDashboard',
         controller: 'arccProposalDashboardCtrl'
@@ -37,6 +41,14 @@
     .when('/DeeProposal/DeeProposalDetail', {
         templateUrl: 'DeeProposal/DeeProposalDetail',
         controller: 'deeProposalDetailCtrl'
+    })
+    .when('/ARCCScore/ARCCProposals', {
+        templateUrl: 'ARCCScore/ARCCProposals',
+        controller: 'arccProposalsCtrl'
+    })
+    .when('/DeeScore/DeeProposals', {
+        templateUrl: 'DeeScore/DeeProposals',
+        controller: 'deeProposalsCtrl'
     })
     .otherwise({
         redirectTo: '/'
