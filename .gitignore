@@ -9,7 +9,6 @@
 *.suo
 *.user
 *.sln.docstates
-*.sln
 *.xap
 *.pdb
 *\.vs
