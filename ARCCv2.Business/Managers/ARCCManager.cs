@@ -13,9 +13,13 @@ namespace ARCCv2.Business.Managers
         /// Gets arcc proposals for specific user, or if userName is empty will get all of them. - tina
         /// </summary>
         /// <returns>list of arcc proposal records</returns>
-        public List<ARCCProposal> GetARCCProposals(string userName = "") => 
-            userName.Length < 1 ? Uow.ARCCProposalRepository.GetAll().ToList() :
-            arccQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.ARCCProposalID).ToList() ?? null;
+        public List<ARCCProposal> GetARCCProposals(string userName = "")
+        {
+            if (userName.Length < 1)
+                return Uow.ARCCProposalRepository.GetAll().ToList();
+            else
+                return arccQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.ARCCProposalID).ToList() ?? null;
+        }
 
         /// <summary>
         /// Saves new or existing arcc proposal record to db - tina

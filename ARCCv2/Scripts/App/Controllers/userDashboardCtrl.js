@@ -1,6 +1,6 @@
 ﻿angular.module('App').controller('userDashboardCtrl', [
-    '$scope', '$filter', '$location', 'ngTableParams',
-    function ($scope, $filter, $location, ngTableParams) {
+    '$scope', '$filter', '$location', 'ngTableParams', 'arccProposal',
+    function ($scope, $filter, $location, ngTableParams, arccProposal) {
         $scope.model = {
             selected: 1,
             batchStatus: 'ARCC Proposals'
@@ -8,8 +8,8 @@
         var data = [];
 
         //Get data and populate list-------------------------------------------//
-        //banking.GetBankBatches.Get().then(function (result) {
-        //    data = result;
+        arccProposal.GetARCCProposals.Get().then(function (result) {
+            data = result;
 
             $scope.tableParams = new ngTableParams({
                 page: 1,            // show first page
@@ -37,7 +37,7 @@
                 }
             });
 
-//        });
+        });
 
 
 

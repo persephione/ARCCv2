@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARCCv2.API;
+using System;
+using System.Collections.Generic;
 
 namespace ARCCv2.POCO
 {
