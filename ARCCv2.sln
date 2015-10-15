@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARCCv2", "ARCCv2\ARCCv2.csproj", "{8109C7CB-3B61-474D-8858-36C56B4DD0B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARCCv2.Contracts", "ARCCv2.Contracts\ARCCv2.Contracts.csproj", "{508C9D2F-4F59-4047-8B28-6EF76F096F5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARCCv2.Business", "ARCCv2.Business\ARCCv2.Business.csproj", "{81D43F33-9425-4483-865A-D1D55FAAAF4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARCCv2.Models", "ARCCv2.Models\ARCCv2.Models.csproj", "{2B9344B5-3809-4FB8-AA0E-F554F8300F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARCCv2.Data", "ARCCv2.Data\ARCCv2.Data.csproj", "{62A67FAE-5BD4-49FD-A73A-77166EF22161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARCCv2.Tests", "ARCCv2.Tests\ARCCv2.Tests.csproj", "{CB8C0377-979C-41EA-9E95-777497C7DD25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8109C7CB-3B61-474D-8858-36C56B4DD0B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8109C7CB-3B61-474D-8858-36C56B4DD0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8109C7CB-3B61-474D-8858-36C56B4DD0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8109C7CB-3B61-474D-8858-36C56B4DD0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508C9D2F-4F59-4047-8B28-6EF76F096F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508C9D2F-4F59-4047-8B28-6EF76F096F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508C9D2F-4F59-4047-8B28-6EF76F096F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508C9D2F-4F59-4047-8B28-6EF76F096F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D43F33-9425-4483-865A-D1D55FAAAF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D43F33-9425-4483-865A-D1D55FAAAF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D43F33-9425-4483-865A-D1D55FAAAF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D43F33-9425-4483-865A-D1D55FAAAF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B9344B5-3809-4FB8-AA0E-F554F8300F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B9344B5-3809-4FB8-AA0E-F554F8300F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B9344B5-3809-4FB8-AA0E-F554F8300F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B9344B5-3809-4FB8-AA0E-F554F8300F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A67FAE-5BD4-49FD-A73A-77166EF22161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A67FAE-5BD4-49FD-A73A-77166EF22161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A67FAE-5BD4-49FD-A73A-77166EF22161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A67FAE-5BD4-49FD-A73A-77166EF22161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB8C0377-979C-41EA-9E95-777497C7DD25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB8C0377-979C-41EA-9E95-777497C7DD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB8C0377-979C-41EA-9E95-777497C7DD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB8C0377-979C-41EA-9E95-777497C7DD25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
