@@ -1,6 +1,6 @@
 ﻿angular.module('App').controller('scoringDashboardCtrl', [
-    '$scope', '$filter', '$location', 'ngTableParams',
-    function ($scope, $filter, $location, ngTableParams) {
+    '$scope', '$filter', '$location', 'ngTableParams', 'scores',
+    function ($scope, $filter, $location, ngTableParams, scores) {
         $scope.model = {
             selected: 1,
             batchStatus: 'Active ARCC Proposals'
@@ -8,8 +8,8 @@
         var data = [];
 
         //Get data and populate list-------------------------------------------//
-        //banking.GetBankBatches.Get().then(function (result) {
-        //    data = result;
+        scores.GetProposals.Get().then(function (result) {
+            data = result;
 
         $scope.tableParams = new ngTableParams({
             page: 1,            // show first page
@@ -37,7 +37,7 @@
             }
         });
 
-        //        });
+                });
 
 
 

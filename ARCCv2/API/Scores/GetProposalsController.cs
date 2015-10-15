@@ -14,6 +14,7 @@ namespace ARCCv2.API.Scores
 
         protected List<ARCCv2.Models.ARCCProposal> GetAllARCCProposals() => arccManager.GetARCCProposals();
 
+
         protected List<ARCCv2.Models.DeeProposal> GetAllDeeProposals() => deeManager.GetDeeProposals();
 
 
@@ -30,7 +31,7 @@ namespace ARCCv2.API.Scores
                     newViewProposal.ProposalName = arcc.ARCCName;
                     newViewProposal.LastUpdatedDate = arcc.ARCCLastUpdatedDate;
                     newViewProposal.Type = "ARCC";
-                    newViewProposal.Status = arcc.ARCCApproval ? proposalStatus.isTrue : proposalStatus.isFalse;
+                    newViewProposal.Status = arcc.ARCCApproval ? proposalStatus.isFalse : proposalStatus.isTrue;
                     allProposals.Add(newViewProposal);
                 }
            }
