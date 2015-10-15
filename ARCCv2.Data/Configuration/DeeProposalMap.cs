@@ -67,7 +67,7 @@ namespace ARCCv2.Data.Configuration
             this.Property(t => t.ARCCPartiallyFunded).HasColumnName("ARCCPartiallyFunded"); 
             this.Property(t => t.ARCCPartiallyFundedPercent).HasColumnName("ARCCPartiallyFundedPercent");
             this.Property(t => t.DeeLastUpdatedBy).HasColumnName("DeeLastUpdatedBy");
-            this.Property(t => t.DeeLastUpdatedTime).HasColumnName("DeeLastUpdatedTime");
+            this.Property(t => t.DeeLastUpdatedDate).HasColumnName("DeeLastUpdatedDate");
         }
     }
 }

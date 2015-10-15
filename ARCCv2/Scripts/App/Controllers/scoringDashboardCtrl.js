@@ -1,4 +1,4 @@
-﻿angular.module('App').controller('arccProposalsCtrl', [
+﻿angular.module('App').controller('scoringDashboardCtrl', [
     '$scope', '$filter', '$location', 'ngTableParams',
     function ($scope, $filter, $location, ngTableParams) {
         $scope.model = {

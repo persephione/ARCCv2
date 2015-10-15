@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ARCCv2.API.DeeScore
+namespace ARCCv2.API.Scores
 {
-    public class GetDeeScoresController : ARCCApiController
+    public class SaveOrUpdateDeeScoreController : ARCCApiController
     {
         
     }

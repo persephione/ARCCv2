@@ -1,20 +1,22 @@
-﻿@*<div class="line-break"></div>*@
+﻿
+@*<div class="line-break"></div>*@
 <div class="row">
     <div class="col-lg-12">
         <h3 style="display: inline-block;">List of ARCC and Dee Proposals</h3>
     </div>
 
     @* Status Button Bar -------------------------------------- *@
-    <div class="col-lg-4"></div>
-    <div class="col-lg-8 pull-right">
-        <button class="btn btn-primary" data-ng-click="setSelection(1, 'Active ARCC Proposals');" ng-class="{'btn-success': model.selected == 1}">
-            Active ARCC Proposals</button>
-        <button class="btn btn-primary" data-ng-click="setSelection(2, 'Active Dee Proposals');" ng-class="{'btn-success': model.selected == 2}">
-            Active Dee Proposals</button>
-        <button class="btn btn-default" data-ng-click="setSelection(3, 'Archived ARCC Proposals');" ng-class="{'btn-success': model.selected == 3}">
-            Archived ARCC Proposals</button>
-        <button class="btn btn-default" data-ng-click="setSelection(4, 'Archived Dee Proposals');" ng-class="{'btn-success': model.selected == 4}">
-            Archived Dee Proposals</button>
+    <div class="col-lg-8"></div>
+    <div class="col-lg-4 pull-right">
+        <button class="btn btn-primary" data-ng-click="setSelection(1, 'Ready To Score');" ng-class="{'btn-success': model.selected == 1}">
+            Ready To Score
+        </button>
+        <button class="btn btn-primary" data-ng-click="setSelection(2, 'All Active');" ng-class="{'btn-success': model.selected == 2}">
+            All Active
+        </button>
+        <button class="btn btn-primary" data-ng-click="setSelection(3, 'All Archived');" ng-class="{'btn-success': model.selected == 3}">
+            All Archived
+        </button>
     </div>
 </div>
 <br /><br />
@@ -33,7 +35,6 @@
             {{proposal.ProposalID}}
         </td>
 
-
         <td class="col-lg-1" data-title="'Proposal Name'" sortable="'ProposalName'" filter="{ 'ProposalName': 'text' }" ng-click="viewDetail(proposal)">
             {{proposal.ProposalName}}
         </td>
@@ -42,8 +43,8 @@
             {{batch.LastUpdatedDate | date: 'M/dd/yyyy' }}
         </td>
 
-        <td class="col-lg-1" data-title="'Entered By'" sortable="'EnteredBy'" filter="{ 'EnteredBy': 'text' }" ng-click="viewDetail(proposal)">
-            {{proposal.EnteredBy}}
+        <td class="col-lg-1" data-title="'Type'" sortable="'Type'" filter="{ 'Type': 'text' }" ng-click="viewDetail(proposal)">
+            {{proposal.Type}}
         </td>
 
         <td class="col-lg-1" data-title="'Status'" sortable="'Status'" filter="{ 'EnteredBy': 'text' }" ng-click="viewDetail(proposal)">

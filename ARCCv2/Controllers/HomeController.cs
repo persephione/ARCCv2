@@ -7,5 +7,8 @@ namespace ARCCv2.Controllers
         public ActionResult Welcome() => PartialView();
 
         public ActionResult UserDashboard() => PartialView();
+
+        public ActionResult ScoringDashboard() => PartialView();
+
     }
 }

@@ -18,6 +18,10 @@
         templateUrl: 'Home/UserDashboard',
         controller: 'userDashboardCtrl'
     })
+    .when('/Home/ScoringDashboard', {
+        templateUrl: 'Home/ScoringDashboard',
+        controller: 'scoringDashboardCtrl'
+    })
     .when('/ARCCProposal/ARCCProposalDashboard', {
         templateUrl: 'ARCCProposal/ARCCProposalDashboard',
         controller: 'arccProposalDashboardCtrl'
@@ -45,10 +49,6 @@
     .when('/ARCCScore/ARCCProposals', {
         templateUrl: 'ARCCScore/ARCCProposals',
         controller: 'arccProposalsCtrl'
-    })
-    .when('/DeeScore/DeeProposals', {
-        templateUrl: 'DeeScore/DeeProposals',
-        controller: 'deeProposalsCtrl'
     })
     .otherwise({
         redirectTo: '/'

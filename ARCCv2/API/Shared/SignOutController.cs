@@ -2,7 +2,7 @@
 
 namespace ARCCv2.API.Shared
 {
-    public class SignOutController : DCApiController
+    public class SignOutController
     {
         //private readonly SignInAPI signInAPI;
 

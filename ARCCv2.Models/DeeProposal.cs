@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ARCCv2.Models
 {
@@ -34,6 +30,6 @@ namespace ARCCv2.Models
         public bool ARCCPartiallyFunded { get; set; }
         public int ARCCPartiallyFundedPercent { get; set; }
         public string DeeLastUpdatedBy { get; set; }
-        public DateTime DeeLastUpdatedTime { get; set; }
+        public DateTime DeeLastUpdatedDate { get; set; }
     }
 }

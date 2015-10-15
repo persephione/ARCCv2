@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ARCCv2.API.DeeProposal
+namespace ARCCv2.API.Scores
 {
-    public class SaveOrUpdateDeeScoreController : ARCCApiController
+    public class GetDeeScoresController : ARCCApiController
     {
-
+       
     }
 }

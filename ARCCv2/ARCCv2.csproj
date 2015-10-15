@@ -131,26 +131,22 @@
     <Compile Include="API\ARCCApiController.cs" />
     <Compile Include="API\ARCCProposal\GetARCCProposalsController.cs" />
     <Compile Include="API\ARCCProposal\SaveOrUpdateARCCProposalController.cs" />
-    <Compile Include="API\ARCCProposal\SaveOrUpdateDeeProposalController.cs" />
-    <Compile Include="API\ARCCScore\GetARCCScoresController.cs" />
-    <Compile Include="API\ARCCScore\SaveOrUpdateARCCScoreController.cs" />
-    <Compile Include="API\DCApiController.cs" />
+    <Compile Include="API\DeeProposal\SaveOrUpdateDeeProposalController.cs" />
+    <Compile Include="API\Scores\GetARCCScoresController.cs" />
+    <Compile Include="API\Scores\GetDeeScoresController.cs" />
+    <Compile Include="API\Scores\GetProposalsController.cs" />
+    <Compile Include="API\Scores\SaveOrUpdateARCCScoreController.cs" />
     <Compile Include="API\DeeProposal\GetDeeProposalsController.cs" />
-    <Compile Include="API\DeeProposal\SaveOrUpdateDeeScoreController.cs" />
-    <Compile Include="API\DeeScore\GetDeeScoresController.cs" />
-    <Compile Include="API\Shared\GetMyNicknameController.cs" />
+    <Compile Include="API\Scores\SaveOrUpdateDeeScoreController.cs" />
     <Compile Include="API\Shared\HandshakeController.cs" />
     <Compile Include="API\Shared\SignInController.cs" />
     <Compile Include="API\Shared\SignOutController.cs" />
-    <Compile Include="API\Shared\VersionDllsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\ARCCProposalController.cs" />
-    <Compile Include="Controllers\ARCCScoreController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeeProposalController.cs" />
-    <Compile Include="Controllers\DeeScoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Global.asax.cs">
@@ -159,6 +155,8 @@
     <Compile Include="Helpers\ApplicationNames.cs" />
     <Compile Include="Helpers\ExceptionMessage.cs" />
     <Compile Include="Helpers\SharedStrings.cs" />
+    <Compile Include="POCO\ProposalListView.cs" />
+    <Compile Include="POCO\ProposalStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,11 +215,10 @@
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDetailCtrl.js" />
-    <Content Include="Scripts\App\Controllers\ARCCScore\arccProposalsCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\proposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\proposalDetailCtrl.js" />
-    <Content Include="Scripts\App\Controllers\DeeScore\deeProposalCtrl.js" />
+    <Content Include="Scripts\App\Controllers\scoringDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\userDashboardCtrl.js" />
     <Content Include="Scripts\App\Directives\dcBlur.js" />
     <Content Include="Scripts\App\Directives\dcCenterModal.js" />
@@ -234,12 +231,11 @@
     <Content Include="Scripts\App\Directives\dcNumbersOnly.js" />
     <Content Include="Scripts\App\Filters\filter.js" />
     <Content Include="Scripts\App\Services\arccProposal.js" />
-    <Content Include="Scripts\App\Services\arccScore.js" />
     <Content Include="Scripts\App\Services\dateValidation.js" />
     <Content Include="Scripts\App\Services\deeProposal.js" />
-    <Content Include="Scripts\App\Services\deeScore.js" />
     <Content Include="Scripts\App\Services\home.js" />
     <Content Include="Scripts\App\Services\parameters.js" />
+    <Content Include="Scripts\App\Services\scores.js" />
     <Content Include="Scripts\App\Services\searchedByCriteria.js" />
     <Content Include="Scripts\App\Services\shared.js" />
     <Content Include="Scripts\Angular\angular.min.js.map" />
@@ -349,9 +345,7 @@
     <Content Include="Views\DeeProposal\ProposalDetail.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\ARCCScore\ARCCProposals.cshtml" />
     <Content Include="Views\ARCCProposal\ARCCProposalDashboard.cshtml" />
-    <Content Include="Views\DeeScore\DeeProposals.cshtml" />
     <Content Include="Scripts\node_modules\ng-table\.bowerrc" />
     <Content Include="Scripts\node_modules\ng-table\.editorconfig" />
     <Content Include="Scripts\node_modules\ng-table\.jshintrc" />
@@ -369,10 +363,10 @@
     <Content Include="Scripts\node_modules\ng-table\README.md" />
     <Content Include="Scripts\node_modules\ng-table\src\styles\ng-table.less" />
     <Content Include="Views\Home\UserDashboard.cshtml" />
+    <Content Include="Views\Home\ScoringDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="POCO\" />
     <Folder Include="Scripts\App\Dialogs\" />
   </ItemGroup>
   <ItemGroup>

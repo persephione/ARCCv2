@@ -3,7 +3,7 @@
 
 namespace ARCCv2.API.Shared
 {
-    public class HandshakeController : DCApiController
+    public class HandshakeController
     {
         //private readonly SignInAPI signInApi;
 

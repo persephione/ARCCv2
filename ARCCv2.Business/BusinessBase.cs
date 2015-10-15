@@ -23,6 +23,9 @@ namespace ARCCv2.Business
         private DeeManager _deeManager { get; set; }
         public DeeManager deeManager => _deeManager ?? (_deeManager = new DeeManager());
 
+        private ScoreManager _scoreManager { get; set; }
+        public ScoreManager scoreManager => _scoreManager ?? (_scoreManager = new ScoreManager());
+
         private UserManager _userManager { get; set; }
         public UserManager userManager => _userManager ?? (_userManager = new UserManager());
 

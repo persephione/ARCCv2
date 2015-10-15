@@ -4,7 +4,7 @@ using ARCCv2.Helpers;
 
 namespace ARCCv2.API.Shared
 {
-    public class SignInController : DCApiController
+    public class SignInController
     {
 
         //public SignInOutcome Post([FromBody] SignInAttempt attempt)
