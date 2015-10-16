@@ -49,19 +49,14 @@ button:focus {outline:0 !important;}
 a.headerLinks:hover {
   color: #fdfef8;
 }
-
-/*** Footer ***/
-.footerRight {
-    float:left;
-    display:table;
-    border-left:1px solid rgb(115, 115, 115);
-    width:50%;
-}
-#footerColumn {
-    display:table-cell;
-    padding:0px 0px 0px 50px;
-}
-
+/*.footerLogo {
+    border:1px solid red; 
+    position: absolute; 
+    bottom:0 !important;
+    display: block !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}*/
 /* Trade Gothic Extended */
 @font-face {
     font-family: TradeGothicLTStd-Extended;
