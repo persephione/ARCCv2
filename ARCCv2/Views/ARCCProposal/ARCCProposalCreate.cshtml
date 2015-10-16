@@ -4,7 +4,7 @@
         <h1><small>Create a New ARCC Proposal</small></h1>
     </div>
 
-        @*-- Top Panel --*@
+    @*-- Top Panel --*@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
@@ -69,48 +69,199 @@
             </ol>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>ARCC Representative (required)</h5>
+        </div>
+        <div class="panel-body">
+            I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="RepSignature">ARCC Representative Signature</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="RepSignature"
+                           placeholder="ARCC Representative Signature" ng-model="model.arccRepSignature" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="RepComments">ARCC Representative Comments</label>
+                <div class="col-lg-7">
+                    <textarea class="form-control" id="RepComments"
+                              placeholder="Comments" ng-model="model.arccRepComments" />
+                </div>
+            </div>
+        </div>
 
-        @*-- API Login ID & Secure Transaction Key--*@
-        @*<div class="row">
-            <div class="col-sm-5 form-group">
-                <label for="apiLoginID">API LoginID</label>&nbsp;
-                <input class="form-control" type="text" id="apiLoginID" ng-model="model.compositeModel.fpPaymentChannel.APILoginID" required />
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>Department Chair (required)</h5>
+        </div>
+        <div class="panel-body">
+            The Department has reviewed this project within the context of overall information technology planning
+            within the Department. If the budget page indicates financial support from the Department, I agree to
+            commit those funds to this project.
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ChairSignature">Department Chair Signature</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="ChairSignature"
+                           placeholder="Department Chair Signature" ng-model="model.arccChairSignature" />
+                </div>
             </div>
-            <div class="col-sm-7 form-group">
-                <label for="SecureTransactionKey">Secure Transaction Key</label>&nbsp;
-                <input class="form-control" type="text" id="SecureTransactionKey" ng-model="model.compositeModel.fpPaymentChannel.SecureTransactionKey" />
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ChairComments">Department Chair Comments</label>
+                <div class="col-lg-7">
+                    <textarea class="form-control" id="ChairComments"
+                              placeholder="Comments" ng-model="model.arccChairComments" />
+                </div>
             </div>
-        </div>*@
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>College Dean (required for matching funds from the college)</h5>
+        </div>
+        <div class="panel-body">
+            I have reviewed this project. If the budget page indicates financial support from the College, I
+            agree to commit those funds to this project.
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="DeanSignature">College Dean Signature</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="DeanSignature"
+                           placeholder="College Dean Signature" ng-model="model.arccDeanSignature" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="DeanComments">Department Chair Comments</label>
+                <div class="col-lg-7">
+                    <textarea class="form-control" id="DeanComments"
+                              placeholder="Comments" ng-model="model.arccDeanComments" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>IT Representative</h5>
+        </div>
+        <div class="panel-body">
+            For certain projects an IT expert's signature is required. You must contact the appropriate individual
+             if you are implementing MULTIMEDIA, NETWORKING, OR OTHER CLASSROOM TECHNOLOGY INSTALLATIONS (contact 
+            Bob King at <a href="mailto:rking@weber.edu">rking@weber.edu</a> or x6865).<br />
+            I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ITSignature">IT Representative Signature</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="ITSignature"
+                           placeholder="College Dean Signature" ng-model="model.arccITSignature" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ITComments">IT Representative Comments</label>
+                <div class="col-lg-7">
+                    <textarea class="form-control" id="ITComments"
+                              placeholder="Comments" ng-model="model.arccITComments" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>Justification</h5>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <textarea class="form-control" ng-model="model.arccJustification" 
+                              placeholder="Enter Proposal Justification"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Missing Quick Entries here*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>Budget</h5>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Hardware</th>
+                        <th>ARCC</th>
+                        <th>Department</th>
+                        <th>College</th>
+                        <th>Other</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        @*-- Allow New Payments & Client App --*@
-        @*<div class="row">
-            <div class="col-sm-5 form-group">
-                <label for="AllowNewPayments">Allow New Payments?</label>&nbsp;&nbsp;
-                <button class="{{AllowPaymentsButtonClass}}" ng-model="model.compositeModel.paymentChannel.AllowNewPayments"
-                        ng-click="allowPaymentButton()">
-                    {{AllowNewPaymentsButtonText}}
-                </button>
-                <br /><br />
-                <label for="AllowNewPaymentsOnReturnOrReconcile">Allow New Payments on Return or Reconcile?</label>&nbsp;&nbsp;
-                <button class="{{AllowNewPaymentsOnReturnOrReconcileButtonClass}}" ng-model="model.compositeModel.paymentChannel.AllowNewPaymentsOnReturnOrReconcile"
-                        ng-click="allowPaymentOnReturnButton()">
-                    {{AllowNewPaymentsOnReturnOrReconcileButtonText}}
-                </button>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>Additional Resources</h5>
+        </div>
+        <div class="panel-body">
+            Please describe what other resources will be required to implement this project:<br />
+            (Additional resources may include needs such as Academic Computing technical support or hardware installation
+             through Electronic Services.
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <textarea class="form-control" ng-model="model.arccAdditionalResources"
+                              placeholder="Enter Additional Required Resources"></textarea>
+                </div>
             </div>
-            <div class="col-sm-7 form-group">
-                <label for="ClientApplication">Client Application</label>&nbsp;
-                <ui-select id="clientApplicationID"
-                           ng-model="model.selectedClientApp"
-                           required
-                           limit="100">
-                    <ui-select-match placeholder="Select a Client Application">{{$select.selected.ClientApplicationName}}</ui-select-match>
-                    <ui-select-choices repeat="s in model.lists.listOfClientApps | filter: $select.search | limitTo: $select.limit">
-                        <span ng-bind-html="s.ClientApplicationName | highlight: $select.search"></span>
-                    </ui-select-choices>
-                </ui-select>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>Replacement Equipment</h5>
+        </div>
+        <div class="panel-body">
+            Please indicate if any of the requested equipment is replacement of items previously purchased with ARCC 
+            funding.<br />
+            (If possible, please list the ARCC project year and project name.)
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ReplacementEquipment">Requesting Replacement</label>
+                <div class="col-lg-7">
+                    <div class="btn-group" role="group" id="ReplacementEquipment">
+                        <button type="button" class="btn" 
+                                ng-click="model.arccReplacementEquipment = true"
+                                ng-class="{'btn-default': !model.arccReplacementEquipment, 'btn-success': model.arccReplacementEquipment }">Yes</button>
+                        <button type="button" class="btn" 
+                                ng-click="model.arccReplacementEquipment = false"
+                                ng-class="{'btn-default': model.arccReplacementEquipment, 'btn-success': !model.arccReplacementEquipment }">No</button>
+                    </div>
+                </div>
             </div>
-        </div>*@
-
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ReplacementProjectName">Project Name</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="ReplacementProjectName"
+                           placeholder="Previous Project Name" ng-model="model.arccReplacementProjectName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="ReplacementARCCYear"
+                              placeholder="Previous Project Year" ng-model="model.arccReplacementARCCYear" />
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container divBorder">
         @*-- Error Message --*@
         <div class="alert text-center" data-ng-class="'alert-error'" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
