@@ -33,7 +33,6 @@
             setTableParams();
         });
 
-
         // set settings for ng-table
         var setTableParams = function () {
             $scope.tableParams = new ngTableParams({
@@ -88,4 +87,5 @@
 
             $scope.tableParams.reload();
         };
+
     }]);

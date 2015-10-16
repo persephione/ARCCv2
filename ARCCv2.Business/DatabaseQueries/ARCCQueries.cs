@@ -55,5 +55,18 @@ namespace ARCCv2.Business.DatabaseQueries
             .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
 
 
+        public HashSet<ARCCHardwareBudget> GetAllHardwareBudgetForProposal(int proposalID) => 
+            Uow.ARCCHardwareBudgetRepository.GetAll()
+            .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
+
+        public HashSet<ARCCSoftwareBudget> GetAllSoftwareBudgetForProposal(int proposalID) =>
+            Uow.ARCCSoftwareBudgetRepository.GetAll()
+            .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
+
+        public HashSet<ARCCOtherBudget> GetAllOtherBudgetForProposal(int proposalID) =>
+            Uow.ARCCOtherBudgetRepository.GetAll()
+            .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
+
+
     }
 }

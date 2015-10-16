@@ -22,10 +22,10 @@ namespace ARCCv2.Business.Managers
         }
 
         /// <summary>
-        /// 
+        /// Gets one arcc proposal by unique id - tina
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">primary key</param>
+        /// <returns>ARCCProposal object</returns>
         public ARCCProposal GetARCCProposal(int id) => Uow.ARCCProposalRepository.GetById(id);
 
         /// <summary>
@@ -53,20 +53,6 @@ namespace ARCCv2.Business.Managers
                     Uow.ARCCProposalRepository.Add(arccProposal);
             }
             return Uow.SaveChanges();
-        }
-
-        /// <summary>
-        /// Gets all the scores associated with a proposal - tina
-        /// </summary>
-        /// <param name="proposalID">unique primary key for proposal</param>
-        /// <returns>list of arcc score records</returns>
-        public List<ARCCScore> GetARCCScoresForProposal(int proposalID)
-        {
-            // pull proposal from db
-            var proposal = Uow.ARCCProposalRepository.GetById(proposalID);
-
-            // if it's not found then return null, otherwise return the list
-            return proposal != null ? arccQueries.GetAllScoresForProposal(proposalID).OrderBy(x => x.UserID).ToList() : null;
         }
 
         /// <summary>
@@ -107,23 +93,16 @@ namespace ARCCv2.Business.Managers
             return newScore;
     }
 
-        /// <summary>
-        /// Updates an arcc score record - tina
-        /// </summary>
-        /// <param name="scoreID">unique score id</param>
-        /// <returns></returns>
-        public int UpdateARCCScore(ARCCScore arccScore)
-        {
-            // check if the record exists in db
-            var scoreExists = arccQueries.DoesScoreExist(arccScore.ARCCScoreID);
 
-            if (scoreExists)
-            {
-                Uow.ARCCScoreRepository.Update(arccScore);
-                return Uow.SaveChanges();
-            }
-            else
-                return 0;           
-        }
+        public List<ARCCHardwareBudget> GetHardwareBudgetsForProposal(int proposalID) => 
+            arccQueries.GetAllHardwareBudgetForProposal(proposalID).ToList();
+
+        public List<ARCCSoftwareBudget> GetSoftwareBudgetsForProposal(int proposalID) =>
+            arccQueries.GetAllSoftwareBudgetForProposal(proposalID).ToList();
+
+        public List<ARCCOtherBudget> GetOtherBudgetsForProposal(int proposalID) =>
+            arccQueries.GetAllOtherBudgetForProposal(proposalID).ToList();
+
+
     }
 }

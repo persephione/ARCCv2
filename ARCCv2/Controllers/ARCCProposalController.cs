@@ -9,8 +9,6 @@ namespace ARCCv2.Controllers
 {
     public class ARCCProposalController : Controller
     {
-        public ActionResult ARCCProposalDashboard() => PartialView();
-
         public ActionResult ARCCProposalCreate() => PartialView();
 
         [HttpPost]

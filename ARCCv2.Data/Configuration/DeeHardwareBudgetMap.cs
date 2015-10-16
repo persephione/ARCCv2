@@ -15,9 +15,6 @@ namespace ARCCv2.Data.Configuration
             this.Property(t => t.DeeHardwareBudgetID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(t => t.DeeHardwareName)
-                .HasMaxLength(50);
-
             this.Property(t => t.DeeHardwareLastUpdatedBy)
                 .HasMaxLength(50);
 
@@ -26,7 +23,7 @@ namespace ARCCv2.Data.Configuration
             this.Property(t => t.DeeHardwareBudgetID).HasColumnName("DeeHardwareBudgetID");
             this.Property(t => t.DeeProposalID).HasColumnName("DeeProposalID");
             this.Property(t => t.DeeHardwareName).HasColumnName("DeeHardwareName");
-            this.Property(t => t.DeeHardwareDeeBudget).HasColumnName("DeeHardwareARCCBudget");
+            this.Property(t => t.DeeHardwareDeeBudget).HasColumnName("DeeHardwareDeeBudget");
             this.Property(t => t.DeeHardwareCollegeBudget).HasColumnName("DeeHardwareCollegeBudget");
             this.Property(t => t.DeeHardwareDeptBudget).HasColumnName("DeeHardwareDeptBudget");
             this.Property(t => t.DeeHardwareOtherBudget).HasColumnName("DeeHardwareOtherBudget");

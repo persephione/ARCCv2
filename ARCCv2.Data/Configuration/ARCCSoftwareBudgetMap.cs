@@ -15,9 +15,6 @@ namespace ARCCv2.Data.Configuration
             this.Property(t => t.ARCCSoftwareBudgetID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(t => t.ARCCSoftwareName)
-                .HasMaxLength(50);
-
             this.Property(t => t.ARCCSoftwareLastUpdatedBy)
                 .HasMaxLength(50);
 

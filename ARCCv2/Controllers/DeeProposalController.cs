@@ -7,15 +7,7 @@ namespace ARCCv2.Controllers
 {
     public class DeeProposalController : Controller
     {
-        public ActionResult DeeProposalDashboard()
-        {
-            return PartialView();
-        }
-
-        public ActionResult DeeProposalCreate()
-        {
-            return PartialView();
-        }
+        public ActionResult DeeProposalCreate() => PartialView();
 
         [HttpPost]
         public ActionResult DeeProposalCreate(HttpPostedFileBase file)
@@ -46,9 +38,6 @@ namespace ARCCv2.Controllers
             return Redirect(refUri + "#!/ARCCProposal/ProposalDetails");
         }
 
-        public ActionResult DeeProposalDetails()
-        {
-            return PartialView();
-        }
+        public ActionResult DeeProposalDetail() => PartialView();
     }
 }

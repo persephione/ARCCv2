@@ -203,19 +203,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th><input type="text" ng-model="hardwareQuickEntry.hardware" /></th>
-                        <th><input type="text" ng-model="hardwareQuickEntry.arcc" /></th>
-                        <th><input type="text" ng-model="hardwareQuickEntry.department" /></th>
-                        <th><input type="text" ng-model="hardwareQuickEntry.college" /></th>
-                        <th><input type="text" ng-model="hardwareQuickEntry.other" /></th>
+                        <th><input type="text" ng-model="model.hardwareQuickEntry.hardware" /></th>
+                        <th><input type="text" ng-model="model.hardwareQuickEntry.arcc" /></th>
+                        <th><input type="text" ng-model="model.hardwareQuickEntry.department" /></th>
+                        <th><input type="text" ng-model="model.hardwareQuickEntry.college" /></th>
+                        <th><input type="text" ng-model="model.hardwareQuickEntry.other" /></th>
                         <th><button type="button" class="btn btn-default" ng-click="addHardwareQuickEntry()">Add</button></th>
                     </tr>
                     <tr ng-repeat="item in model.hardwareList">
-                        <td>item.hardware</td>
-                        <td>item.arcc</td>
-                        <td>item.department</td>
-                        <td>item.college</td>
-                        <td>item.other</td>
+                        <td>{{item.hardware}}</td>
+                        <td>{{item.arcc}}</td>
+                        <td>{{item.department}}</td>
+                        <td>{{item.college}}</td>
+                        <td>{{item.other}}</td>
                         <td><button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">Remove</button></td>
                     </tr>
                 </tbody>

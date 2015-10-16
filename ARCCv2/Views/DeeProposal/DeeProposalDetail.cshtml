@@ -1,1 +1,51 @@
-﻿
+﻿<div class="row" style="width:99vw !important">
+    <div class="col-lg-12">
+        Proposal ID: {{::model.proposal.DeeProposal.DeeProposalID}}<br />
+        Proposal Name: {{::model.proposal.DeeProposal.DeeName}}<br />
+        Director: {{::model.proposal.DeeProposal.DeeDirector}}<br />
+        Department: {{::model.proposal.DeeProposal.DeeDepartment}}<br />
+        College: {{::model.proposal.DeeProposal.DeeCollege}}<br />
+        Username: {{::model.proposal.DeeProposal.DeeUsername}}<br />
+        Email: {{::model.proposal.DeeProposal.DeeEmail}}<br />
+        Extension: {{::model.proposal.DeeProposal.DeeExtension}}<br />
+        OtherMembers: {{::model.proposal.DeeProposal.DeeOtherMembers}}<br />
+        ARCCRepSignature: {{::model.proposal.DeeProposal.DeeRepSignature}}<br />
+        ARCCRepComments: {{::model.proposal.DeeProposal.DeeRepComments}}<br />
+        ChairSignature: {{::model.proposal.DeeProposal.DeeChairSignature}}<br />
+        ChairComments: {{::model.proposal.DeeProposal.DeeChairComments}}<br />
+        DeanSignature: {{::model.proposal.DeeProposal.DeeDeanSignature}}<br />                                        
+        DeanComments: {{::model.proposal.DeeProposal.DeeDeanComments}}<br />                                         
+        DeeAbstract: {{::model.proposal.DeeProposal.DeeAbstract}}<br />                                        
+        DeeObjectAndGoals: {{::model.proposal.DeeProposal.DeeObjectAndGoals}}<br />                                  
+        DeeCoursesPrograms: {{::model.proposal.DeeProposal.DeeCoursesPrograms}}<br />                                  
+        DeeSuccess: {{::model.proposal.DeeProposal.DeeSuccess}}<br />                         
+        DeeTimeline: {{::model.proposal.DeeProposal.DeeTimeline}}<br />                       
+        DeeJustificationAttach: {{::model.proposal.DeeProposal.DeeJustificationAttach}}<br />                          
+        ARCCPartiallyFunded: {{::model.proposal.DeeProposal.ARCCPartiallyFunded}}<br />                             
+        ARCCPartiallyFundedPercent: {{::model.proposal.DeeProposal.ARCCPartiallyFundedPercent}}<br />                      
+        DeeLastUpdatedBy: {{::model.proposal.DeeProposal.DeeLastUpdatedBy}}<br />                                
+        DeeLastUpdatedDate: {{::model.proposal.DeeProposal.DeeLastUpdatedDate}}                                    
+        <br /><br />
+
+        --- HARDWARE ---
+        <div ng-repeat="hardware in model.proposal.HardwareBudgetList">
+            Hardware: {{hardware.DeeHardwareName}}
+        </div>
+        <br />
+
+        --- SOFTWARE ---
+        <div ng-repeat="software in model.proposal.SoftwareBudgetList">
+            Software: {{software.DeeSoftwareName}}
+        </div>
+        <br />
+
+        --- OTHER ---
+        <div ng-repeat="other in model.proposal.OtherBudgetList">
+            OTHER: {{other.DeeOtherName}}
+        </div>
+        <br />
+
+    </div>
+</div>
+
+

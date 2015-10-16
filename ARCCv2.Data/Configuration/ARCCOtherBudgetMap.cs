@@ -15,9 +15,6 @@ namespace ARCCv2.Data.Configuration
             this.Property(t => t.ARCCOtherBudgetID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(t => t.ARCCOtherName)
-                .HasMaxLength(50);
-
             this.Property(t => t.ARCCOtherLastUpdatedBy)
                 .HasMaxLength(50);
 

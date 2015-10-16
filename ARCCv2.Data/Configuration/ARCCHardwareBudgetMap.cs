@@ -15,9 +15,6 @@ namespace ARCCv2.Data.Configuration
             this.Property(t => t.ARCCHardwareBudgetID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(t => t.ARCCHardwareName)
-                .HasMaxLength(50);
-
             this.Property(t => t.ARCCHardwareLastUpdatedBy)
                 .HasMaxLength(50);
 

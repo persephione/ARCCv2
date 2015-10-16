@@ -163,6 +163,8 @@
     <Compile Include="Helpers\ApplicationNames.cs" />
     <Compile Include="Helpers\ExceptionMessage.cs" />
     <Compile Include="Helpers\SharedStrings.cs" />
+    <Compile Include="POCO\ARCCProposalDetail.cs" />
+    <Compile Include="POCO\DeeProposalDetail.cs" />
     <Compile Include="POCO\ProposalListView.cs" />
     <Compile Include="POCO\ProposalStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,11 +224,9 @@
     <Content Include="Scripts\Angular\angular.js" />
     <Content Include="Scripts\Angular\angular.min.js" />
     <Content Include="Scripts\App\Controllers\appCtrl.js" />
-    <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDetailCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalCreateCtrl.js" />
-    <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDetailCtrl.js" />
     <Content Include="Scripts\App\Controllers\Scores\arccProposalToScoreCtrl.js" />
     <Content Include="Scripts\App\Controllers\Scores\deeProposalToScoreCtrl.js" />
@@ -353,12 +353,10 @@
     <Content Include="Views\App\Index.cshtml" />
     <Content Include="Views\ARCCProposal\ARCCProposalCreate.cshtml" />
     <Content Include="Views\ARCCProposal\ARCCProposalDetail.cshtml" />
-    <Content Include="Views\DeeProposal\DeeProposalDashboard.cshtml" />
     <Content Include="Views\DeeProposal\DeeProposalCreate.cshtml" />
     <Content Include="Views\DeeProposal\DeeProposalDetail.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\ARCCProposal\ARCCProposalDashboard.cshtml" />
     <Content Include="Scripts\node_modules\ng-table\.bowerrc" />
     <Content Include="Scripts\node_modules\ng-table\.editorconfig" />
     <Content Include="Scripts\node_modules\ng-table\.jshintrc" />

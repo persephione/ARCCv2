@@ -19,6 +19,15 @@
             }
         };
 
+        $scope.removeHardwareItem = function (item) {
+            for (var index = 0; index < $scope.model.hardwareList.length; index++) {
+                if (angular.equals(item, $scope.model.hardwareList[index])) {
+                    $scope.model.hardwareList.splice(index, 1);
+                    break;
+                }
+            }
+        };
+
         $scope.addSoftwareQuickEntry = function () {
             if (isNotEmpty($scope.model.softwareQuickEntry)) {
                 $scope.model.softwareList.push(angular.copy($scope.model.softwareQuickEntry));
@@ -41,14 +50,15 @@
         };
 
         isNotEmpty = function (quickEntryItem) {
-            var notEmpty = false;
-            for (var key in quickEntryItem) {
-                if (quickEntryItem.hasOwnProperty(key)) {
-                    notEmpty = notEmpty || (!angular.equals(quickEntryItem[key], ''));
-                }
-                if (notEmpty)
-                    break;
-            }
-            return notEmpty;
+            //var notEmpty = false;
+            //for (var key in quickEntryItem) {
+            //    if (quickEntryItem.hasOwnProperty(key)) {
+            //        notEmpty = notEmpty || (!angular.equals(quickEntryItem[key], ''));
+            //    }
+            //    if (notEmpty)
+            //        break;
+            //}
+            //return notEmpty;
+            return true;
         };
     }]);

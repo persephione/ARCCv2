@@ -2,8 +2,7 @@
     '$scope', '$filter', '$location', 'parameters', '$timeout', 'scores', 'arccProposal',
     function ($scope, $filter, $location, parameters, $timeout, scores, arccProposal) {
         $scope.model = {
-            proposal: {},
-            viewOnly: true
+            proposal: {}
         };
         $scope.slideClass = 'slide-left';
         
