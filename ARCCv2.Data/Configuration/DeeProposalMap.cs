@@ -34,8 +34,6 @@ namespace ARCCv2.Data.Configuration
                 .HasMaxLength(50);
             this.Property(t => t.DeeDeanSignature)
                 .HasMaxLength(50);
-            this.Property(t => t.DeeTimeline)
-                .HasMaxLength(50);
             this.Property(t => t.DeeLastUpdatedBy)
                 .HasMaxLength(50);
 

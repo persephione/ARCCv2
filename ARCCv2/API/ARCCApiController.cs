@@ -48,7 +48,7 @@ namespace ARCCv2.API
                     newViewProposal.ProposalName = dee.DeeName;
                     newViewProposal.LastUpdatedDate = dee.DeeLastUpdatedDate;
                     newViewProposal.Type = "Dee";
-                    newViewProposal.Status = dee.DeeApproval ? proposalStatus.isTrue : proposalStatus.isFalse;
+                    newViewProposal.Status = dee.DeeApproval ? proposalStatus.isFalse : proposalStatus.isTrue;
                     allProposals.Add(newViewProposal);
                 }
             }

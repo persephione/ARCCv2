@@ -24,9 +24,10 @@ namespace ARCCv2.App_Start
                 ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                "~/Content/app.css",
-                "~/Content/bootstrap.css",
-                "~/Content/bootstrap-theme.css"
+                //"~/Content/app.css",
+                //"~/Content/wsu.css"
+                //"~/Content/bootstrap.css",
+                //"~/Content/bootstrap-theme.css"
                 ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

@@ -20,20 +20,19 @@
       
           @{ string serverName = Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)).ToString(); }
        
-         @if (serverName.Contains("localhost"))
+        @*@if (serverName.Contains("localhost"))
         {
             serverName = "http://dc-dv64";
-        }
+        }*@
 
         <link href="~/Content/bootstrap.css")" rel="stylesheet" type="text/css"/>
         <link href="~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
-        <link href="~/Content/app.css")" rel="stylesheet" type="text/css" />
+        <link href="~/Content/app.css" )" rel="stylesheet" type="text/css" />
         <link href="~/Content/wsu.css" )" rel="stylesheet" type="text/css" />
-
         @*<link href="@String.Concat(serverName, "/App/Styles/Bootstrap232/Images/dc-logo-favicon.png")" rel="icon" type="image/png" />*@
         <link href="~/Scripts/node_modules/ng-table/ng-table.css" rel="stylesheet" type="text/css" />
        
-        @Styles.Render("~/bundles/css")   
+        @*@Styles.Render("~/bundles/css")*@   
     </head>
     <body>
         @*@Html.Partial("DCGlobalBar")*@

@@ -6,6 +6,13 @@ html, body {
 
 button:focus {outline:0 !important;}
 
+
+/*Custom Table Hover*/
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background-color: #D7D7D7 !important;
+}
+
 /*** Header ***/
 #header {
     height: 150px;
