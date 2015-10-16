@@ -3,16 +3,16 @@ html, body {
   height: 100%;
   width: 98vw;
 }
-
+body {
+    margin-bottom: 150px;
+}
 button:focus {outline:0 !important;}
-
 
 /*Custom Table Hover*/
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
   background-color: #D7D7D7 !important;
 }
-
 /*** Header ***/
 #header {
     height: 150px;
@@ -49,14 +49,6 @@ button:focus {outline:0 !important;}
 a.headerLinks:hover {
   color: #fdfef8;
 }
-/*.footerLogo {
-    border:1px solid red; 
-    position: absolute; 
-    bottom:0 !important;
-    display: block !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
-}*/
 /* Trade Gothic Extended */
 @font-face {
     font-family: TradeGothicLTStd-Extended;
@@ -68,5 +60,68 @@ a.headerLinks:hover {
 .tradeGothic {
     font-family: TradeGothicLTStd-Extended;
     color: #492365;
+}
+
+/*Got the code for animated transitions here: https://github.com/Augus/ngAnimate/ */
+/* ------------------------------------------- */
+/* Slide Left 
+/* ------------------------------------------- */
+.slide-left.ng-hide-add {
+  transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transition-duration: 800ms;
+  -webkit-transition-duration:650ms;
+}
+.slide-left.ng-hide-add.ng-hide-add-active {
+  transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+.slide-left.ng-hide-remove {
+  transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transition-duration: 800ms;
+  -webkit-transition-duration: 800ms;
+  transition-delay: 0.4s;
+  animation-delay: 0.4s;
+  display: block !important;
+}
+.slide-left.ng-hide-remove.ng-hide-remove-active {
+  transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+}
+
+/* ------------------------------------------- */
+/* Slide Right 
+/* ------------------------------------------- */
+.slide-right.ng-hide-add {
+  transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transition-duration: 800ms;
+  -webkit-transition-duration: 800ms;
+}
+.slide-right.ng-hide-add.ng-hide-add-active {
+  transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+.slide-right.ng-hide-remove {
+  transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transition-duration: 800ms;
+  -webkit-transition-duration: 800ms;
+  transition-delay: 0.4s;
+  animation-delay: 0.4s;
+  display: block !important;
+}
+.slide-right.ng-hide-remove.ng-hide-remove-active {
+  transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
 }
 

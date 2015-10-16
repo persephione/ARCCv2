@@ -148,6 +148,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeeProposalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ScoresController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +195,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="README.txt" />
+    <Content Include="Scripts\Angular\angular-animate.js" />
+    <Content Include="Scripts\Angular\angular-animate.min.js" />
     <Content Include="Scripts\angular-strap\angular-strap.js" />
     <Content Include="Scripts\angular-strap\angular-strap.min.js" />
     <Content Include="Scripts\angular-strap\angular-strap.tpl.js" />
@@ -215,9 +218,11 @@
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\ARCCProposal\arccProposalDetailCtrl.js" />
-    <Content Include="Scripts\App\Controllers\DeeProposal\proposalCreateCtrl.js" />
+    <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalCreateCtrl.js" />
     <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDashboardCtrl.js" />
-    <Content Include="Scripts\App\Controllers\DeeProposal\proposalDetailCtrl.js" />
+    <Content Include="Scripts\App\Controllers\DeeProposal\deeProposalDetailCtrl.js" />
+    <Content Include="Scripts\App\Controllers\Scores\arccProposalToScoreCtrl.js" />
+    <Content Include="Scripts\App\Controllers\Scores\deeProposalToScoreCtrl.js" />
     <Content Include="Scripts\App\Controllers\scoringDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\userDashboardCtrl.js" />
     <Content Include="Scripts\App\Directives\dcBlur.js" />
@@ -250,6 +255,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\tinavanriper.com-arcc - Web Deploy.pubxml" />
     <Content Include="Scripts\angular-strap\angular-strap.min.js.map" />
+    <Content Include="Scripts\Angular\angular-animate.min.js.map" />
     <None Include="Scripts\JQuery\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
@@ -341,8 +347,8 @@
     <Content Include="Views\ARCCProposal\ARCCProposalCreate.cshtml" />
     <Content Include="Views\ARCCProposal\ARCCProposalDetail.cshtml" />
     <Content Include="Views\DeeProposal\DeeProposalDashboard.cshtml" />
-    <Content Include="Views\DeeProposal\ProposalCreate.cshtml" />
-    <Content Include="Views\DeeProposal\ProposalDetail.cshtml" />
+    <Content Include="Views\DeeProposal\DeeProposalCreate.cshtml" />
+    <Content Include="Views\DeeProposal\DeeProposalDetail.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\ARCCProposal\ARCCProposalDashboard.cshtml" />
@@ -364,6 +370,9 @@
     <Content Include="Scripts\node_modules\ng-table\src\styles\ng-table.less" />
     <Content Include="Views\Home\UserDashboard.cshtml" />
     <Content Include="Views\Home\ScoringDashboard.cshtml" />
+    <Content Include="Views\Scores\Scoring.cshtml" />
+    <Content Include="Views\Scores\ARCCProposalToScore.cshtml" />
+    <Content Include="Views\Scores\DeeProposalToScore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

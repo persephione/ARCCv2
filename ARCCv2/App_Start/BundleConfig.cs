@@ -13,6 +13,7 @@ namespace ARCCv2.App_Start
                 "~/Scripts/JQuery/jquery-migrate-{version}.js", //older IE support
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/Angular/angular.js",
+                "~/Scripts/Angular/angular-animate.js",
                 "~/Scripts/Angular/angular-cookies.js",
                 "~/Scripts/Angular/angular-resource.js",
                 "~/Scripts/Angular/angular-route.js",

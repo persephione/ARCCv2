@@ -1,0 +1,40 @@
+﻿<div class="row" style="width:99vw !important">
+    <div ng-class="isPartialActive == true ? 'col-lg-8' : 'col-lg-12'">
+        Proposal ID: {{::model.proposal.ARCCProposalID}}<br />
+        Proposal Name: {{::model.proposal.ARCCName}}<br />
+        Director: {{::model.proposal.ARCCDirector}}<br />
+        Department: {{::model.proposal.ARCCDepartment}}<br />
+        College: {{::model.proposal.ARCCCollege}}<br />
+        Username: {{::model.proposal.ARCCUsername}}<br />
+        Email: {{::model.proposal.ARCCEmail}}<br />
+        Extension: {{::model.proposal.ARCCExtension}}<br />
+        OtherMembers: {{::model.proposal.ARCCOtherMembers}}<br />
+        ARCCRepSignature: {{::model.proposal.ARCCRepSignature}}<br />
+        ARCCRepComments: {{::model.proposal.ARCCRepComments}}<br />
+        ChairSignature: {{::model.proposal.ARCCChairSignature}}<br />
+        ChairComments: {{::model.proposal.ARCCChairComments}}<br />
+        DeanSignature: {{::model.proposal.ARCCDeanSignature}}<br />
+        DeanComments: {{::model.proposal.ARCCDeanComments}}<br />
+        ITSignature: {{::model.proposal.ARCCITSignature}}<br />
+        ITComments: {{::model.proposal.ARCCITComments}}<br />
+        Justification: {{::model.proposal.ARCCJustification}}<br />
+        JustificationAttach: {{::model.proposal.ARCCJustificationAttach}}<br />
+        AdditionalResources: {{::model.proposal.ARCCAdditionalResources}}<br />
+        ARCCReplacementEquipment: {{::model.proposal.ARCCReplacementEquipment}}<br />
+        ARCCReplacementProjectName: {{::model.proposal.ARCCReplacementProjectName}}<br />
+        ARCCReplacementARCCYear: {{::model.proposal.ARCCReplacementARCCYear}}<br />
+        PartiallyFunded: {{::model.proposal.ARCCPartiallyFunded}}<br />
+        PartiallyFundedPercent: {{::model.proposal.ARCCPartiallyFundedPercent}}<br />
+        LastUpdatedBy: {{::model.proposal.ARCCLastUpdatedBy}}<br />
+        LastUpdatedDate: {{::model.proposal.ARCCLastUpdatedDate}}
+        <br /><br />
+        <button ng-if="!isPartialActive" class="btn btn-primary" ng-click="toggleScorePanel()">Score</button>
+    </div>
+    <div class="col-lg-4 {{slideClass}}" ng-hide="!isPartialActive" style="border:1px solid #CCCCCC;">
+        Score Here
+        <br /><br />
+        <button class="btn btn-primary" ng-click="toggleScorePanel()">Close</button>
+    </div>
+</div>
+
+

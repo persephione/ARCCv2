@@ -3,7 +3,8 @@
     'ngCookies',
     'ngRoute',
     'ngTable',
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
+    'ngAnimate'
 ]).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     //Index is default route
@@ -46,9 +47,13 @@
         templateUrl: 'DeeProposal/DeeProposalDetail',
         controller: 'deeProposalDetailCtrl'
     })
-    .when('/ARCCScore/ARCCProposals', {
-        templateUrl: 'ARCCScore/ARCCProposals',
-        controller: 'arccProposalsCtrl'
+    .when('/Scores/ARCCProposalToScore', {
+        templateUrl: 'Scores/ARCCProposalToScore',
+        controller: 'arccProposalToScoreCtrl'
+    })
+    .when('/Scores/DeeProposalToScore', {
+        templateUrl: 'Scores/DeeProposalToScore',
+        controller: 'deeProposalToScoreCtrl'
     })
     .otherwise({
         redirectTo: '/'

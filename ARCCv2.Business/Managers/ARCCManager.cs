@@ -21,6 +21,8 @@ namespace ARCCv2.Business.Managers
                 return arccQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.ARCCProposalID).ToList() ?? null;
         }
 
+        public ARCCProposal GetARCCProposal(int id) => Uow.ARCCProposalRepository.GetById(id);
+
         /// <summary>
         /// Saves new or existing arcc proposal record to db - tina
         /// </summary>
