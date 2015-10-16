@@ -21,6 +21,11 @@ namespace ARCCv2.Business.Managers
                 return arccQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.ARCCProposalID).ToList() ?? null;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ARCCProposal GetARCCProposal(int id) => Uow.ARCCProposalRepository.GetById(id);
 
         /// <summary>

@@ -134,7 +134,7 @@
     <Compile Include="API\DeeProposal\SaveOrUpdateDeeProposalController.cs" />
     <Compile Include="API\Scores\GetARCCScoresController.cs" />
     <Compile Include="API\Scores\GetDeeScoresController.cs" />
-    <Compile Include="API\Scores\GetProposalsController.cs" />
+    <Compile Include="API\Shared\GetProposalsController.cs" />
     <Compile Include="API\Scores\SaveOrUpdateARCCScoreController.cs" />
     <Compile Include="API\DeeProposal\GetDeeProposalsController.cs" />
     <Compile Include="API\Scores\SaveOrUpdateDeeScoreController.cs" />
@@ -142,7 +142,6 @@
     <Compile Include="API\Shared\SignInController.cs" />
     <Compile Include="API\Shared\SignOutController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\ARCCProposalController.cs" />
     <Compile Include="Controllers\BaseController.cs" />

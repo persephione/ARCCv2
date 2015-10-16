@@ -17,11 +17,18 @@ namespace ARCCv2.API
         }
 
         /// <summary>
+        /// Gets one arcc proposal - tina
+        /// </summary>
+        /// <param name="id">unique primary key for proposal</param>
+        /// <returns>arcc proposal</returns>
+        public Models.ARCCProposal Get(int id) => arccManager.GetARCCProposal(id);
+
+        /// <summary>
         /// Gets a list of ARCC proposals tied to a specific user - tina
         /// </summary>
         /// <param name="id">unique user primary id</param>
         /// <returns></returns>
-        public List<ARCCv2.Models.ARCCProposal> Post([FromBody] string userName) => arccManager.GetARCCProposals(userName);
+        public List<Models.ARCCProposal> Post([FromBody] string userName) => arccManager.GetARCCProposals(userName);
 
     }
 }

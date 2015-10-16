@@ -1,6 +1,6 @@
 ﻿angular.module('App').controller('userDashboardCtrl', [
-    '$scope', '$filter', '$location', 'ngTableParams', 'arccProposal',
-    function ($scope, $filter, $location, ngTableParams, arccProposal) {
+    '$scope', '$filter', '$location', 'ngTableParams', 'parameters', 'arccProposal', 'shared',
+    function ($scope, $filter, $location, ngTableParams, parameters, arccProposal, shared) {
         $scope.model = {
             selected: 1,
             batchStatus: 'ARCC Proposals'
@@ -8,7 +8,7 @@
         var data = [];
 
         //Get data and populate list-------------------------------------------//
-        arccProposal.GetARCCProposals.Get().then(function (result) {
+        shared.GetProposals.Get().then(function (result) {
             data = result;
 
             $scope.tableParams = new ngTableParams({
@@ -39,20 +39,16 @@
 
         });
 
+        $scope.createProposal = function (type) {
+            if(type === 0)
+                $location.path('/ARCCProposal/ARCCProposalCreate');
+            else
+                $location.path('/DeeProposal/DeeProposalCreate');
+        };
 
-
-        $scope.viewBatch = function (batch) {
-            // Preserve the current deposit list if it was a search - otherwise we will load
-            // the current data on return.
-            parameters.add("bankBatch", {
-                action: 'showDetail',
-                batch: batch,
-                selectedStatus: $scope.model.selectedStatus,
-                statusId: $scope.model.statusId,
-                batches: $scope.model.batches,
-                searchedBy: $scope.model.searchedBy
-            });
-            $location.path('/Banking/BankBatchItems');
+        $scope.viewDetail = function (proposal) {
+            parameters.add("proposalId", proposal.ProposalID);
+            $location.path('/ARCCProposal/ARCCProposalDetail');
         };
 
         $scope.setSelection = function (selectionId, selectionLabel) {

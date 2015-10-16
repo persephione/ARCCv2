@@ -12,5 +12,14 @@ namespace ARCCv2.Business.Managers
         public List<DeeProposal> GetDeeProposals(string userName = "") =>
             userName.Length < 1 ? Uow.DeeProposalRepository.GetAll().ToList() :
             deeQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.DeeProposalID).ToList() ?? null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public DeeProposal GetDeeProposal(int id) => Uow.DeeProposalRepository.GetById(id);
+
+
     }
 }

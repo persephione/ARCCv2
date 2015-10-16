@@ -1,26 +1,17 @@
 ﻿angular.module('App').controller('arccProposalDetailCtrl', [
-    '$scope', '$filter', '$location', 'ngTableParams', 'parameters', '$modal', '$timeout',
-    function ($scope, $filter, $location, ngTableParams, parameters, $modal, $timeout) {
+    '$scope', '$filter', '$location', 'parameters', '$modal', '$timeout', 'arccProposal',
+    function ($scope, $filter, $location, parameters, $modal, $timeout, arccProposal) {
         $scope.model = {
-
+            proposal: {}
         };
-        var data = [];
 
-        // get data and populate list. default initial view is Unforwarded
-        banking.GetDeposits.Get().then(function (result) {
-            data = result;
-            $scope.setTableParams();
+        // get proposal id from params
+        $scope.model.proposal.Id = parameters.get("proposalId");
+
+        // get proposal from db
+        arccProposal.GetARCCProposals.Get($scope.model.proposal.Id).then(function (result) {
+            $scope.model.proposal = result;
         });
 
-        // sets the params for ng-table
-        $scope.setTableParams = function () {
-       
-        };
-
-        // view selected deposit record
-        $scope.viewDeposit = function (deposit) {
-            parameters.add("depositId", deposit.DepositID);
-            $location.path('/Banking/DepositItem');
-        };
 
     }]);

@@ -12,13 +12,13 @@ namespace ARCCv2.Controllers
             return PartialView();
         }
 
-        public ActionResult ProposalCreate()
+        public ActionResult DeeProposalCreate()
         {
             return PartialView();
         }
 
         [HttpPost]
-        public ActionResult ProposalCreate(HttpPostedFileBase file)
+        public ActionResult DeeProposalCreate(HttpPostedFileBase file)
         {
             string fileName = null;
 
@@ -46,7 +46,7 @@ namespace ARCCv2.Controllers
             return Redirect(refUri + "#!/ARCCProposal/ProposalDetails");
         }
 
-        public ActionResult ProposalDetails()
+        public ActionResult DeeProposalDetails()
         {
             return PartialView();
         }

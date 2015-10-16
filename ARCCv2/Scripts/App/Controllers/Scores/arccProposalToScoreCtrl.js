@@ -1,6 +1,6 @@
 ﻿angular.module('App').controller('arccProposalToScoreCtrl', [
-    '$scope', '$filter', '$location', 'parameters', '$timeout', 'scores',
-    function ($scope, $filter, $location, parameters, $timeout, scores) {
+    '$scope', '$filter', '$location', 'parameters', '$timeout', 'scores', 'arccProposal',
+    function ($scope, $filter, $location, parameters, $timeout, scores, arccProposal) {
         $scope.model = {
             proposal: {},
             viewOnly: true
@@ -11,7 +11,7 @@
         $scope.model.proposal.Id = parameters.get("proposalId");
 
         // query db for proposal
-        scores.GetProposals.Get($scope.model.proposal.Id).then(function (result) {
+        arccProposal.GetARCCProposals.Get($scope.model.proposal.Id).then(function (result) {
             $scope.model.proposal = result;
         });
 

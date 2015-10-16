@@ -13,10 +13,8 @@ namespace ARCCv2.API.Scores
             return CreateProposalListViews(arccProposals, deeProposals);
         }
 
-        public Models.ARCCProposal Get(int id) => arccManager.GetARCCProposal(id);
+        protected List<Models.ARCCProposal> GetAllARCCProposals() => arccManager.GetARCCProposals();
 
-        protected List<ARCCv2.Models.ARCCProposal> GetAllARCCProposals() => arccManager.GetARCCProposals();
-
-        protected List<ARCCv2.Models.DeeProposal> GetAllDeeProposals() => deeManager.GetDeeProposals();
+        protected List<Models.DeeProposal> GetAllDeeProposals() => deeManager.GetDeeProposals();
     }
 }

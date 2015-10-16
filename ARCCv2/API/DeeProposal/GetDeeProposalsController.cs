@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace ARCCv2.API.DeeProposal
 {
     public class GetDeeProposalsController : ARCCApiController
     {
 
-        public List<ARCCv2.Models.DeeProposal> Get() => deeManager.GetDeeProposals();
+        public List<Models.DeeProposal> Get() => deeManager.GetDeeProposals();
 
+        /// <summary>
+        /// Gets one dee proposal - tina
+        /// </summary>
+        /// <param name="id">unique primary key for proposal</param>
+        /// <returns>dee proposal</returns>
+        public Models.DeeProposal Get(int id) => deeManager.GetDeeProposal(id);
 
-        public List<ARCCv2.Models.DeeProposal> Post([FromBody] string userName) => deeManager.GetDeeProposals(userName);
+        public List<Models.DeeProposal> Post([FromBody] string userName) => deeManager.GetDeeProposals(userName);
     }
 }
