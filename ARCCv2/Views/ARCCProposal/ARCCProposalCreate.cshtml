@@ -92,7 +92,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -151,7 +150,7 @@
         </div>
         <div class="panel-body">
             For certain projects an IT expert's signature is required. You must contact the appropriate individual
-             if you are implementing MULTIMEDIA, NETWORKING, OR OTHER CLASSROOM TECHNOLOGY INSTALLATIONS (contact 
+            if you are implementing MULTIMEDIA, NETWORKING, OR OTHER CLASSROOM TECHNOLOGY INSTALLATIONS (contact
             Bob King at <a href="mailto:rking@weber.edu">rking@weber.edu</a> or x6865).<br />
             I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
         </div>
@@ -179,7 +178,7 @@
         <div class="panel-body">
             <div class="form-group">
                 <div class="col-lg-12">
-                    <textarea class="form-control" ng-model="model.arccJustification" 
+                    <textarea class="form-control" ng-model="model.arccJustification"
                               placeholder="Enter Proposal Justification"></textarea>
                 </div>
             </div>
@@ -199,12 +198,29 @@
                         <th>Department</th>
                         <th>College</th>
                         <th>Other</th>
+                        <th>Add/Remove</th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr>
+                        <th><input type="text" ng-model="hardwareQuickEntry.hardware" /></th>
+                        <th><input type="text" ng-model="hardwareQuickEntry.arcc" /></th>
+                        <th><input type="text" ng-model="hardwareQuickEntry.department" /></th>
+                        <th><input type="text" ng-model="hardwareQuickEntry.college" /></th>
+                        <th><input type="text" ng-model="hardwareQuickEntry.other" /></th>
+                        <th><button type="button" class="btn btn-default" ng-click="addHardwareQuickEntry()">Add</button></th>
+                    </tr>
+                    <tr ng-repeat="item in model.hardwareList">
+                        <td>item.hardware</td>
+                        <td>item.arcc</td>
+                        <td>item.department</td>
+                        <td>item.college</td>
+                        <td>item.other</td>
+                        <td><button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">Remove</button></td>
+                    </tr>
                 </tbody>
             </table>
+            <br>
         </div>
     </div>
     <div class="panel panel-default">
@@ -214,7 +230,7 @@
         <div class="panel-body">
             Please describe what other resources will be required to implement this project:<br />
             (Additional resources may include needs such as Academic Computing technical support or hardware installation
-             through Electronic Services.
+            through Electronic Services.
             <div class="form-group">
                 <div class="col-lg-12">
                     <textarea class="form-control" ng-model="model.arccAdditionalResources"
@@ -228,7 +244,7 @@
             <h5>Replacement Equipment</h5>
         </div>
         <div class="panel-body">
-            Please indicate if any of the requested equipment is replacement of items previously purchased with ARCC 
+            Please indicate if any of the requested equipment is replacement of items previously purchased with ARCC
             funding.<br />
             (If possible, please list the ARCC project year and project name.)
         </div>
@@ -237,12 +253,16 @@
                 <label class="col-lg-4 control-label" for="ReplacementEquipment">Requesting Replacement</label>
                 <div class="col-lg-7">
                     <div class="btn-group" role="group" id="ReplacementEquipment">
-                        <button type="button" class="btn" 
+                        <button type="button" class="btn"
                                 ng-click="model.arccReplacementEquipment = true"
-                                ng-class="{'btn-default': !model.arccReplacementEquipment, 'btn-success': model.arccReplacementEquipment }">Yes</button>
-                        <button type="button" class="btn" 
+                                ng-class="{'btn-default': !model.arccReplacementEquipment, 'btn-success': model.arccReplacementEquipment }">
+                            Yes
+                        </button>
+                        <button type="button" class="btn"
                                 ng-click="model.arccReplacementEquipment = false"
-                                ng-class="{'btn-default': model.arccReplacementEquipment, 'btn-success': !model.arccReplacementEquipment }">No</button>
+                                ng-class="{'btn-default': model.arccReplacementEquipment, 'btn-success': !model.arccReplacementEquipment }">
+                            No
+                        </button>
                     </div>
                 </div>
             </div>
@@ -257,7 +277,7 @@
                 <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="ReplacementARCCYear"
-                              placeholder="Previous Project Year" ng-model="model.arccReplacementARCCYear" />
+                           placeholder="Previous Project Year" ng-model="model.arccReplacementARCCYear" />
                 </div>
             </div>
         </div>
@@ -271,7 +291,3 @@
         </div>
     </div>
 </div>
-
-
-
-
