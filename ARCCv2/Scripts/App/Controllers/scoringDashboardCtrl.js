@@ -4,24 +4,29 @@
         $scope.model = {
             selected: 1,
             status: 'Ready to Score',
-            readyToScore: [],
-            allActive: [],
-            allArchived: []           
+            readyToScoreList: [],
+            allActiveList: [],
+            allArchivedList: []
         };
         var data = [];
 
         // get data and populate list
         shared.GetProposals.Get().then(function (result) {
-            data = result;
 
             // set the lists for the View
             angular.forEach(result, function (proposal) {
-                // if the user hasn't score it yet, then add proposal to this list
-                //if()
-                //    $scope.model.readyToScore.push(proposal);
+                // if the user hasn't score an active proposal yet, then add proposal to this list
+                if(proposal.Status === 'Active') // TODO: haven't added CAS yet. add this filter after ----------------//
+                    $scope.model.readyToScoreList.push(proposal);
 
-                
+                // then separate by active and archived
+                if (proposal.Status === 'Active')
+                    $scope.model.allActiveList.push(proposal);
+                else
+                    $scope.model.allArchivedList.push(proposal);
 
+                // initial list will display Ready to Score
+                data = $scope.model.readyToScoreList;
             });
 
 
@@ -73,5 +78,14 @@
         $scope.setSelection = function (selectionId, selectionLabel) {
             $scope.model.status = selectionLabel;
             $scope.model.selected = selectionId;
+
+            if ($scope.model.selected === 1)
+                data = $scope.model.readyToScoreList;
+            else if ($scope.model.selected === 2)
+                data = $scope.model.allActiveList;
+            else
+                data = $scope.model.allArchivedList;
+
+            $scope.tableParams.reload();
         };
     }]);
