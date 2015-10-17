@@ -32,8 +32,8 @@ namespace ARCCv2.Business.Managers
         /// Saves new or existing arcc proposal record to db - tina
         /// </summary>
         /// <param name="arccProposal">arcc proposal to update or save</param>
-        /// <returns>number of records saved in db</returns>
-        public int SaveOrUpdateARCCProposal(ARCCProposal arccProposal)
+        /// <returns>new primary key for proposal</returns>
+        public int SaveOrUpdateARCCProposal(ARCCProposal arccProposal)  // TODO: Fix this after CAS is working ---------------//
         {
             // check if it's a new record or an existing one
             if(arccProposal.ARCCProposalID != 0)
@@ -42,7 +42,12 @@ namespace ARCCv2.Business.Managers
                 var proposalExists = arccQueries.DoesProposalExist(arccProposal.ARCCProposalID);
 
                 if (proposalExists)
-                    Uow.ARCCProposalRepository.Update(arccProposal);    
+                {
+                    arccProposal.ARCCLastUpdatedDate = DateTime.Now;
+                    //arccProposal.ARCCLastUpdatedBy = user;
+                    arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing            
+                    Uow.ARCCProposalRepository.Update(arccProposal);
+                }  
             }
             else
             {
@@ -50,9 +55,16 @@ namespace ARCCv2.Business.Managers
                 var duplicate = arccQueries.CheckForDuplicateProposal(arccProposal.ARCCName, arccProposal.ARCCDirector);
 
                 if (!duplicate)
+                {
+                    arccProposal.ARCCLastUpdatedDate = DateTime.Now;
+                    //arccProposal.ARCCLastUpdatedBy = user;
+                    arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing
                     Uow.ARCCProposalRepository.Add(arccProposal);
+                }
             }
-            return Uow.SaveChanges();
+            var result = Uow.SaveChanges();
+
+            return result > 0 ? arccProposal.ARCCProposalID : 0;
         }
 
         /// <summary>
@@ -93,7 +105,6 @@ namespace ARCCv2.Business.Managers
             return newScore;
     }
 
-
         public List<ARCCHardwareBudget> GetHardwareBudgetsForProposal(int proposalID) => 
             arccQueries.GetAllHardwareBudgetForProposal(proposalID).ToList();
 
@@ -102,6 +113,36 @@ namespace ARCCv2.Business.Managers
 
         public List<ARCCOtherBudget> GetOtherBudgetsForProposal(int proposalID) =>
             arccQueries.GetAllOtherBudgetForProposal(proposalID).ToList();
+
+        public int SaveOrUpdateHardwareBudget(ARCCHardwareBudget hardwareBudget)
+        {
+            // check if it's new or existing
+            if(hardwareBudget.ARCCHardwareBudgetID == 0)
+                Uow.ARCCHardwareBudgetRepository.Add(hardwareBudget);
+            else
+                Uow.ARCCHardwareBudgetRepository.Update(hardwareBudget);
+            return Uow.SaveChanges();
+        }
+
+        public int SaveOrUpdateSoftwareBudget(ARCCSoftwareBudget softwareBudget)
+        {
+            // check if it's new or existing
+            if (softwareBudget.ARCCSoftwareBudgetID == 0)
+                Uow.ARCCSoftwareBudgetRepository.Add(softwareBudget);
+            else
+                Uow.ARCCSoftwareBudgetRepository.Update(softwareBudget);
+            return Uow.SaveChanges();
+        }
+
+        public int SaveOrUpdateOtherBudget(ARCCOtherBudget otherBudget)
+        {
+            // check if it's new or existing
+            if (otherBudget.ARCCOtherBudgetID == 0)
+                Uow.ARCCOtherBudgetRepository.Add(otherBudget);
+            else
+                Uow.ARCCOtherBudgetRepository.Update(otherBudget);
+            return Uow.SaveChanges();
+        }
 
 
     }

@@ -378,6 +378,7 @@
     <Content Include="Views\Scores\Scoring.cshtml" />
     <Content Include="Views\Scores\ARCCProposalToScore.cshtml" />
     <Content Include="Views\Scores\DeeProposalToScore.cshtml" />
+    <Content Include="Views\Scores\Approval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

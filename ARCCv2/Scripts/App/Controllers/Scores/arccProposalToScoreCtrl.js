@@ -1,9 +1,11 @@
 ﻿angular.module('App').controller('arccProposalToScoreCtrl', [
-    '$scope', '$filter', '$location', 'parameters', '$timeout', 'scores', 'arccProposal',
-    function ($scope, $filter, $location, parameters, $timeout, scores, arccProposal) {
+    '$scope', '$filter', '$location', 'parameters', '$timeout', 'scores', 'arccProposal', '$anchorScroll',
+    function ($scope, $filter, $location, parameters, $timeout, scores, arccProposal, $anchorScroll) {
         $scope.model = {
             proposal: {}
         };
+        $scope.isScoringActive = false;
+        $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
         
         // get proposal
@@ -14,15 +16,43 @@
             $scope.model.proposal = result;
         });
 
-        $scope.toggleScorePanel = function () {
-            $scope.isPartialActive = !$scope.isPartialActive;
+        // toggle the scoring and approval panels
+        $scope.togglePanels = function (status) {
 
-            // css transitions
-            if ($scope.isPartialActive === true) {
-                $scope.slideClass = 'slide-right';
+            // scroll back up to the top of the page
+            $anchorScroll();
+
+            // change the status of the panels
+            if (status === 'scoring') {
+                $scope.slideClass = 'slide-left';
+
+                // delay for animations
+                angular.element(document).ready(function () {
+                    $timeout(function () {
+                        $scope.isScoringActive = true;
+                    }, 400);
+                });
+            }
+            else if (status === 'approval') {
+                $scope.slideClass = 'slide-left';
+
+                // delay for animations
+                angular.element(document).ready(function () {
+                    $timeout(function () {
+                        $scope.isApprovalActive = true;
+                    }, 400);
+                });
             }
             else {
-                $scope.slideClass = 'slide-left';
+                $scope.slideClass = 'slide-right';
+
+                // delay for animations
+                angular.element(document).ready(function () {
+                    $timeout(function () {
+                        $scope.isScoringActive = false;
+                        $scope.isApprovalActive = false;
+                    }, 400);
+                });
             }
         };
 
