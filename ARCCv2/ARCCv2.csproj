@@ -199,6 +199,7 @@
     <Content Include="Content\images\statue400x300.jpg" />
     <Content Include="Content\images\weber.jpg" />
     <Content Include="Content\images\x.png" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Content\wsu.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -270,6 +271,7 @@
     <Content Include="Scripts\JQuery\jquery-2.1.4.min.js" />
     <Content Include="Scripts\JQuery\jquery-2.1.4.min.map" />
     <Content Include="Scripts\App\Services\systemError.js" />
+    <Content Include="Scripts\JQuery\jquery-ui.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\node_modules\ng-table\examples\app\app.js" />
     <Content Include="Scripts\node_modules\ng-table\examples\app\main.js" />

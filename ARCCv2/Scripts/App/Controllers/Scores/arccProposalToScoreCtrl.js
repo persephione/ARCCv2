@@ -7,7 +7,7 @@
         $scope.isScoringActive = false;
         $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
-        
+
         // get proposal
         $scope.model.proposal.Id = parameters.get("proposalId");
 
@@ -55,5 +55,15 @@
                 });
             }
         };
+
+        // move the slider handles on value change
+        //$scope.move = function (num) {
+        //    if (num === 1)
+        //        $("#slider1").slider('value', $scope.model.Stock1Percent);
+        //    if (num === 2)
+        //        $("#slider2").slider('value', $scope.model.Stock2Percent);
+        //    if (num === 3)
+        //        $("#slider3").slider('value', $scope.model.Stock3Percent);
+        //};
 
     }]);

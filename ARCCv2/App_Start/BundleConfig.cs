@@ -11,6 +11,7 @@ namespace ARCCv2.App_Start
             bundles.Add(new ScriptBundle("~/bundles/Scripts").Include(
                 "~/Scripts/JQuery/jquery-{version}.js",
                 "~/Scripts/JQuery/jquery-migrate-{version}.js", //older IE support
+                "~/Scripts/JQuery/jquery-ui.js",
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/Angular/angular.js",
                 "~/Scripts/Angular/angular-animate.js",
