@@ -1,32 +1,32 @@
 ﻿<div class="row">
     <div class="col-lg-8">
-            Proposal ID: {{::model.proposal.ARCCProposal.ARCCProposalID}}<br />
-            Proposal Name: {{::model.proposal.ARCCProposal.ARCCName}}<br />
-            Director: {{::model.proposal.ARCCProposal.ARCCDirector}}<br />
-            Department: {{::model.proposal.ARCCProposal.ARCCDepartment}}<br />
-            College: {{::model.proposal.ARCCProposal.ARCCCollege}}<br />
-            Username: {{::model.proposal.ARCCProposal.ARCCUsername}}<br />
-            Email: {{::model.proposal.ARCCProposal.ARCCEmail}}<br />
-            Extension: {{::model.proposal.ARCCProposal.ARCCExtension}}<br />
-            OtherMembers: {{::model.proposal.ARCCProposal.ARCCOtherMembers}}<br />
-            ARCCRepSignature: {{::model.proposal.ARCCProposal.ARCCRepSignature}}<br />
-            ARCCRepComments: {{::model.proposal.ARCCProposal.ARCCRepComments}}<br />
-            ChairSignature: {{::model.proposal.ARCCProposal.ARCCChairSignature}}<br />
-            ChairComments: {{::model.proposal.ARCCProposal.ARCCChairComments}}<br />
-            DeanSignature: {{::model.proposal.ARCCProposal.ARCCDeanSignature}}<br />
-            DeanComments: {{::model.proposal.ARCCProposal.ARCCDeanComments}}<br />
-            ITSignature: {{::model.proposal.ARCCProposal.ARCCITSignature}}<br />
-            ITComments: {{::model.proposal.ARCCProposal.ARCCITComments}}<br />
-            Justification: {{::model.proposal.ARCCProposal.ARCCJustification}}<br />
-            JustificationAttach: {{::model.proposal.ARCCProposal.ARCCJustificationAttach}}<br />
-            AdditionalResources: {{::model.proposal.ARCCProposal.ARCCAdditionalResources}}<br />
-            ARCCReplacementEquipment: {{::model.proposal.ARCCProposal.ARCCReplacementEquipment}}<br />
-            ARCCReplacementProjectName: {{::model.proposal.ARCCProposal.ARCCReplacementProjectName}}<br />
-            ARCCReplacementARCCYear: {{::model.proposal.ARCCProposal.ARCCReplacementARCCYear}}<br />
-            PartiallyFunded: {{::model.proposal.ARCCProposal.ARCCPartiallyFunded}}<br />
-            PartiallyFundedPercent: {{::model.proposal.ARCCProposal.ARCCPartiallyFundedPercent}}<br />
-            LastUpdatedBy: {{::model.proposal.ARCCProposal.ARCCLastUpdatedBy}}<br />
-            LastUpdatedDate: {{::model.proposal.ARCCProposal.ARCCLastUpdatedDate}}
+            Proposal ID: {{::model.fullProposal.ARCCProposal.ARCCProposalID}}<br />
+            Proposal Name: {{::model.fullProposal.ARCCProposal.ARCCName}}<br />
+            Director: {{::model.fullProposal.ARCCProposal.ARCCDirector}}<br />
+            Department: {{::model.fullProposal.ARCCProposal.ARCCDepartment}}<br />
+            College: {{::model.fullProposal.ARCCProposal.ARCCCollege}}<br />
+            Username: {{::model.fullProposal.ARCCProposal.ARCCUsername}}<br />
+            Email: {{::model.fullProposal.ARCCProposal.ARCCEmail}}<br />
+            Extension: {{::model.fullProposal.ARCCProposal.ARCCExtension}}<br />
+            OtherMembers: {{::model.fullProposal.ARCCProposal.ARCCOtherMembers}}<br />
+            ARCCRepSignature: {{::model.fullProposal.ARCCProposal.ARCCRepSignature}}<br />
+            ARCCRepComments: {{::model.fullProposal.ARCCProposal.ARCCRepComments}}<br />
+            ChairSignature: {{::model.fullProposal.ARCCProposal.ARCCChairSignature}}<br />
+            ChairComments: {{::model.fullProposal.ARCCProposal.ARCCChairComments}}<br />
+            DeanSignature: {{::model.fullProposal.ARCCProposal.ARCCDeanSignature}}<br />
+            DeanComments: {{::model.fullProposal.ARCCProposal.ARCCDeanComments}}<br />
+            ITSignature: {{::model.fullProposal.ARCCProposal.ARCCITSignature}}<br />
+            ITComments: {{::model.fullProposal.ARCCProposal.ARCCITComments}}<br />
+            Justification: {{::model.fullProposal.ARCCProposal.ARCCJustification}}<br />
+            JustificationAttach: {{::model.fullProposal.ARCCProposal.ARCCJustificationAttach}}<br />
+            AdditionalResources: {{::model.fullProposal.ARCCProposal.ARCCAdditionalResources}}<br />
+            ARCCReplacementEquipment: {{::model.fullProposal.ARCCProposal.ARCCReplacementEquipment}}<br />
+            ARCCReplacementProjectName: {{::model.fullProposal.ARCCProposal.ARCCReplacementProjectName}}<br />
+            ARCCReplacementARCCYear: {{::model.fullProposal.ARCCProposal.ARCCReplacementARCCYear}}<br />
+            PartiallyFunded: {{::model.fullProposal.ARCCProposal.ARCCPartiallyFunded}}<br />
+            PartiallyFundedPercent: {{::model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent}}<br />
+            LastUpdatedBy: {{::model.fullProposal.ARCCProposal.ARCCLastUpdatedBy}}<br />
+            LastUpdatedDate: {{::model.fullProposal.ARCCProposal.ARCCLastUpdatedDate}}
             <br /><br />
 
             --- HARDWARE ---
@@ -47,8 +47,8 @@
             </div>
             <br />
 
-            <button ng-show="!isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('scoring')">Score</button>
-            <button ng-show="!isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('approval')">Approve</button>
+            <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('scoring')">Score</button>
+            <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('approval')">Approve</button>
         </div>
 
     @*-- Scoring Partial View Panel --*@

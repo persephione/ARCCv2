@@ -7,30 +7,33 @@ body {
     margin-bottom: 150px;
 }
 
+/* ------------------------------------------- */
+/* Custom Buttons
+/* ------------------------------------------- */
 .weberButton {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #492365;
-  cursor: pointer;
-  font-family: inherit;
-  line-height: 1;
-  margin: 0 5px 0;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  display: inline-block;
-  padding-top: 0.8em;
-  padding-right: 1.5em;
-  padding-bottom: 0.8em;
-  padding-left: 1.5em;
-  font-size: 1.1em;
-  background-color: #492365; 
-  color: white; 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #492365;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1;
+    margin: 0 5px 0;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0.8em;
+    padding-right: 1.5em;
+    padding-bottom: 0.8em;
+    padding-left: 1.5em;
+    font-size: 1.1em;
+    background-color: #492365; 
+    color: white; 
 }
 .weberButton:hover, .weberButton:focus {
-background-color: #8A68A2; 
-border-color: #8A68A2;
-color: white;
+    background-color: #8A68A2; 
+    border-color: #8A68A2;
+    color: white;
 }
 .weberButton:focus {outline:0 !important;}
 
@@ -39,14 +42,22 @@ color: white;
     border-color: #009844;
 }
 .weberButtonGreen:hover, .weberButtonGreen:focus {
-    background-color: #009844; 
-    border-color: #009844;
+    background-color: #6AB46A; 
+    border-color: #6AB46A;
     color: white;
 }
 .weberButtonGreen:focus {outline:0 !important;}
 
-
-
+.weberButtonRed {
+    background-color: #a52428; 
+    border-color: #a52428;
+}
+.weberButtonRed:hover, .weberButtonRed:focus {
+    background-color: #D6524E;
+    border-color: #D6524E;
+    color: white;
+}
+.weberButtonRed:focus {outline:0 !important;}
 
 
 /*Custom Table Hover*/
@@ -54,6 +65,14 @@ color: white;
 .table-hover tbody tr:hover > th {
   background-color: #D7D7D7 !important;
 }
+
+/* Turn off Input Spinners */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+ 
 /*** Header ***/
 #header {
     height: 150px;
@@ -90,13 +109,10 @@ color: white;
 a.headerLinks:hover {
   color: #fdfef8;
 }
+
 /* Trade Gothic Extended */
 @font-face {
     font-family: TradeGothicLTStd-Extended;
-    src: url('webfonts/2730EE_7_0.eot');
-    src: url('webfonts/2730EE_7_0.eot?#iefix') format('embedded-opentype'),
-        url('webfonts/2730EE_7_0.woff') format('woff'),
-        url('webfonts/2730EE_7_0.ttf') format('truetype');
 }
 .tradeGothic {
     font-family: TradeGothicLTStd-Extended;
@@ -193,6 +209,9 @@ a.headerLinks:hover {
 .sliderDiv td {
     background-color: white;
 }
+.sliderHandle{
+    background: #white !important;
+}
 #slider1 {
     background: #9CC96B;
 }
@@ -202,12 +221,34 @@ a.headerLinks:hover {
 #slider3 {
     background: #EBAA4B;
 }
-.sliderPanelHeading {
-    /*background-color:#EBAA4B !important;*/ 
-    background-color:#986291 !important; 
-    text-align:left;
+#slider4 {
+    background: #8446ac;
+}
+#slider5 {
+    background: #d25d12;
+}
+.sliderPanelHeading { 
+    background-color:#492365 !important; 
+    text-align:center;
+    font-size: large;
 }
 .panel-heading {
     background-image: none !important;
+    border-radius: 0 !important;
     color: white !important;
+}
+.sliderInput {
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    margin-bottom: 10px;
+    background-color: white !important;
+}
+.sliderTable {
+    width: 90%; 
+    margin: 0 auto;
+}
+.sliderTable td{
+    padding-top: 25px;
+    padding-bottom: 25px;
 }

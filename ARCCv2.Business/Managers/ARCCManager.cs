@@ -67,44 +67,6 @@ namespace ARCCv2.Business.Managers
             return result > 0 ? arccProposal.ARCCProposalID : 0;
         }
 
-        /// <summary>
-        /// When a proposal is created, score records are created for each committee member - tina
-        /// </summary>
-        /// <param name="proposalID">unique primary key for proposal the records will be associated with</param>
-        /// <returns>number of records saved to db</returns>
-        public int CreateScoresForProposal(int proposalID)
-        {
-            // get all the active committee members
-            var memberList = userQueries.GetAllActiveCommitteeMembers();
-
-            foreach (var member in memberList)
-                Uow.ARCCScoreRepository.Add(CreateScore(proposalID, member));
-
-            return Uow.SaveChanges();
-        }
-
-        /// <summary>
-        /// Helper method. Makes a new score record for a proposal and committee member. - tina
-        /// </summary>
-        /// <param name="proposalID">unique proposal id</param>
-        /// <param name="user">committee member score is tied to</param>
-        /// <returns>new ARCC Score recored</returns>
-        protected ARCCScore CreateScore(int proposalID, User user)
-        {
-            var newScore = new ARCCScore();
-            newScore.ARCCScoreEducExp = 0;
-            newScore.ARCCScoreSupport = 0;
-            newScore.ARCCScoreEvaluation = 0;
-            newScore.ARCCScoreInnovation = 0;
-            newScore.ARCCScoreDissemination = 0;
-            newScore.ARCCScoreTotal = 0;
-            newScore.UserID = user.UserID;
-            newScore.ARCCProposalID = proposalID;
-            newScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
-            newScore.ScoreLastUpdatedDate = DateTime.Now;
-            return newScore;
-    }
-
         public List<ARCCHardwareBudget> GetHardwareBudgetsForProposal(int proposalID) => 
             arccQueries.GetAllHardwareBudgetForProposal(proposalID).ToList();
 

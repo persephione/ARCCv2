@@ -30,7 +30,7 @@
         <link href="~/Content/app.css" )" rel="stylesheet" type="text/css" />
         <link href="~/Content/wsu.css" )" rel="stylesheet" type="text/css" />
         <link href="~/Content/jquery-ui.css" )" rel="stylesheet" type="text/css" />
-        @*<link href="@String.Concat(serverName, "/App/Styles/Bootstrap232/Images/dc-logo-favicon.png")" rel="icon" type="image/png" />*@
+        <link href="~/Content/images/favicon.png")" rel="icon" type="image/png"/>
         <link href="~/Scripts/node_modules/ng-table/ng-table.css" rel="stylesheet" type="text/css" />
        
         @*@Styles.Render("~/bundles/css")*@   
@@ -43,6 +43,6 @@
         @Scripts.Render("~/bundles/Scripts")
         @RenderSection("Scripts", required: false)
 
+        <script src="~/Scripts/node_modules/ng-table/ng-table.js"></script>
     </body>
-    <script src="~/Scripts/node_modules/ng-table/ng-table.js"></script>
 </html>

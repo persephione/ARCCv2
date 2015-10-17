@@ -183,6 +183,7 @@
     <Content Include="Content\images\check.png" />
     <Content Include="Content\images\clock-tower.png" />
     <Content Include="Content\images\clock400x300.jpg" />
+    <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\footer-icon-sprite.png" />
     <Content Include="Content\images\footer-logo.png" />
     <Content Include="Content\images\footer.jpg" />

@@ -2,19 +2,37 @@
     '$scope', '$filter', '$location', 'parameters', '$timeout', 'scores', 'arccProposal', '$anchorScroll',
     function ($scope, $filter, $location, parameters, $timeout, scores, arccProposal, $anchorScroll) {
         $scope.model = {
-            proposal: {}
+            fullProposal: {},
+            ARCCScore: {
+                ARCCScoreID: 0,
+                ARCCScoreEducExp: 0,
+                ARCCScoreInnovation: 0,
+                ARCCScoreDissemination: 0,
+                ARCCScoreEvaluation: 0,
+                ARCCScoreSupport: 0,
+                ARCCScoreTotal: 0,
+                ARCCScoreComment: '',
+                ARCCProposalID: 0
+            }
         };
+        $scope.proposalIsArchived = false;
         $scope.isScoringActive = false;
         $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
-        $scope.model.score1 = 0;
 
         // get proposal
-        $scope.model.proposal.Id = parameters.get("proposalId");
+        $scope.model.fullProposal.Id = parameters.get("proposalId");
 
         // query db for proposal
-        arccProposal.GetARCCProposals.Get($scope.model.proposal.Id).then(function (result) {
-            $scope.model.proposal = result;
+        arccProposal.GetARCCProposals.Get($scope.model.fullProposal.Id).then(function (result) {
+            $scope.model.fullProposal = result;
+
+            // set the arcc score proposal id to the current arcc proposal
+            $scope.model.ARCCScore.ARCCProposalID = $scope.model.fullProposal.ARCCProposal.ProposalID;
+
+            // if proposal has already been scored, remove action buttons
+            if ($scope.model.fullProposal.ARCCProposal.ARCCApproval === true)
+                $scope.proposalIsArchived = true;
         });
 
         // toggle the scoring and approval panels
@@ -57,14 +75,67 @@
             }
         };
 
-        // move the slider handles on value change
-        $scope.move = function (num) {
+        // assigns slider values to model
+        $scope.assignSliderValues = function (num) {
             if (num === 1)
-                $("#slider1").slider('value', $scope.model.score1);
-            if (num === 2)
-                $("#slider2").slider('value', $scope.model.Stock2Percent);
-            if (num === 3)
-                $("#slider3").slider('value', $scope.model.Stock3Percent);
+                $scope.model.ARCCScore.ARCCScoreEducExp = parseInt(document.getElementById('currentval1').value);
+            else if (num === 2)
+                $scope.model.ARCCScore.ARCCScoreInnovation = parseInt(document.getElementById('currentval2').value);
+            else if (num === 3)
+                $scope.model.ARCCScore.ARCCScoreDissemination = parseInt(document.getElementById('currentval3').value);
+            else if (num === 4)
+                $scope.model.ARCCScore.ARCCScoreEvaluation = parseInt(document.getElementById('currentval4').value);
+            else if (num === 5)
+                $scope.model.ARCCScore.ARCCScoreSupport = parseInt(document.getElementById('currentval5').value);
+        };
+
+        // reset form and close panel
+        $scope.cancel = function () {
+           
+            // reset object
+            $scope.model.ARCCScore = 
+            {
+                ARCCScoreEducExp: 0,
+                ARCCScoreInnovation: 0,
+                ARCCScoreDissemination: 0,
+                ARCCScoreEvaluation: 0,
+                ARCCScoreSupport: 0,
+                ARCCScoreTotal: 0,
+                ARCCScoreComment: ''
+            };
+
+            // move sliders back to 0
+            $("#slider1").slider('value', 0);
+            $("#slider2").slider('value', 0);
+            $("#slider3").slider('value', 0);
+            $("#slider4").slider('value', 0);
+            $("#slider5").slider('value', 0);
+
+            // reset values on View
+            document.getElementById('currentval1').value = 0;
+            document.getElementById('currentval2').value = 0;
+            document.getElementById('currentval3').value = 0;
+            document.getElementById('currentval4').value = 0;
+            document.getElementById('currentval5').value = 0;
+
+            $scope.form.NewARCCScoreForm.$setPristine(true);
+            $scope.togglePanels('none');
+        };
+
+        // save ARCCScore model to db
+        $scope.save = function () {
+
+            // calculate total
+            $scope.model.ARCCScore.ARCCScoreTotal = $scope.model.ARCCScore.ARCCScoreEducExp +
+                                                    $scope.model.ARCCScore.ARCCScoreInnovation +
+                                                    $scope.model.ARCCScore.ARCCScoreDissemination +
+                                                    $scope.model.ARCCScore.ARCCScoreEvaluation +
+                                                    $scope.model.ARCCScore.ARCCScoreSupport;
+
+            var test = $scope.model.ARCCScore;
+            //scores.SaveOrUpdateARCCScore.Put($scope.model.ARCCScore).then(function (result) {
+
+            //});
         };
 
     }]);

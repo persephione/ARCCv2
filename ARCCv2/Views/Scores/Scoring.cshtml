@@ -1,102 +1,150 @@
-﻿<head>
-    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
-    
-    <script>
-      $(function () {
-          $("#slider1").slider({
-              max: 100,
-              min: 0,
-              value: 0,
-              slide: function (e, ui) {
-                  $('#currentval1').val(ui.value);
-              }
-          });
-      });
-      $(function () {
-          $("#slider2").slider({
-              max: 100,
-              min: 0,
-              value: 0,
-              slide: function (e, ui) {
-                  $('#currentval2').val(ui.value);
-              }
-          });
-      });
-      $(function () {
-          $("#slider3").slider({
-              max: 100,
-              min: 0,
-              value: 0,
-              slide: function (e, ui) {
-                  $('#currentval3').val(ui.value);
-              }
-          });
-      });
-    </script>
+﻿<script>
+    $(function () {
+        $("#slider1").slider({
+            max: 35,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval1').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#arccProposalToScoreCtrl').scope().assignSliderValues(1);
+            }
+        }).find(".ui-slider-handle").addClass("sliderHandle");
 
-    <style>
-        
-    </style>
-
-</head>
-<div class="row">
-    <!-- Sliders -->
-    <br /><br />
-    <div class="sliderDiv">
-        <div class="panel panel-default">
-            <div class="panel-heading sliderPanelHeading">Choose Three Stocks</div>
-            <table>
+        $("#slider2").slider({
+            max: 35,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval2').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#arccProposalToScoreCtrl').scope().assignSliderValues(2);
+        }
+        });
+        $("#slider3").slider({
+            max: 10,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval3').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#arccProposalToScoreCtrl').scope().assignSliderValues(3);
+            }
+        });
+        $("#slider4").slider({
+            max: 10,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval4').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#arccProposalToScoreCtrl').scope().assignSliderValues(4);
+            }
+        });
+        $("#slider5").slider({
+            max: 10,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval5').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#arccProposalToScoreCtrl').scope().assignSliderValues(5);
+            }
+        });
+    });
+</script>
+<div class="row" id="arccProposalToScoreCtrl" ng-form="form.NewARCCScoreForm">
+    <div class="col-lg-1"></div>
+    <div class="sliderDiv col-lg-10 center-block">
+        <div class="panel">
+            <div class="col-lg-12 panel-heading sliderPanelHeading" style="margin-top:15px;">Proposal Scoring</div>
+            <table class="sliderTable">
                 <tr>
-                    <td>
-                        Stock 1:&nbsp; {{ stock1.StockSymbol }}
-                        <div id="slider1" ng-click="move(1)"></div>
-                        <div>
-                            <input id="currentval1"
-                                   type="text"
-                                   value="0"
-                                   style="border: none;"
-                                   ng-model="model.Stock1Percent"
-                                   ng-blur="move(1)"><br /><br />
-                        </div>
+                    <td style="font-size: 18px">
+                        <strong>Education Experience:</strong>&nbsp;
+                        <input id="currentval1"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.ARCCScore.ARCCScoreEducExp">
+                        <div id="slider1" ng-click="assignSliderValues(1)"></div>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Stock 2:&nbsp; {{ stock2.StockSymbol }}
-                        <div id="slider2" ng-click="calculateStock2()"></div>
-                        <div>
-                            <input id="currentval2"
-                                   type="text"
-                                   value="0"
-                                   style="border: none;"
-                                   ng-model="model.Stock2Percent"
-                                   ng-blur="calculateStock2()"><br /><br />
-                        </div>
+                    <td style="font-size: 18px">
+                        <strong>Innovation:</strong>&nbsp;
+                        <input id="currentval2"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.ARCCScore.ARCCScoreInnovation"
+                               disabled>
+                        <div id="slider2" ng-click="assignSliderValues(2)"></div>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Stock 3:&nbsp; {{ stock3.StockSymbol }}
-                        <div id="slider3" ng-click="calculateStock3()"></div>
-                        <div>
-                            <input id="currentval3"
-                                   type="text"
-                                   value="0"
-                                   style="border: none;"
-                                   ng-model="model.Stock3Percent"
-                                   ng-blur="calculateStock3()"><br /><br />
-                        </div>
+                    <td style="font-size: 18px">
+                        <strong>Dissemination:</strong>&nbsp;
+                        <input id="currentval3"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.ARCCScore.ARCCScoreDissemination"
+                               disabled>
+                        <div id="slider3" ng-click="assignSliderValues(3)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 18px">
+                        <strong>Evaluation:</strong>&nbsp;
+                        <input id="currentval4"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.ARCCScore.ARCCScoreEvaluation"
+                               disabled>
+                        <div id="slider4" ng-click="assignSliderValues(4)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 18px">
+                        <strong>Support:</strong>&nbsp;
+                        <input id="currentval5"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.ARCCScore.ARCCScoreSupport"
+                               disabled>
+                        <div id="slider5" ng-click="assignSliderValues(5)"></div>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <div class="col-lg-1"></div>
+</div>
+
+
+
+<div class="row"  style="margin-top:15px">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-10 center-block" style="font-size:18px;"><strong>Comments:</strong></div>
+    <div class="col-lg-2"></div>
+    <textarea class="col-lg-8" type="text" ng-model="model.ARCCScore.ARCCScoreComment"/>
 </div>
 
 <div class="row">
-    <div class="col-lg-12 center-block" style="margin-top:350px">
+    <div class="col-lg-12 center-block" style="margin-top:50px">
+        <button class="weberButton" ng-click="save()">Submit</button>
+        <button class="weberButton" ng-click="cancel()">Cancel</button>
         <button class="weberButton" ng-click="togglePanels('none')">Close</button>
     </div>
 </div>
+
+
+@*ng-disabled="form.NewARCCScoreForm.$pristine || form.NewARCCScoreForm.$invalid"*@

@@ -24,22 +24,38 @@ namespace ARCCv2.Business.Managers
         }
 
         /// <summary>
-        /// Updates an arcc score record - tina
+        /// Saves a new or edits an existing arcc score record - tina
         /// </summary>
         /// <param name="scoreID">unique score id</param>
-        /// <returns></returns>
-        public int UpdateARCCScore(ARCCScore arccScore)
+        /// <param name="user">user editing or saving object</param>
+        /// <returns>Number of records saved in db</returns>
+        public int SaveOrUpdateARCCScore(ARCCScore arccScore, User user)
         {
-            // check if the record exists in db
-            var scoreExists = arccQueries.DoesScoreExist(arccScore.ARCCScoreID);
-
-            if (scoreExists)
+            // check if it's a new or existing record
+            if (arccScore.ARCCScoreID == 0)
             {
-                Uow.ARCCScoreRepository.Update(arccScore);
-                return Uow.SaveChanges();
+                arccScore.UserID = user.UserID;
+                arccScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
+                arccScore.ScoreLastUpdatedDate = DateTime.Now;
+                Uow.ARCCScoreRepository.Add(arccScore);
             }
             else
-                return 0;
+            {
+                // check if the record exists in db
+                var scoreExists = arccQueries.DoesScoreExist(arccScore.ARCCScoreID);
+                if (scoreExists)
+                {
+
+                    arccScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
+                    arccScore.ScoreLastUpdatedDate = DateTime.Now;
+                    Uow.ARCCScoreRepository.Update(arccScore);
+                }
+                else
+                    return 0;
+            }
+            return Uow.SaveChanges();
         }
+
+
     }
 }
