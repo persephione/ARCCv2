@@ -1,69 +1,102 @@
 ﻿<head>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
     
     <script>
-      $(function() {
-          $("#slider1").slider();
-          $("#slider2").slider();
-          $("#slider3").slider();
-          $("#slider4").slider();
-          $("#slider5").slider();
-
+      $(function () {
+          $("#slider1").slider({
+              max: 100,
+              min: 0,
+              value: 0,
+              slide: function (e, ui) {
+                  $('#currentval1').val(ui.value);
+              }
+          });
+      });
+      $(function () {
+          $("#slider2").slider({
+              max: 100,
+              min: 0,
+              value: 0,
+              slide: function (e, ui) {
+                  $('#currentval2').val(ui.value);
+              }
+          });
+      });
+      $(function () {
+          $("#slider3").slider({
+              max: 100,
+              min: 0,
+              value: 0,
+              slide: function (e, ui) {
+                  $('#currentval3').val(ui.value);
+              }
+          });
       });
     </script>
+
+    <style>
+        
+    </style>
+
 </head>
 <div class="row">
+    <!-- Sliders -->
     <br /><br />
-
-    <div class="col-lg-6 col-lg-offset-3">
-        <div id="slider1"></div>
-    </div>
-    <br /><br />
-
-    <div class="col-lg-6 col-lg-offset-3">
-        <div id="slider2"></div>
-    </div>
-    <br /><br />
-
-    <div class="col-lg-6 col-lg-offset-3">
-        <div id="slider3"></div>
-    </div>
-    <br /><br />
-
-    <div class="col-lg-6 col-lg-offset-3">
-        <div id="slider4"></div>
-    </div>
-    <br /><br />
-
-    <div class="col-lg-6 col-lg-offset-3">
-        <div id="slider5"></div>
-    </div>
-    <br /><br />
-</div>        
-
-        
-
-    @*<div class="sliderDiv">
+    <div class="sliderDiv">
         <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:#EBAA4B !important; text-align:left;">Choose Three Stocks</div>
-
-                <div id="slider1" ng-click="calculateStock1()"></div>
-                <div>
-                    <input id="currentval1"
-                            type="text"
-                            value="0"
-                            style="border: none;"
-                            ng-model="model.Stock1Percent" />
-                </div>
-
+            <div class="panel-heading sliderPanelHeading">Choose Three Stocks</div>
+            <table>
+                <tr>
+                    <td>
+                        Stock 1:&nbsp; {{ stock1.StockSymbol }}
+                        <div id="slider1" ng-click="move(1)"></div>
+                        <div>
+                            <input id="currentval1"
+                                   type="text"
+                                   value="0"
+                                   style="border: none;"
+                                   ng-model="model.Stock1Percent"
+                                   ng-blur="move(1)"><br /><br />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock 2:&nbsp; {{ stock2.StockSymbol }}
+                        <div id="slider2" ng-click="calculateStock2()"></div>
+                        <div>
+                            <input id="currentval2"
+                                   type="text"
+                                   value="0"
+                                   style="border: none;"
+                                   ng-model="model.Stock2Percent"
+                                   ng-blur="calculateStock2()"><br /><br />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock 3:&nbsp; {{ stock3.StockSymbol }}
+                        <div id="slider3" ng-click="calculateStock3()"></div>
+                        <div>
+                            <input id="currentval3"
+                                   type="text"
+                                   value="0"
+                                   style="border: none;"
+                                   ng-model="model.Stock3Percent"
+                                   ng-blur="calculateStock3()"><br /><br />
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>*@
-
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-12 center-block" style="margin-top:350px">
-        <button class="btn btn-primary" ng-click="togglePanels('none')">Close</button>
+        <button class="weberButton" ng-click="togglePanels('none')">Close</button>
     </div>
 </div>

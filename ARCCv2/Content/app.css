@@ -6,7 +6,48 @@ html, body {
 body {
     margin-bottom: 150px;
 }
-button:focus {outline:0 !important;}
+
+.weberButton {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #492365;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+  margin: 0 5px 0;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 0.8em;
+  padding-right: 1.5em;
+  padding-bottom: 0.8em;
+  padding-left: 1.5em;
+  font-size: 1.1em;
+  background-color: #492365; 
+  color: white; 
+}
+.weberButton:hover, .weberButton:focus {
+background-color: #8A68A2; 
+border-color: #8A68A2;
+color: white;
+}
+.weberButton:focus {outline:0 !important;}
+
+.weberButtonGreen {
+    background-color: #009844; 
+    border-color: #009844;
+}
+.weberButtonGreen:hover, .weberButtonGreen:focus {
+    background-color: #009844; 
+    border-color: #009844;
+    color: white;
+}
+.weberButtonGreen:focus {outline:0 !important;}
+
+
+
+
 
 /*Custom Table Hover*/
 .table-hover tbody tr:hover > td,
@@ -62,10 +103,11 @@ a.headerLinks:hover {
     color: #492365;
 }
 
-/*Got the code for animated transitions here: https://github.com/Augus/ngAnimate/ */
 /* ------------------------------------------- */
-/* Slide Left 
+/* Animations
+/*Code for animated transitions here: https://github.com/Augus/ngAnimate/ 
 /* ------------------------------------------- */
+/* Slide Left */
 .slide-left.ng-hide-add {
   transform: translateX(0);
   -ms-transform: translateX(0);
@@ -94,9 +136,7 @@ a.headerLinks:hover {
   -webkit-transform: translateX(0);
 }
 
-/* ------------------------------------------- */
-/* Slide Right 
-/* ------------------------------------------- */
+/* Slide Right */
 .slide-right.ng-hide-add {
   transform: translateX(0);
   -ms-transform: translateX(0);
@@ -126,7 +166,7 @@ a.headerLinks:hover {
 }
 
 /* ------------------------------------------- */
-/* Budget Customization
+/* Budget Table Customizations
 /* ------------------------------------------- */
 .budget-item {
     width:120px;
@@ -141,4 +181,33 @@ a.headerLinks:hover {
 
 .grand-total {
     width: 325px;
+}
+
+/* ------------------------------------------- */
+/* Sliders and Slider Panel customizations
+/* ------------------------------------------- */
+.sliderDiv {
+    text-align:center; 
+    vertical-align:middle;
+}
+.sliderDiv td {
+    background-color: white;
+}
+#slider1 {
+    background: #9CC96B;
+}
+#slider2 {
+    background: #4EBCDA;
+}
+#slider3 {
+    background: #EBAA4B;
+}
+.sliderPanelHeading {
+    /*background-color:#EBAA4B !important;*/ 
+    background-color:#986291 !important; 
+    text-align:left;
+}
+.panel-heading {
+    background-image: none !important;
+    color: white !important;
 }

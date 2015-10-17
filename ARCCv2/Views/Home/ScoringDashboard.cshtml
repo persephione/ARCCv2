@@ -4,15 +4,15 @@
     </div>
 
     @* Status Button Bar -------------------------------------- *@
-    <div class="col-lg-9"></div>
-    <div class="col-lg-3 pull-right">
-        <button class="btn btn-primary" data-ng-click="setSelection(1, 'Ready To Score');" ng-class="{'btn-success': model.selected == 1}">
+    <div class="col-lg-8"></div>
+    <div class="col-lg-4 pull-right">
+        <button class="weberButton" data-ng-click="setSelection(1, 'Ready To Score');" ng-class="{'weberButtonGreen': model.selected == 1}">
             Ready To Score
         </button>
-        <button class="btn btn-primary" data-ng-click="setSelection(2, 'All Active');" ng-class="{'btn-success': model.selected == 2}">
+        <button class="weberButton" data-ng-click="setSelection(2, 'All Active');" ng-class="{'weberButtonGreen': model.selected == 2}">
             All Active
         </button>
-        <button class="btn btn-primary" data-ng-click="setSelection(3, 'All Archived');" ng-class="{'btn-success': model.selected == 3}">
+        <button class="weberButton" data-ng-click="setSelection(3, 'All Archived');" ng-class="{'weberButtonGreen': model.selected == 3}">
             All Archived
         </button>
     </div>
