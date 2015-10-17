@@ -125,3 +125,20 @@ a.headerLinks:hover {
   -webkit-transform: translateX(0);
 }
 
+/* ------------------------------------------- */
+/* Budget Customization
+/* ------------------------------------------- */
+.budget-item {
+    width:120px;
+}
+.budget-button {
+    width:115px;
+    text-align:center;
+}
+.budget-name {
+    width: 325px;
+}
+
+.grand-total {
+    width: 325px;
+}

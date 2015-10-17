@@ -193,34 +193,181 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Hardware</th>
-                        <th>ARCC</th>
-                        <th>Department</th>
-                        <th>College</th>
-                        <th>Other</th>
-                        <th>Add/Remove</th>
+                        <th class="budget-name">Hardware</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button">Add/Remove</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th class="">Hardware Subtotals</th>
+                        <th class="budget-item text-center">${{model.hwArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwDepartmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwCollegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwOtherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tfoot>
                 <tbody>
                     <tr>
-                        <th><input type="text" ng-model="model.hardwareQuickEntry.hardware" /></th>
-                        <th><input type="text" ng-model="model.hardwareQuickEntry.arcc" /></th>
-                        <th><input type="text" ng-model="model.hardwareQuickEntry.department" /></th>
-                        <th><input type="text" ng-model="model.hardwareQuickEntry.college" /></th>
-                        <th><input type="text" ng-model="model.hardwareQuickEntry.other" /></th>
-                        <th><button type="button" class="btn btn-default" ng-click="addHardwareQuickEntry()">Add</button></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.hardwareQuickEntry.hardwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-button"><button class="btn btn-default" ng-click="addHardwareQuickEntry()"><span class="glyphicon glyphicon-plus" style="color:green"></span></button></th>
                     </tr>
                     <tr ng-repeat="item in model.hardwareList">
-                        <td>{{item.hardware}}</td>
-                        <td>{{item.arcc}}</td>
-                        <td>{{item.department}}</td>
-                        <td>{{item.college}}</td>
-                        <td>{{item.other}}</td>
-                        <td><button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">Remove</button></td>
+                        <td class="budget-name">{{item.hardwareName}}</td>
+                        <td class="budget-item">${{item.arcc | number : 2}}</td>
+                        <td class="budget-item">${{item.department | number : 2}}</td>
+                        <td class="budget-item">${{item.college | number : 2}}</td>
+                        <td class="budget-item">${{item.other | number : 2}}</td>
+                        <td class="budget-button"><button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)"><span class="glyphicon glyphicon-remove" style="color:red"></span></button></td>
                     </tr>
                 </tbody>
             </table>
             <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="budget-name">Software</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button">Add/Remove</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="">Software Subtotals</th>
+                        <th class="budget-item text-center">${{model.swArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swDepartmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swCollegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swOtherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.softwareQuickEntry.softwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-button"><button class="btn btn-default" ng-click="addSoftwareQuickEntry()"><span class="glyphicon glyphicon-plus" style="color:green"></span></button></th>
+                    </tr>
+                    <tr ng-repeat="item in model.softwareList">
+                        <td class="budget-name">{{item.softwareName}}</td>
+                        <td class="budget-item">${{item.arcc | number : 2}}</td>
+                        <td class="budget-item">${{item.department | number : 2}}</td>
+                        <td class="budget-item">${{item.college | number : 2}}</td>
+                        <td class="budget-item">${{item.other | number : 2}}</td>
+                        <td class="budget-button"><button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)"><span class="glyphicon glyphicon-remove" style="color:red"></span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="budget-name">Other (including facilities and installation)</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button">Add/Remove</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="">Other Subtotals</th>
+                        <th class="budget-item text-center">${{model.oArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oDepartmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oCollegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oOtherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.otherQuickEntry.otherName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-button"><button class="btn btn-default" ng-click="addOtherQuickEntry()"><span class="glyphicon glyphicon-plus" style="color:green"></span></button></th>
+                    </tr>
+                    <tr ng-repeat="item in model.otherList">
+                        <td class="budget-name">{{item.otherName}}</td>
+                        <td class="budget-item">${{item.arcc | number : 2}}</td>
+                        <td class="budget-item">${{item.department | number : 2}}</td>
+                        <td class="budget-item">${{item.college | number : 2}}</td>
+                        <td class="budget-item">${{item.other | number : 2}}</td>
+                        <td class="budget-button"><button type="button" class="btn btn-default" ng-click="removeOtherItem(item)"><span class="glyphicon glyphicon-remove" style="color:red"></span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="grand-total">Grand Totals:</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="info">
+                        <th class="grand-total">${{model.grandTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.arccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.departmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.collegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.otherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>Funding Information</h5>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-5 control-label" for="PartialPercentage">Can this project be completed if it is partially funded?</label>
+                    <div class="col-lg-6">
+                        <div class="btn-group" role="group" id="PartialFunding">
+                            <button type="button" class="btn"
+                                    ng-click="model.arccPartiallyFunded = true"
+                                    ng-class="{'btn-default': !model.arccPartiallyFunded, 'btn-success': model.arccPartiallyFunded }">
+                                Yes
+                            </button>
+                            <button type="button" class="btn"
+                                    ng-click="model.arccPartiallyFunded = false"
+                                    ng-class="{'btn-default': model.arccPartiallyFunded, 'btn-success': !model.arccPartiallyFunded }">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="model.arccPartiallyFunded">
+                    <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
+                    <div class="col-lg-6">
+                        <input type="number" class="form-control" id="PartialPercentage"
+                               placeholder="Enter an acceptable percentage" ng-model="model.arccPartiallyFundedPercent" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="panel panel-default">
