@@ -6,6 +6,8 @@ namespace ARCCv2.Models
     {
         public int ARCCProposalID { get; set; }
         public string ARCCName { get; set; }
+        public bool ARCCSubmitted { get; set; }
+        public DateTime? ARCCSubmittedDate { get; set; }
         public bool ARCCScored { get; set; }
         public bool ARCCApproval { get; set; }
         public string ARCCDirector { get; set; }

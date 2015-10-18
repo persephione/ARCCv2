@@ -357,5 +357,7 @@ a.headerLinks:hover {
 .form-group {
     margin-bottom: 0 !important;
 }
-
+.proposalViewOnlyText {
+    padding-left: 25px;
+}
 

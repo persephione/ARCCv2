@@ -51,6 +51,8 @@ namespace ARCCv2.Data.Configuration
             // Table & Column Mappings
             this.ToTable("ARCCProposal");
             this.Property(t => t.ARCCProposalID).HasColumnName("ARCCProposalID");
+            this.Property(t => t.ARCCSubmitted).HasColumnName("ARCCSubmitted");
+            this.Property(t => t.ARCCSubmittedDate).HasColumnName("ARCCSubmittedDate");
             this.Property(t => t.ARCCScored).HasColumnName("ARCCScored");
             this.Property(t => t.ARCCApproval).HasColumnName("ARCCApproval");
             this.Property(t => t.ARCCDirector).HasColumnName("ARCCDirector");

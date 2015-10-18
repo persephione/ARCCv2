@@ -41,6 +41,8 @@ namespace ARCCv2.Data.Configuration
             this.ToTable("DeeProposal");
             this.Property(t => t.DeeProposalID).HasColumnName("DeeProposalID");
             this.Property(t => t.DeeName).HasColumnName("DeeName");
+            this.Property(t => t.DeeSubmitted).HasColumnName("DeeSubmitted");
+            this.Property(t => t.DeeSubmittedDate).HasColumnName("DeeSubmittedDate");
             this.Property(t => t.DeeScored).HasColumnName("DeeScored");
             this.Property(t => t.DeeApproval).HasColumnName("DeeApproval");
             this.Property(t => t.DeeDirector).HasColumnName("DeeDirector");

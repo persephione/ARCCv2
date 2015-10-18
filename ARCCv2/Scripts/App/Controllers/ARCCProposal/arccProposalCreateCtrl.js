@@ -84,7 +84,7 @@
         };
 
         $scope.save = function () {
-            arccProposal.SaveOrUpdateARCCProposal.Update($scope.model.proposal).then(function (result) {
+            arccProposal.SaveOrUpdateARCCProposal.Update($scope.model.fullProposal).then(function (result) {
                 if (result === 1) { }
                 // then save was a success, else there was an error and it wasn't saved to db
             });

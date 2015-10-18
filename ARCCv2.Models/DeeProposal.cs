@@ -6,6 +6,8 @@ namespace ARCCv2.Models
     {
         public int DeeProposalID { get; set; }
         public string DeeName { get; set; }
+        public bool DeeSubmitted { get; set; }
+        public DateTime? DeeSubmittedDate { get; set; }
         public bool DeeScored { get; set; }
         public bool DeeApproval { get; set; }
         public string DeeDirector { get; set; }
