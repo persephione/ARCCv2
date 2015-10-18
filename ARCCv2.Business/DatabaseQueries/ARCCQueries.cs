@@ -54,7 +54,6 @@ namespace ARCCv2.Business.DatabaseQueries
             Uow.ARCCScoreRepository.GetAll()
             .Where(x => x.ARCCProposalID == proposalID).ToHashSet();
 
-
         public HashSet<ARCCHardwareBudget> GetAllHardwareBudgetForProposal(int proposalID) => 
             Uow.ARCCHardwareBudgetRepository.GetAll()
             .Where(x => x.ARCCProposalID == proposalID).ToHashSet();

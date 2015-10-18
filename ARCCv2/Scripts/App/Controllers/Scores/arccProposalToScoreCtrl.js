@@ -14,6 +14,7 @@
                 ARCCScoreComment: '',
                 ARCCProposalID: 0
             },
+            arccProposalScoreList: [],
             warningMessage: '',
             successMessage: ''
         };
@@ -62,6 +63,7 @@
                 angular.element(document).ready(function () {
                     $timeout(function () {
                         $scope.isApprovalActive = true;
+                        $scope.getApprovalFormData();
                     }, 400);
                 });
             }
@@ -137,7 +139,7 @@
                                                     $scope.model.ARCCScore.ARCCScoreEvaluation +
                                                     $scope.model.ARCCScore.ARCCScoreSupport;
 
-            scores.SaveOrUpdateARCCScore.Add($scope.model.ARCCScore).then(function (result) {
+            scores.SaveOrUpdateARCCScore.Update($scope.model.ARCCScore).then(function (result) {
                 // reset form
                 $scope.cancel();
 
@@ -153,4 +155,56 @@
                 });
             });
         };
+
+
+        /******************************************
+         * These methods are for the approval panel
+         ******************************************/
+
+        // get list of all committee members and their scores for the proposal
+        $scope.getApprovalFormData = function () {
+
+            var committeeMembers = [];
+            var scoreListFromDB = [];
+            $scope.model.arccProposalScoreList = [];
+
+            // get all committee members
+            scores.GetARCCScores.Get().then(function(result) {
+                committeeMembers = result;
+            });
+
+            // get all scores for proposal
+            scores.GetARCCScores.Get($scope.model.fullProposal.ARCCProposal.ARCCProposalID).then(function(result) {
+                scoreListFromDB = result;
+
+                // create the score list to return to the View
+                angular.forEach(committeeMembers, function (member) {
+                    var memberScore = {};
+                    memberScore.UserName = member.UserFirstName + " " + member.UserLastName;
+
+                    // if the member has submitted a score for the proposal, add it to the list to return to View
+                    angular.forEach(scoreListFromDB, function (score) {
+                        if (member.UserID === score.UserID) {
+                            memberScore.ARCCScoreEducExp = score.ARCCScoreEducExp;
+                            memberScore.ARCCScoreInnovation = score.ARCCScoreInnovation;
+                            memberScore.ARCCScoreDissemination = score.ARCCScoreDissemination;
+                            memberScore.ARCCScoreEvaluation = score.ARCCScoreEvaluation;
+                            memberScore.ARCCScoreSupport = score.ARCCScoreSupport;
+                            memberScore.ARCCScoreTotal = score.ARCCScoreTotal;
+                        }
+                    });
+
+                    // push the record into the list
+                    $scope.model.arccProposalScoreList.push(memberScore);
+                });
+
+            });
+            
+        };
+
+        // chair's decision to approve or deny proposal 
+        $scope.approval = function() {
+
+        };
+
     }]);

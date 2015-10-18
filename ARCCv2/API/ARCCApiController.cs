@@ -16,7 +16,7 @@ namespace ARCCv2.API
         public ARCCManager arccManager => _arccManager ?? (_arccManager = new ARCCManager());
         public DeeManager deeManager => _deeManager ?? (_deeManager = new DeeManager());
         public ScoreManager scoreManager => _scoreManager ?? (_scoreManager = new ScoreManager());
-        public UserManager usermanager => _userManager ?? (_userManager = new UserManager());
+        public UserManager userManager => _userManager ?? (_userManager = new UserManager());
         public ProposalStatus proposalStatus => _proposalStatus ?? (_proposalStatus = new ProposalStatus());
 
 

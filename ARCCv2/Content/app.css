@@ -231,6 +231,16 @@ a.headerLinks:hover {
 }
 
 /* ------------------------------------------- */
+/* Approval Table Customizations
+/* ------------------------------------------- */
+.approvalTable {
+    margin-bottom: 0 !important;
+}
+.approvalTable th td{
+    font-size:12px;
+}
+
+/* ------------------------------------------- */
 /* Sliders and Slider Panel customizations
 /* ------------------------------------------- */
 .sliderDiv {

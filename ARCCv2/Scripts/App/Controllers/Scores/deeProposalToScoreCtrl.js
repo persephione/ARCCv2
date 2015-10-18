@@ -135,7 +135,7 @@
                                                     $scope.model.DeeScore.DeeScoreEvaluation +
                                                     $scope.model.DeeScore.DeeScoreSupport;
 
-            scores.SaveOrUpdateDeeScore.Put($scope.model.DeeScore).then(function (result) {
+            scores.SaveOrUpdateDeeScore.Update($scope.model.DeeScore).then(function (result) {
                 // reset form
                 $scope.cancel();
 

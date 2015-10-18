@@ -22,5 +22,14 @@ namespace ARCCv2.Business.DatabaseQueries
         public HashSet<DeeOtherBudget> GetAllOtherBudgetForProposal(int proposalID) =>
             Uow.DeeOtherBudgetRepository.GetAll()
             .Where(x => x.DeeProposalID == proposalID).ToHashSet();
+
+        /// <summary>
+        /// Gets all scores associated with a proposal - tina
+        /// </summary>
+        /// <param name="proposalID">unique proposal id</param>
+        /// <returns>list of dee score records</returns>
+        public HashSet<DeeScore> GetAllScoresForProposal(int proposalID) =>
+            Uow.DeeScoreRepository.GetAll()
+            .Where(x => x.DeeProposalID == proposalID).ToHashSet();
     }
 }

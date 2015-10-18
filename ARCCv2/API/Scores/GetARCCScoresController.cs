@@ -1,15 +1,21 @@
-﻿using ARCCv2.Business.Helpers;
-using ARCCv2.POCO;
-using System;
+﻿using ARCCv2.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace ARCCv2.API.Scores
 {
     public class GetARCCScoresController : ARCCApiController
     {
-        
+        /// <summary>
+        /// Gets all the active committee members from the db - tina
+        /// </summary>
+        /// <returns>List of committe members</returns>
+        public List<User> Get() => userManager.GetAllActiveCommitteeMembers();
+
+        /// <summary>
+        /// Gets all the arcc scores associated with a specific arcc proposal - tina
+        /// </summary>
+        /// <param name="id">primary key for arcc proposal</param>
+        /// <returns>List of ARCCScore records</returns>
+        public List<ARCCScore> Get(int id) => scoreManager.GetARCCScoresForProposal(id);
     }
 }

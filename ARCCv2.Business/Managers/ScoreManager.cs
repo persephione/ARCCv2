@@ -28,8 +28,8 @@ namespace ARCCv2.Business.Managers
         /// </summary>
         /// <param name="scoreID">unique score id</param>
         /// <param name="user">user editing or saving object</param>
-        /// <returns>Number of records saved in db</returns>  // TODO: Remove comments after testing ----------//
-        public int SaveOrUpdateARCCScore(ARCCScore arccScore, User user)
+        /// <returns>Number of records saved in db</returns>
+        public int SaveOrUpdateARCCScore(ARCCScore arccScore, User user)  // TODO: Remove comments after testing ----------//
         {
             // check if it's a new or existing record
             if (arccScore.ARCCScoreID == 0)
@@ -57,6 +57,51 @@ namespace ARCCv2.Business.Managers
             return 0;
         }
 
+        /// <summary>
+        /// Gets all the scores associated with a proposal - tina
+        /// </summary>
+        /// <param name="proposalID">unique primary key for proposal</param>
+        /// <returns>list of arcc score records</returns>
+        public List<DeeScore> GetDeeScoresForProposal(int proposalID)
+        {
+            // pull proposal from db
+            var proposal = Uow.DeeProposalRepository.GetById(proposalID);
 
+            // if it's not found then return null, otherwise return the list
+            return proposal != null ? deeQueries.GetAllScoresForProposal(proposalID).OrderBy(x => x.UserID).ToList() : null;
+        }
+
+        /// <summary>
+        /// Saves a new or edits an existing dee score record - tina
+        /// </summary>
+        /// <param name="scoreID">unique score id</param>
+        /// <param name="user">user editing or saving object</param>
+        /// <returns>Number of records saved in db</returns>  
+        public int SaveOrUpdateDeeScore(DeeScore deeScore, User user) // TODO: Remove comments after testing ----------//
+        {
+            // check if it's a new or existing record
+            if (deeScore.DeeScoreID == 0)
+            {
+                deeScore.UserID = user.UserID;
+                deeScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
+                deeScore.ScoreLastUpdatedDate = DateTime.Now;
+                //Uow.DeeScoreRepository.Add(deeScore);
+            }
+            else
+            {
+                // check if the record exists in db
+                var scoreExists = arccQueries.DoesScoreExist(deeScore.DeeScoreID);
+                if (scoreExists)
+                {
+                    deeScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
+                    deeScore.ScoreLastUpdatedDate = DateTime.Now;
+                    //Uow.DeeScoreRepository.Update(deeScore);
+                }
+                else
+                    return 0;
+            }
+            //return Uow.SaveChanges();
+            return 0;
+        }
     }
 }
