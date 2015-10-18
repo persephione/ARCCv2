@@ -12,15 +12,15 @@ namespace ARCCv2.API
         /// </summary>
         /// <param name="arccProposal">arcc proposal object</param>
         /// <returns>The proposal id</returns>
-        public int Post([FromBody] ARCCProposalDetail  arccProposal)
+        public int Post([FromBody] ARCCProposalDetail  arccProposalDetail)
         {
             // save the proposal first
-            var proposalID = arccManager.SaveOrUpdateARCCProposal(arccProposal.ARCCProposal);
+            var proposalID = arccManager.SaveOrUpdateARCCProposal(arccProposalDetail.ARCCProposal);
 
             // save each budget list
-            SaveHardwareBudget(arccProposal.HardwareBudgetList, proposalID);
-            SaveSoftwareBudget(arccProposal.SoftwareBudgetList, proposalID);
-            SaveOtherBudget(arccProposal.OtherBudgetList, proposalID);
+            SaveHardwareBudget(arccProposalDetail.HardwareBudgetList, proposalID);
+            SaveSoftwareBudget(arccProposalDetail.SoftwareBudgetList, proposalID);
+            SaveOtherBudget(arccProposalDetail.OtherBudgetList, proposalID);
             return proposalID;
         }
 
