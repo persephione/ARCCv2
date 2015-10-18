@@ -1,12 +1,15 @@
-﻿<div class="form container" ng-form="form.NewPaymentChannel">
+﻿<div class="form container" ng-form="form.NewProposal">
     <div class="page-header text-center">
         <h1>Academic Resources and Computing Committee</h1>
         <h1><small>Create a New ARCC Proposal</small></h1>
     </div>
 
-    @*-- Top Panel --*@
-    <div class="panel panel-default">
-        <div class="panel-body">
+    @*-- General Information --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            General Information:
+        </div>
+        <div class="panel-body proposalPanelBody">
             <div class="row">
                 <div class="col-lg-6 form-group">
                     <label for="ARCCName">*Proposal Title:</label>
@@ -34,11 +37,12 @@
         </div>
     </div>
 
+    @*-- Instructions --*@
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Instructions:</h4>
+        <div class="panel-heading proposalPanelHeading">
+            Instructions:
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             <ol>
                 <li>
                     The ARCC Proposal consists of this cover sheet, the budget summary, and no more than a three-page description,
@@ -69,14 +73,16 @@
             </ol>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>ARCC Representative (required)</h5>
+
+    @*-- ARCC Rep Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            ARCC Representative (required)
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
         </div>
-        <div class="form-horizontal">
+        <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="RepSignature">ARCC Representative Signature</label>
                 <div class="col-lg-7">
@@ -93,16 +99,18 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>Department Chair (required)</h5>
+
+    @*-- Dept Chair Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            Department Chair (required)
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             The Department has reviewed this project within the context of overall information technology planning
             within the Department. If the budget page indicates financial support from the Department, I agree to
             commit those funds to this project.
         </div>
-        <div class="form-horizontal">
+        <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ChairSignature">Department Chair Signature</label>
                 <div class="col-lg-7">
@@ -119,15 +127,17 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>College Dean (required for matching funds from the college)</h5>
+
+    @*-- College Dean Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            College Dean (required for matching funds from the college)
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             I have reviewed this project. If the budget page indicates financial support from the College, I
             agree to commit those funds to this project.
         </div>
-        <div class="form-horizontal">
+        <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="DeanSignature">College Dean Signature</label>
                 <div class="col-lg-7">
@@ -144,17 +154,19 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>IT Representative</h5>
+
+    @*-- IT Representative Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            IT Representative
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             For certain projects an IT expert's signature is required. You must contact the appropriate individual
             if you are implementing MULTIMEDIA, NETWORKING, OR OTHER CLASSROOM TECHNOLOGY INSTALLATIONS (contact
             Bob King at <a href="mailto:rking@weber.edu">rking@weber.edu</a> or x6865).<br />
             I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
         </div>
-        <div class="form-horizontal">
+        <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ITSignature">IT Representative Signature</label>
                 <div class="col-lg-7">
@@ -171,11 +183,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>Justification</h5>
+
+    @*-- Justification --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Justification
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             <div class="form-group">
                 <div class="col-lg-12">
                     <textarea class="form-control" ng-model="model.arccJustification"
@@ -184,13 +198,14 @@
             </div>
         </div>
     </div>
-    @*Missing Quick Entries here*@
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>Budget</h5>
+
+    @*-- Budget Tables --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Budget
         </div>
         <div class="panel-body">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th class="budget-name">Hardware</th>
@@ -218,7 +233,11 @@
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-button"><button class="btn btn-default" ng-click="addHardwareQuickEntry()"><span class="glyphicon glyphicon-plus" style="color:green"></span></button></th>
+                        <th class="budget-button">
+                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.hardwareName.length < 1">
+                                <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                            </button>
+                        </th>
                     </tr>
                     <tr ng-repeat="item in model.hardwareList">
                         <td class="budget-name">{{item.hardwareName}}</td>
@@ -226,12 +245,16 @@
                         <td class="budget-item">${{item.department | number : 2}}</td>
                         <td class="budget-item">${{item.college | number : 2}}</td>
                         <td class="budget-item">${{item.other | number : 2}}</td>
-                        <td class="budget-button"><button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)"><span class="glyphicon glyphicon-remove" style="color:red"></span></button></td>
+                        <td class="budget-button">
+                            <button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">
+                                <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <br>
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th class="budget-name">Software</th>
@@ -259,7 +282,11 @@
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-button"><button class="btn btn-default" ng-click="addSoftwareQuickEntry()"><span class="glyphicon glyphicon-plus" style="color:green"></span></button></th>
+                        <th class="budget-button">
+                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.softwareQuickEntry.softwareName.length < 1">
+                                <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                            </button>
+                        </th>
                     </tr>
                     <tr ng-repeat="item in model.softwareList">
                         <td class="budget-name">{{item.softwareName}}</td>
@@ -267,12 +294,16 @@
                         <td class="budget-item">${{item.department | number : 2}}</td>
                         <td class="budget-item">${{item.college | number : 2}}</td>
                         <td class="budget-item">${{item.other | number : 2}}</td>
-                        <td class="budget-button"><button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)"><span class="glyphicon glyphicon-remove" style="color:red"></span></button></td>
+                        <td class="budget-button">
+                            <button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)">
+                                <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th class="budget-name">Other (including facilities and installation)</th>
@@ -300,7 +331,11 @@
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-button"><button class="btn btn-default" ng-click="addOtherQuickEntry()"><span class="glyphicon glyphicon-plus" style="color:green"></span></button></th>
+                        <th class="budget-button">
+                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.otherQuickEntry.otherName.length < 1">
+                                <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                            </button>
+                        </th>
                     </tr>
                     <tr ng-repeat="item in model.otherList">
                         <td class="budget-name">{{item.otherName}}</td>
@@ -308,12 +343,16 @@
                         <td class="budget-item">${{item.department | number : 2}}</td>
                         <td class="budget-item">${{item.college | number : 2}}</td>
                         <td class="budget-item">${{item.other | number : 2}}</td>
-                        <td class="budget-button"><button type="button" class="btn btn-default" ng-click="removeOtherItem(item)"><span class="glyphicon glyphicon-remove" style="color:red"></span></button></td>
+                        <td class="budget-button">
+                            <button type="button" class="btn btn-default" ng-click="removeOtherItem(item)">
+                                <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th class="grand-total">Grand Totals:</th>
@@ -337,11 +376,13 @@
             </table>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>Funding Information</h5>
+
+    @*-- Funding Information --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Funding Information
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             <div class="form-horizontal">
                 <div class="form-group">
                     <label class="col-lg-5 control-label" for="PartialPercentage">Can this project be completed if it is partially funded?</label>
@@ -370,11 +411,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>Additional Resources</h5>
+
+    @*-- Additional Resources --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Additional Resources
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             Please describe what other resources will be required to implement this project:<br />
             (Additional resources may include needs such as Academic Computing technical support or hardware installation
             through Electronic Services.
@@ -386,16 +429,18 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h5>Replacement Equipment</h5>
+
+    @*-- Replacement Equipment --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Replacement Equipment
         </div>
-        <div class="panel-body">
+        <div class="panel-body proposalPanelBody">
             Please indicate if any of the requested equipment is replacement of items previously purchased with ARCC
             funding.<br />
             (If possible, please list the ARCC project year and project name.)
         </div>
-        <div class="form-horizontal">
+        <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ReplacementEquipment">Requesting Replacement</label>
                 <div class="col-lg-7">
@@ -423,12 +468,23 @@
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
                 <div class="col-lg-7">
-                    <input type="text" class="form-control" id="ReplacementARCCYear"
+                    <input type="number" class="form-control" id="ReplacementARCCYear"
                            placeholder="Previous Project Year" ng-model="model.arccReplacementARCCYear" />
                 </div>
             </div>
         </div>
     </div>
+
+    @*-- Action Buttons --*@
+    <div class="row">
+        <div class="col-lg-12 center-block" style="margin-top:50px">
+            <button class="weberButton weberButtonGreen" ng-click="">Save</button>
+            <button class="weberButton weberButtonGreen" ng-click="">Save and Submit</button>
+            <button class="weberButton weberButtonRed" ng-click="">Cancel</button>
+        </div>
+    </div>
+
+
     <div class="container divBorder">
         @*-- Error Message --*@
         <div class="alert text-center" data-ng-class="'alert-error'" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">

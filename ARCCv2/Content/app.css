@@ -304,11 +304,6 @@ a.headerLinks:hover {
     text-align:center;
     font-size: large;
 }
-.panel-heading {
-    background-image: none !important;
-    border-radius: 0 !important;
-    color: white !important;
-}
 .sliderInput {
     font-size: 16px;
     font-weight: 600;
@@ -325,3 +320,42 @@ a.headerLinks:hover {
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
+/* ------------------------------------------- */
+/* Proposal Panel customizations
+/* ------------------------------------------- */
+.panel-heading {
+    background-image: none !important;
+    border-radius: 0 !important;
+    color: white !important;
+}
+.proposalPanel {
+    border-color: #ddd;
+    margin-bottom: 50px;
+}
+.proposalPanelHeading { 
+    background-color:#492365 !important; 
+    color: white !important;
+    font-size: large;
+}
+.proposalPanelSubHeading {
+    background-color: #a391b1;
+    border-color: #ddd;
+    background-image: none !important;
+    border-radius: 0 !important;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    color: white !important;
+}
+.proposalPanelBody {
+    background-color: #FFF9EB;
+    padding-bottom: 15px;
+}
+.width90 {
+    width: 90% !important;
+}
+.form-group {
+    margin-bottom: 0 !important;
+}
+
+
