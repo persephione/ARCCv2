@@ -22,7 +22,8 @@
             stop: function (e, ui) {
                 $('#arccProposalToScoreCtrl').scope().assignSliderValues(2);
         }
-        });
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
         $("#slider3").slider({
             max: 10,
             min: 0,
@@ -33,7 +34,8 @@
             stop: function (e, ui) {
                 $('#arccProposalToScoreCtrl').scope().assignSliderValues(3);
             }
-        });
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
         $("#slider4").slider({
             max: 10,
             min: 0,
@@ -44,7 +46,8 @@
             stop: function (e, ui) {
                 $('#arccProposalToScoreCtrl').scope().assignSliderValues(4);
             }
-        });
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
         $("#slider5").slider({
             max: 10,
             min: 0,
@@ -55,7 +58,7 @@
             stop: function (e, ui) {
                 $('#arccProposalToScoreCtrl').scope().assignSliderValues(5);
             }
-        });
+        }).find(".ui-slider-handle").addClass("sliderHandle");
     });
 </script>
 <div class="row" id="arccProposalToScoreCtrl" ng-form="form.NewARCCScoreForm">
@@ -71,7 +74,8 @@
                                class="sliderInput"
                                type="number"
                                value="0"
-                               ng-model="model.ARCCScore.ARCCScoreEducExp">
+                               ng-model="model.ARCCScore.ARCCScoreEducExp"
+                               disabled>
                         <div id="slider1" ng-click="assignSliderValues(1)"></div>
                     </td>
                 </tr>
@@ -129,8 +133,6 @@
     <div class="col-lg-1"></div>
 </div>
 
-
-
 <div class="row"  style="margin-top:15px">
     <div class="col-lg-2"></div>
     <div class="col-lg-10 center-block" style="font-size:18px;"><strong>Comments:</strong></div>
@@ -145,6 +147,5 @@
         <button class="weberButton" ng-click="togglePanels('none')">Close</button>
     </div>
 </div>
-
 
 @*ng-disabled="form.NewARCCScoreForm.$pristine || form.NewARCCScoreForm.$invalid"*@

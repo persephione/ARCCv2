@@ -13,14 +13,17 @@
                 ARCCScoreTotal: 0,
                 ARCCScoreComment: '',
                 ARCCProposalID: 0
-            }
+            },
+            warningMessage: '',
+            successMessage: ''
         };
+        $scope.form = {};
         $scope.proposalIsArchived = false;
         $scope.isScoringActive = false;
         $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
 
-        // get proposal
+        // get proposal id from params
         $scope.model.fullProposal.Id = parameters.get("proposalId");
 
         // query db for proposal
@@ -28,7 +31,7 @@
             $scope.model.fullProposal = result;
 
             // set the arcc score proposal id to the current arcc proposal
-            $scope.model.ARCCScore.ARCCProposalID = $scope.model.fullProposal.ARCCProposal.ProposalID;
+            $scope.model.ARCCScore.ARCCProposalID = $scope.model.fullProposal.ARCCProposal.ARCCProposalID;
 
             // if proposal has already been scored, remove action buttons
             if ($scope.model.fullProposal.ARCCProposal.ARCCApproval === true)
@@ -91,7 +94,9 @@
 
         // reset form and close panel
         $scope.cancel = function () {
-           
+            $scope.model.warningMessage = '';
+            $scope.model.successMessage = '';
+
             // reset object
             $scope.model.ARCCScore = 
             {
@@ -132,10 +137,20 @@
                                                     $scope.model.ARCCScore.ARCCScoreEvaluation +
                                                     $scope.model.ARCCScore.ARCCScoreSupport;
 
-            var test = $scope.model.ARCCScore;
-            //scores.SaveOrUpdateARCCScore.Put($scope.model.ARCCScore).then(function (result) {
+            scores.SaveOrUpdateARCCScore.Add($scope.model.ARCCScore).then(function (result) {
+                // reset form
+                $scope.cancel();
 
-            //});
+                // delay for animations
+                angular.element(document).ready(function () {
+                    $timeout(function () {
+                        // display message
+                        if (result === 0)
+                            $scope.model.warningMessage = 'Alert: Score was not saved!';
+                        else
+                            $scope.model.successMessage = 'Score was successfully submitted!';
+                    }, 400);
+                });
+            });
         };
-
     }]);

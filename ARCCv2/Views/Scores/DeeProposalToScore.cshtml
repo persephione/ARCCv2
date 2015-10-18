@@ -1,30 +1,30 @@
-﻿<div class="row" style="width:99vw !important">
-    <div class="col-lg-12">
-        Proposal ID: {{::model.proposal.DeeProposal.DeeProposalID}}<br />
-        Proposal Name: {{::model.proposal.DeeProposal.DeeName}}<br />
-        Director: {{::model.proposal.DeeProposal.DeeDirector}}<br />
-        Department: {{::model.proposal.DeeProposal.DeeDepartment}}<br />
-        College: {{::model.proposal.DeeProposal.DeeCollege}}<br />
-        Username: {{::model.proposal.DeeProposal.DeeUsername}}<br />
-        Email: {{::model.proposal.DeeProposal.DeeEmail}}<br />
-        Extension: {{::model.proposal.DeeProposal.DeeExtension}}<br />
-        OtherMembers: {{::model.proposal.DeeProposal.DeeOtherMembers}}<br />
-        ARCCRepSignature: {{::model.proposal.DeeProposal.DeeRepSignature}}<br />
-        ARCCRepComments: {{::model.proposal.DeeProposal.DeeRepComments}}<br />
-        ChairSignature: {{::model.proposal.DeeProposal.DeeChairSignature}}<br />
-        ChairComments: {{::model.proposal.DeeProposal.DeeChairComments}}<br />
-        DeanSignature: {{::model.proposal.DeeProposal.DeeDeanSignature}}<br />
-        DeanComments: {{::model.proposal.DeeProposal.DeeDeanComments}}<br />
-        DeeAbstract: {{::model.proposal.DeeProposal.DeeAbstract}}<br />
-        DeeObjectAndGoals: {{::model.proposal.DeeProposal.DeeObjectAndGoals}}<br />
-        DeeCoursesPrograms: {{::model.proposal.DeeProposal.DeeCoursesPrograms}}<br />
-        DeeSuccess: {{::model.proposal.DeeProposal.DeeSuccess}}<br />
-        DeeTimeline: {{::model.proposal.DeeProposal.DeeTimeline}}<br />
-        DeeJustificationAttach: {{::model.proposal.DeeProposal.DeeJustificationAttach}}<br />
-        ARCCPartiallyFunded: {{::model.proposal.DeeProposal.ARCCPartiallyFunded}}<br />
-        ARCCPartiallyFundedPercent: {{::model.proposal.DeeProposal.ARCCPartiallyFundedPercent}}<br />
-        DeeLastUpdatedBy: {{::model.proposal.DeeProposal.DeeLastUpdatedBy}}<br />
-        DeeLastUpdatedDate: {{::model.proposal.DeeProposal.DeeLastUpdatedDate}}
+﻿<div class="row">
+    <div class="col-lg-8">
+        Proposal ID: {{::model.fullProposal.DeeProposal.DeeProposalID}}<br />
+        Proposal Name: {{::model.fullProposal.DeeProposal.DeeName}}<br />
+        Director: {{::model.fullProposal.DeeProposal.DeeDirector}}<br />
+        Department: {{::model.fullProposal.DeeProposal.DeeDepartment}}<br />
+        College: {{::model.fullProposal.DeeProposal.DeeCollege}}<br />
+        Username: {{::model.fullProposal.DeeProposal.DeeUsername}}<br />
+        Email: {{::model.fullProposal.DeeProposal.DeeEmail}}<br />
+        Extension: {{::model.fullProposal.DeeProposal.DeeExtension}}<br />
+        OtherMembers: {{::model.fullProposal.DeeProposal.DeeOtherMembers}}<br />
+        ARCCRepSignature: {{::model.fullProposal.DeeProposal.DeeRepSignature}}<br />
+        ARCCRepComments: {{::model.fullProposal.DeeProposal.DeeRepComments}}<br />
+        ChairSignature: {{::model.fullProposal.DeeProposal.DeeChairSignature}}<br />
+        ChairComments: {{::model.fullProposal.DeeProposal.DeeChairComments}}<br />
+        DeanSignature: {{::model.fullProposal.DeeProposal.DeeDeanSignature}}<br />
+        DeanComments: {{::model.fullProposal.DeeProposal.DeeDeanComments}}<br />
+        DeeAbstract: {{::model.fullProposal.DeeProposal.DeeAbstract}}<br />
+        DeeObjectAndGoals: {{::model.fullProposal.DeeProposal.DeeObjectAndGoals}}<br />
+        DeeCoursesPrograms: {{::model.fullProposal.DeeProposal.DeeCoursesPrograms}}<br />
+        DeeSuccess: {{::model.fullProposal.DeeProposal.DeeSuccess}}<br />
+        DeeTimeline: {{::model.fullProposal.DeeProposal.DeeTimeline}}<br />
+        DeeJustificationAttach: {{::model.fullProposal.DeeProposal.DeeJustificationAttach}}<br />
+        ARCCPartiallyFunded: {{::model.fullProposal.DeeProposal.ARCCPartiallyFunded}}<br />
+        ARCCPartiallyFundedPercent: {{::model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent}}<br />
+        DeeLastUpdatedBy: {{::model.fullProposal.DeeProposal.DeeLastUpdatedBy}}<br />
+        DeeLastUpdatedDate: {{::model.fullProposal.DeeProposal.DeeLastUpdatedDate}}
         <br /><br />
 
         --- HARDWARE ---
@@ -45,11 +45,28 @@
         </div>
         <br />
 
+        <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('scoring')">Score</button>
+        <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('approval')">Approve</button>
     </div>
-    <div class="col-lg-4 {{slideClass}}" ng-hide="!isPartialActive" style="border:1px solid #CCCCCC;">
-        Score Here
-        <br /><br />
-        <button class="btn btn-primary" ng-click="toggleScorePanel()">Close</button>
+
+    @*-- Scoring Partial View Panel --*@
+    <div class="col-lg-4 {{slideClass}}" ng-hide="!isScoringActive" style="border-left:1px solid #CCCCCC;">
+        @Html.Partial("DeeScoring")
+    </div>
+
+    @*-- Approval Partial View Panel --*@
+    <div class="col-lg-4 {{slideClass}}" ng-hide="!isApprovalActive" style="border-left:1px solid #CCCCCC;">
+        @Html.Partial("Approval")
+    </div>
+
+    @*-- Submission Messages --*@
+    <div class="messageSlideUp warningMessage" ng-hide="model.warningMessage.length == 0" style="margin:25px 0 0 0">
+        <button type="button" class="close" ng-click="cancel()">×</button>
+        {{model.warningMessage}}
+    </div>
+    <div class="messageSlideUp successMessage" ng-hide="model.successMessage.length == 0" style="margin-top:25px 0 0 0">
+        <button type="button" class="close" ng-click="cancel()">×</button>
+        {{model.successMessage}}
     </div>
 </div>
 

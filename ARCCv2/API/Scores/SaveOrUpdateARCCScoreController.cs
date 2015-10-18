@@ -10,6 +10,9 @@ namespace ARCCv2.API.Scores
         {
             // after CAS is working, get User from authentication
             var user = new User();
+            user.UserID = 1;
+            user.UserFirstName = "mickey";
+            user.UserLastName = "mouse";
             return scoreManager.SaveOrUpdateARCCScore(arccScore, user);
         }
     }

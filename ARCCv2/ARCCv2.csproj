@@ -378,10 +378,11 @@
     <Content Include="Scripts\node_modules\ng-table\src\styles\ng-table.less" />
     <Content Include="Views\Home\UserDashboard.cshtml" />
     <Content Include="Views\Home\ScoringDashboard.cshtml" />
-    <Content Include="Views\Scores\Scoring.cshtml" />
+    <Content Include="Views\Scores\ARCCScoring.cshtml" />
     <Content Include="Views\Scores\ARCCProposalToScore.cshtml" />
     <Content Include="Views\Scores\DeeProposalToScore.cshtml" />
     <Content Include="Views\Scores\Approval.cshtml" />
+    <Content Include="Views\Scores\DeeScoring.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

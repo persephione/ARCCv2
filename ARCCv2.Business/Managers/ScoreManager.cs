@@ -28,7 +28,7 @@ namespace ARCCv2.Business.Managers
         /// </summary>
         /// <param name="scoreID">unique score id</param>
         /// <param name="user">user editing or saving object</param>
-        /// <returns>Number of records saved in db</returns>
+        /// <returns>Number of records saved in db</returns>  // TODO: Remove comments after testing ----------//
         public int SaveOrUpdateARCCScore(ARCCScore arccScore, User user)
         {
             // check if it's a new or existing record
@@ -37,7 +37,7 @@ namespace ARCCv2.Business.Managers
                 arccScore.UserID = user.UserID;
                 arccScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
                 arccScore.ScoreLastUpdatedDate = DateTime.Now;
-                Uow.ARCCScoreRepository.Add(arccScore);
+                //Uow.ARCCScoreRepository.Add(arccScore);
             }
             else
             {
@@ -48,12 +48,13 @@ namespace ARCCv2.Business.Managers
 
                     arccScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
                     arccScore.ScoreLastUpdatedDate = DateTime.Now;
-                    Uow.ARCCScoreRepository.Update(arccScore);
+                    //Uow.ARCCScoreRepository.Update(arccScore);
                 }
                 else
                     return 0;
             }
-            return Uow.SaveChanges();
+            //return Uow.SaveChanges();
+            return 0;
         }
 
 

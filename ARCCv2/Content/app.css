@@ -181,6 +181,37 @@ a.headerLinks:hover {
   -webkit-transform: translateX(0);
 }
 
+/*-- custom warning text box --*/
+.messageSlideUp {
+    transition: .5s linear all;
+    height: 36px;
+    width: 385px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 15px 0 15px;
+    line-height: 16px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.4);
+    z-index: 500;
+}
+.messageSlideUp.ng-hide {
+    height: 0;
+}
+.warningMessage {
+    color: #8C7153;  
+    background-color: #FCF7D6;
+    border: 1px solid #DED3C7;
+}
+.successMessage {
+    color: #6C6E59;  
+    background-color: #DFF0D8;
+    border: 1px solid #B4C9AC;
+}
+.close {
+    line-height: 0.8 !important;
+}
+
 /* ------------------------------------------- */
 /* Budget Table Customizations
 /* ------------------------------------------- */
@@ -210,7 +241,7 @@ a.headerLinks:hover {
     background-color: white;
 }
 .sliderHandle{
-    background: #white !important;
+    background: #F2F5A9 !important;
 }
 #slider1 {
     background: #9CC96B;
@@ -243,6 +274,7 @@ a.headerLinks:hover {
     border: none;
     margin-bottom: 10px;
     background-color: white !important;
+    width: 20px !important
 }
 .sliderTable {
     width: 90%; 

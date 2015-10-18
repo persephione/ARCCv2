@@ -1,0 +1,151 @@
+﻿<script>
+    $(function () {
+        $("#slider1").slider({
+            max: 30,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval1').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#deeProposalToScoreCtrl').scope().assignSliderValues(1);
+            }
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
+        $("#slider2").slider({
+            max: 30,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval2').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#deeProposalToScoreCtrl').scope().assignSliderValues(2);
+        }
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
+        $("#slider3").slider({
+            max: 15,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval3').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#deeProposalToScoreCtrl').scope().assignSliderValues(3);
+            }
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
+        $("#slider4").slider({
+            max: 15,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval4').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#deeProposalToScoreCtrl').scope().assignSliderValues(4);
+            }
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+
+        $("#slider5").slider({
+            max: 10,
+            min: 0,
+            value: 0,
+            slide: function (e, ui) {
+                $('#currentval5').val(ui.value);
+            },
+            stop: function (e, ui) {
+                $('#deeProposalToScoreCtrl').scope().assignSliderValues(5);
+            }
+        }).find(".ui-slider-handle").addClass("sliderHandle");
+    });
+</script>
+<div class="row" id="deeProposalToScoreCtrl" ng-form="form.NewDeeScoreForm">
+    <div class="col-lg-1"></div>
+    <div class="sliderDiv col-lg-10 center-block">
+        <div class="panel">
+            <div class="col-lg-12 panel-heading sliderPanelHeading" style="margin-top:15px;">Proposal Scoring</div>
+            <table class="sliderTable">
+                <tr>
+                    <td style="font-size: 16px">
+                        <strong>Technology in research or scholarly activity:</strong>&nbsp;
+                        <input id="currentval1"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.DeeScore.DeeScoreResearch"
+                               disabled>
+                        <div id="slider1" ng-click="assignSliderValues(1)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px">
+                        <strong>Technology in pedagogy:</strong>&nbsp;
+                        <input id="currentval2"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.DeeScore.DeeScorePedagogy"
+                               disabled>
+                        <div id="slider2" ng-click="assignSliderValues(2)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px">
+                        <strong>Discipline-specific software or training:</strong>&nbsp;
+                        <input id="currentval3"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.DeeScore.DeeScoreSoftware"
+                               disabled>
+                        <div id="slider3" ng-click="assignSliderValues(3)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px">
+                        <strong>Evaluation:</strong>&nbsp;
+                        <input id="currentval4"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.DeeScore.DeeScoreEvaluation"
+                               disabled>
+                        <div id="slider4" ng-click="assignSliderValues(4)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px">
+                        <strong>Support:</strong>&nbsp;
+                        <input id="currentval5"
+                               class="sliderInput"
+                               type="number"
+                               value="0"
+                               ng-model="model.DeeScore.DeeScoreSupport"
+                               disabled>
+                        <div id="slider5" ng-click="assignSliderValues(5)"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+<div class="row" style="margin-top:15px">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-10 center-block" style="font-size:16px;"><strong>Comments:</strong></div>
+    <div class="col-lg-2"></div>
+    <textarea class="col-lg-8" type="text" ng-model="model.DeeScore.DeeScoreComment" />
+</div>
+
+<div class="row">
+    <div class="col-lg-12 center-block" style="margin-top:50px">
+        <button class="weberButton" ng-click="save()">Submit</button>
+        <button class="weberButton" ng-click="cancel()">Cancel</button>
+        <button class="weberButton" ng-click="togglePanels('none')">Close</button>
+    </div>
+</div>
+
+@*ng-disabled="form.NewARCCScoreForm.$pristine || form.NewARCCScoreForm.$invalid"*@
