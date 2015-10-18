@@ -13,6 +13,7 @@
                 DeeScoreComment: '',
                 DeeProposalID: 0
             },
+            deeProposalScoreList: [],
             warningMessage: '',
             successMessage: ''
         };
@@ -61,6 +62,7 @@
                 angular.element(document).ready(function () {
                     $timeout(function () {
                         $scope.isApprovalActive = true;
+                        $scope.getApprovalFormData();
                     }, 400);
                 });
             }
@@ -147,7 +149,77 @@
                             $scope.model.warningMessage = 'Alert: Score was not saved!';
                         else
                             $scope.model.successMessage = 'Score was successfully submitted!';
-                    }, 400);
+                    }, 900);
+                });
+            });
+        };
+
+
+        /******************************************
+         * These methods are for the approval panel
+         ******************************************/
+
+        // get list of all committee members and their scores for the proposal
+        $scope.getApprovalFormData = function () {
+
+            var committeeMembers = [];
+            var scoreListFromDB = [];
+            $scope.model.deeProposalScoreList = [];
+
+            // get all committee members
+            scores.GetDeeScores.Get().then(function (result) {
+                committeeMembers = result;
+            });
+
+            // get all scores for proposal
+            scores.GetDeeScores.Get($scope.model.fullProposal.DeeProposal.DeeProposalID).then(function (result) {
+                scoreListFromDB = result;
+
+                // create the score list to return to the View
+                angular.forEach(committeeMembers, function (member) {
+                    var memberScore = {};
+                    memberScore.UserName = member.UserFirstName + " " + member.UserLastName;
+
+                    // if the member has submitted a score for the proposal, add it to the list to return to View
+                    angular.forEach(scoreListFromDB, function (score) {
+                        if (member.UserID === score.UserID) {
+                            memberScore.DeeScoreResearch = score.DeeScoreResearch;
+                            memberScore.DeeScorePedagogy = score.DeeScorePedagogy;
+                            memberScore.DeeScoreSoftware = score.DeeScoreSoftware;
+                            memberScore.DeeScoreEvaluation = score.DeeScoreEvaluation;
+                            memberScore.DeeScoreSupport = score.DeeScoreSupport;
+                            memberScore.DeeScoreTotal = score.DeeScoreTotal;
+                        }
+                    });
+
+                    // push the record into the list
+                    $scope.model.deeProposalScoreList.push(memberScore);
+                });
+            });
+        };
+
+        // chair's decision to approve or deny proposal 
+        $scope.approval = function (decision) {
+
+            // add the decision and flag proposal as scored and archive it
+            $scope.model.fullProposal.DeeProposal.DeeScored = true;
+            $scope.model.fullProposal.DeeProposal.DeeApproval = decision;
+
+            // udpate proposal with decision and save to db
+            scores.SaveOrUpdateDeeScore.Update($scope.model.fullProposal.DeeProposal).then(function (result) {
+
+                // reset form
+                $scope.cancel();
+
+                // delay for animations
+                angular.element(document).ready(function () {
+                    $timeout(function () {
+                        // display message
+                        if (decision === 1)
+                            $scope.model.successMessage = 'Success! The approval is now archived.';
+                        else
+                            $scope.model.warningMessage = 'Alert: Proposal was not saved.';
+                    }, 900);
                 });
             });
         };

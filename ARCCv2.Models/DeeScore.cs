@@ -10,6 +10,7 @@ namespace ARCCv2.Models
         public int DeeScoreSoftware { get; set; }
         public int DeeScoreEvaluation { get; set; }
         public int DeeScoreSupport { get; set; }
+        public int DeeScoreTotal { get; set; }
         public string DeeScoreComment { get; set; }
         public int UserID { get; set; }
         public int DeeProposalID { get; set; }

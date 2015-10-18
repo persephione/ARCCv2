@@ -20,12 +20,13 @@ namespace ARCCv2.Data.Configuration
 
             // Table & Column Mappings
             this.ToTable("DeeScore");
-            this.Property(t => t.DeeScoreID).HasColumnName(" DeeScoreID");
+            this.Property(t => t.DeeScoreID).HasColumnName("DeeScoreID");
             this.Property(t => t.DeeScoreResearch).HasColumnName("DeeScoreResearch");
             this.Property(t => t.DeeScorePedagogy).HasColumnName("DeeScorePedagogy");
             this.Property(t => t.DeeScoreSoftware).HasColumnName("DeeScoreSoftware");
             this.Property(t => t.DeeScoreEvaluation).HasColumnName("DeeScoreEvaluation");
             this.Property(t => t.DeeScoreSupport).HasColumnName("DeeScoreSupport");
+            this.Property(t => t.DeeScoreTotal).HasColumnName("DeeScoreTotal");
             this.Property(t => t.DeeScoreComment).HasColumnName("DeeScoreComment");
             this.Property(t => t.UserID).HasColumnName("UserID");    
             this.Property(t => t.DeeProposalID).HasColumnName("DeeProposalID");    

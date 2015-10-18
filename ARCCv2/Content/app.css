@@ -125,65 +125,96 @@ a.headerLinks:hover {
 /* ------------------------------------------- */
 /* Slide Left */
 .slide-left.ng-hide-add {
-  transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transition-duration: 800ms;
-  -webkit-transition-duration:650ms;
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -moz-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+    -moz-transition-delay: .8s;
+    -o-transition-delay: .8s;
+    -webkit-transition-delay: .8s;
+    transition-delay: .8s;
 }
 .slide-left.ng-hide-add.ng-hide-add-active {
-  transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 .slide-left.ng-hide-remove {
-  transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transition-duration: 800ms;
-  -webkit-transition-duration: 800ms;
-  transition-delay: 0.4s;
-  animation-delay: 0.4s;
-  display: block !important;
+    -moz-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -moz-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+    -moz-transition-delay: 0.8s;
+    -o-transition-delay: 0.8s;
+    -webkit-transition-delay: 0.8s;
+    transition-delay: 0.8s;
+    display: block !important;
 }
 .slide-left.ng-hide-remove.ng-hide-remove-active {
-  transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
 }
 
 /* Slide Right */
 .slide-right.ng-hide-add {
-  transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transition-duration: 800ms;
-  -webkit-transition-duration: 800ms;
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition-duration: 600ms;
+    -moz-transition-duration: 600ms;
+    -o-transition-duration: 600ms;
+    transition-duration: 600ms;
 }
 .slide-right.ng-hide-add.ng-hide-add-active {
-  transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
 }
 .slide-right.ng-hide-remove {
-  transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
-  transition-duration: 800ms;
-  -webkit-transition-duration: 800ms;
-  transition-delay: 0.4s;
-  animation-delay: 0.4s;
-  display: block !important;
+    -moz-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -moz-transition-duration: 600ms;
+    -o-transition-duration: 600ms;
+    -webkit-transition-duration: 600ms;
+    transition-duration: 600ms;
+    display: block !important;
 }
 .slide-right.ng-hide-remove.ng-hide-remove-active {
-  transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
 }
 
 /*-- custom warning text box --*/
 .messageSlideUp {
-    transition: .5s linear all;
+    -moz-transition: .4s linear all;
+    -o-transition: .4s linear all;
+    -webkit-transition: .4s linear all;
+    transition: .4s linear all;
     height: 36px;
     width: 385px;
     overflow: hidden;

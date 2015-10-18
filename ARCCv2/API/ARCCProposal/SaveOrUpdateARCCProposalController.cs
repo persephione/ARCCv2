@@ -11,7 +11,7 @@ namespace ARCCv2.API
         /// Saves new or updates existing arcc proposal. - tina
         /// </summary>
         /// <param name="arccProposal">arcc proposal object</param>
-        /// <returns>The new proposal id</returns>
+        /// <returns>The proposal id</returns>
         public int Post([FromBody] ARCCProposalDetail  arccProposal)
         {
             // save the proposal first

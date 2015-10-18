@@ -12,18 +12,18 @@
             <table class="table table-striped approvalTable">
                 <tr>
                     <th width="200px">Member</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Research</th>
+                    <th>Pedagogy</th>
+                    <th>Software</th>
                     <th>Evaluation</th>
                     <th>Support</th>
                     <th>Total</th>
                 </tr>
-                <tr ng-repeat="score in model.arccProposalScoreList">
+                <tr ng-repeat="score in model.deeProposalScoreList">
                     <td>{{::score.UserName}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{::score.DeeScoreResearch}}</td>
+                    <td>{{::score.DeeScorePedagogy}}</td>
+                    <td>{{::score.DeeScoreSoftware}}</td>
                     <td>{{::score.DeeScoreEvaluation}}</td>
                     <td>{{::score.DeeScoreSupport}}</td>
                     <td><strong>{{::score.DeeScoreTotal}}</strong></td>
@@ -31,9 +31,7 @@
             </table>
         </div>
     </div>
-
 </div>
-
 
 <div class="row">
     <div class="col-lg-12 center-block" style="margin-top:50px">
