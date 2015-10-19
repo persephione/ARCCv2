@@ -355,7 +355,17 @@
         </div>
     </div>
 
-    <div class="col-lg-2"></div>
+    <div class="col-lg-2">
+        @*-- Submission Messages --*@
+        <div class="messageSlideUp warningMessage" ng-hide="model.warningMessage.length == 0" style="margin:25px 0 0 0">
+            <button type="button" class="close" ng-click="cancel()">×</button>
+            {{model.warningMessage}}
+        </div>
+        <div class="messageSlideUp successMessage" ng-hide="model.successMessage.length == 0" style="margin-top:25px 0 0 0">
+            <button type="button" class="close" ng-click="cancel()">×</button>
+            {{model.successMessage}}
+        </div>
+    </div>
 
     @*-- Scoring Partial View Panel --*@
     <div class="col-lg-4 {{slideClass}}" ng-hide="!isScoringActive" style="border-left:1px solid #CCCCCC;">
@@ -365,16 +375,6 @@
     @*-- Approval Partial View Panel --*@
     <div class="col-lg-4 {{slideClass}}" ng-hide="!isApprovalActive" style="border-left:1px solid #CCCCCC;">
         @Html.Partial("ARCCApproval")
-    </div>
-
-    @*-- Submission Messages --*@
-    <div class="messageSlideUp warningMessage" ng-hide="model.warningMessage.length == 0" style="margin:25px 0 0 0">
-        <button type="button" class="close" ng-click="cancel()">×</button>
-        {{model.warningMessage}}
-    </div>
-    <div class="messageSlideUp successMessage" ng-hide="model.successMessage.length == 0" style="margin-top:25px 0 0 0">
-        <button type="button" class="close" ng-click="cancel()">×</button>
-        {{model.successMessage}}
     </div>
 </div>
 

@@ -227,12 +227,20 @@
         // get list of all committee members and their scores for the proposal
         $scope.getApprovalFormData = function () {
 
+            // just in case messages are currently displayed, remove them
+            $scope.model.warningMessage = '';
+            $scope.model.successMessage = '';
+
             var committeeMembers = [];
             var scoreListFromDB = [];
             $scope.model.deeProposalScoreList = [];
 
             // get all committee members
             scores.GetDeeScores.Get().then(function (result) {
+                // just in case messages are currently displayed, remove them
+                $scope.model.warningMessage = '';
+                $scope.model.successMessage = '';
+
                 committeeMembers = result;
             });
 

@@ -231,18 +231,29 @@
 
         // get list of all committee members and their scores for the proposal
         $scope.getApprovalFormData = function () {
+            // just in case messages are currently displayed, remove them
+            $scope.model.warningMessage = '';
+            $scope.model.successMessage = '';
 
             var committeeMembers = [];
             var scoreListFromDB = [];
             $scope.model.arccProposalScoreList = [];
 
             // get all committee members
-            scores.GetARCCScores.Get().then(function(result) {
+            scores.GetARCCScores.Get().then(function (result) {
+                // just in case messages are currently displayed, remove them
+                $scope.model.warningMessage = '';
+                $scope.model.successMessage = '';
+
                 committeeMembers = result;
             });
 
             // get all scores for proposal
-            scores.GetARCCScores.Get($scope.model.fullProposal.ARCCProposal.ARCCProposalID).then(function(result) {
+            scores.GetARCCScores.Get($scope.model.fullProposal.ARCCProposal.ARCCProposalID).then(function (result) {
+                // just in case messages are currently displayed, remove them
+                $scope.model.warningMessage = '';
+                $scope.model.successMessage = '';
+
                 scoreListFromDB = result;
 
                 // create the score list to return to the View

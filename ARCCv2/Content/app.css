@@ -134,10 +134,10 @@ a.headerLinks:hover {
     -o-transition-duration: 800ms;
     -webkit-transition-duration: 800ms;
     transition-duration: 800ms;
-    -moz-transition-delay: .8s;
-    -o-transition-delay: .8s;
-    -webkit-transition-delay: .8s;
-    transition-delay: .8s;
+    -moz-transition-delay: .9s;
+    -o-transition-delay: .9s;
+    -webkit-transition-delay: .9s;
+    transition-delay: .9s;
 }
 .slide-left.ng-hide-add.ng-hide-add-active {
     -moz-transform: translateX(-100%);
@@ -211,10 +211,10 @@ a.headerLinks:hover {
 
 /*-- custom warning text box --*/
 .messageSlideUp {
-    -moz-transition: .4s linear all;
-    -o-transition: .4s linear all;
-    -webkit-transition: .4s linear all;
-    transition: .4s linear all;
+    -moz-transition: .3s linear all;
+    -o-transition: .3s linear all;
+    -webkit-transition: .3s linear all;
+    transition: .3s linear all;
     height: 36px;
     width: 385px;
     overflow: hidden;
