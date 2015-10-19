@@ -274,7 +274,7 @@
             $scope.model.fullProposal.ARCCProposal.ARCCApproval = decision;
             
             // udpate proposal with decision and save to db
-            scores.SaveOrUpdateARCCScore.Update($scope.model.fullProposal.ARCCProposal).then(function (result) {
+            arccProposal.SaveOrUpdateARCCProposal.Update($scope.model.fullProposal).then(function (result) {
 
                 // reset form
                 $scope.cancel();
@@ -283,10 +283,10 @@
                 angular.element(document).ready(function () {
                     $timeout(function () {
                         // display message
-                        if (decision === 1)
-                            $scope.model.successMessage = 'Success! The approval is now archived.';
-                        else
+                        if (decision === 0)
                             $scope.model.warningMessage = 'Alert: Proposal was not saved.';
+                        else // if it saved then redirect home
+                            $location.path('/Home/ScoringDashboard');
                     }, 900);
                 });
             });

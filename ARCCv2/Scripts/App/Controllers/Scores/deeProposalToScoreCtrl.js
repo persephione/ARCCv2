@@ -219,10 +219,10 @@
                 angular.element(document).ready(function () {
                     $timeout(function () {
                         // display message
-                        if (decision === 1)
-                            $scope.model.successMessage = 'Success! The approval is now archived.';
-                        else
+                        if (decision === 0)
                             $scope.model.warningMessage = 'Alert: Proposal was not saved.';
+                        else // if it saved then redirect home
+                            $location.path('/Home/ScoringDashboard');
                     }, 900);
                 });
             });
