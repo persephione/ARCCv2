@@ -19,7 +19,7 @@
             successMessage: ''
         };
         $scope.ARCCPartiallyFunded = '';
-
+        $scope.ARCCReplacementEquipment = '';
         $scope.form = {};
         $scope.proposalIsArchived = false;
         $scope.isScoringActive = false;
