@@ -18,12 +18,7 @@
        
          @Scripts.Render("~/bundles/modernizr")
       
-          @{ string serverName = Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)).ToString(); }
-       
-        @*@if (serverName.Contains("localhost"))
-        {
-            serverName = "http://dc-dv64";
-        }*@
+         @*@{ string serverName = Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)).ToString(); }*@
 
         <link href="~/Content/bootstrap.css")" rel="stylesheet" type="text/css"/>
         <link href="~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />

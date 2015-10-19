@@ -54,53 +54,53 @@
 
         // calculations for budget table totals
         var updateHardwareTotals = function () {
-            $scope.model.hwArccTotal = 0.0;
+            $scope.model.hwDeeTotal = 0.0;
             $scope.model.hwDepartmentTotal = 0.0;
             $scope.model.hwCollegeTotal = 0.0;
             $scope.model.hwOtherTotal = 0.0;
             angular.forEach($scope.model.fullProposal.HardwareBudgetList, function (item) {
-                $scope.model.hwArccTotal += item.ARCCHardwareARCCBudget;
-                $scope.model.hwDepartmentTotal += item.ARCCHardwareDeptBudget;
-                $scope.model.hwCollegeTotal += item.ARCCHardwareCollegeBudget;
-                $scope.model.hwOtherTotal += item.ARCCHardwareOtherBudget;
+                $scope.model.hwDeeTotal += item.DeeHardwareDeeBudget;
+                $scope.model.hwDepartmentTotal += item.DeeHardwareDeptBudget;
+                $scope.model.hwCollegeTotal += item.DeeHardwareCollegeBudget;
+                $scope.model.hwOtherTotal += item.DeeHardwareOtherBudget;
             });
             updateTotals();
         };
 
-        var updateSoftwareTotals = function () {
-            $scope.model.swArccTotal = 0.0;
+        updateSoftwareTotals = function () {
+            $scope.model.swDeeTotal = 0.0;
             $scope.model.swDepartmentTotal = 0.0;
             $scope.model.swCollegeTotal = 0.0;
             $scope.model.swOtherTotal = 0.0;
             angular.forEach($scope.model.fullProposal.SoftwareBudgetList, function (item) {
-                $scope.model.swArccTotal += item.ARCCSoftwareARCCBudget;
-                $scope.model.swDepartmentTotal += item.ARCCSoftwareDeptBudget;
-                $scope.model.swCollegeTotal += item.ARCCSoftwareCollegeBudget;
-                $scope.model.swOtherTotal += item.ARCCSoftwareOtherBudget;
+                $scope.model.swDeeTotal += item.DeeSoftwareDeeBudget;
+                $scope.model.swDepartmentTotal += item.DeeSoftwareDeptBudget;
+                $scope.model.swCollegeTotal += item.DeeSoftwareCollegeBudget;
+                $scope.model.swOtherTotal += item.DeeSoftwareOtherBudget;
             });
             updateTotals();
         };
 
-        var updateOtherTotals = function () {
-            $scope.model.oArccTotal = 0.0;
+        updateOtherTotals = function () {
+            $scope.model.oDeeTotal = 0.0;
             $scope.model.oDepartmentTotal = 0.0;
             $scope.model.oCollegeTotal = 0.0;
             $scope.model.oOtherTotal = 0.0;
             angular.forEach($scope.model.fullProposal.OtherBudgetList, function (item) {
-                $scope.model.oArccTotal += item.ARCCOtherARCCBudget;
-                $scope.model.oDepartmentTotal += item.ARCCOtherDeptBudget;
-                $scope.model.oCollegeTotal += item.ARCCOtherCollegeBudget;
-                $scope.model.oOtherTotal += item.ARCCBudgetOther;
+                $scope.model.oDeeTotal += item.DeeOtherDeeBudget;
+                $scope.model.oDepartmentTotal += item.DeeOtherDeptBudget;
+                $scope.model.oCollegeTotal += item.DeeOtherCollegeBudget;
+                $scope.model.oOtherTotal += item.DeeOtherOtherBudget;
             });
             updateTotals();
         };
 
-        var updateTotals = function () {
-            $scope.model.arccTotal = $scope.model.hwArccTotal + $scope.model.swArccTotal + $scope.model.oArccTotal;
+        updateTotals = function () {
+            $scope.model.deeTotal = $scope.model.hwDeeTotal + $scope.model.swDeeTotal + $scope.model.oDeeTotal;
             $scope.model.departmentTotal = $scope.model.hwDepartmentTotal + $scope.model.swDepartmentTotal + $scope.model.oDepartmentTotal;
             $scope.model.collegeTotal = $scope.model.hwCollegeTotal + $scope.model.swCollegeTotal + $scope.model.oCollegeTotal;
             $scope.model.otherTotal = $scope.model.hwOtherTotal + $scope.model.swOtherTotal + $scope.model.oOtherTotal;
-            $scope.model.grandTotal = $scope.model.arccTotal + $scope.model.departmentTotal + $scope.model.collegeTotal + $scope.model.otherTotal;
+            $scope.model.grandTotal = $scope.model.deeTotal + $scope.model.departmentTotal + $scope.model.collegeTotal + $scope.model.otherTotal;
         };
 
         // toggle the scoring and approval panels

@@ -171,12 +171,8 @@
             $location.path('/Home/UserDashboard');
         };
 
-
-
         // user can either save or submit proposal
         $scope.save = function (submit) {
-
-            var savedText = submit == false ? 'saved.' : 'submitted.';
 
             // if user clicked on Save and Submit, then add the submitted date to proposal record
             if (submit == true) {
@@ -187,9 +183,11 @@
             // update edited proposal to db
             deeProposal.SaveOrUpdateDeeProposal.Update($scope.model.fullProposal).then(function (result) {
                 if (result == 0)
-                    $scope.model.errorMessage = 'Alert: Proposal was not saved! ' + savedText;
+                    $scope.model.errorMessage = 'Alert: Proposal was not saved!';
                 else
                     $location.path('/Home/UserDashboard');
             });
         };
+
+
     }]);

@@ -19,6 +19,12 @@ angular.module('App').filter('nameToLabel', function () {
     };
 });
 
+angular.module('App').filter('formatPercent', ['$filter', function ($filter) {
+    return function (input) {
+        return $filter('number')(parseFloat(input)) + '%';
+    };
+}]);
+
 angular.module('App').filter('dcCurrency', ['numberFilter', function (numberFilter) {
     return function(input) {
         if (angular.isNumber(input)) {

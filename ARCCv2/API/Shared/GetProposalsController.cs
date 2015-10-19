@@ -5,12 +5,16 @@ namespace ARCCv2.API.Scores
 {
     public class GetProposalsController : ARCCApiController
     {
+        /// <summary>
+        /// Gets the proposals for the User Dashboard
+        /// </summary>
+        /// <returns></returns>
         public List<ProposalListView> Get()
         {
             var arccProposals = GetAllARCCProposals();
             var deeProposals = GetAllDeeProposals();
 
-            return CreateProposalListViews(arccProposals, deeProposals);
+            return CreateProposalListViewsForUserDashboard(arccProposals, deeProposals);
         }
 
         protected List<Models.ARCCProposal> GetAllARCCProposals() => arccManager.GetARCCProposals();

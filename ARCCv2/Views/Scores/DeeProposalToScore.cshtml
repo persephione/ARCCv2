@@ -140,7 +140,7 @@
                         <thead>
                             <tr>
                                 <th class="budget-name">Hardware</th>
-                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Dee Family Technology</th>
                                 <th class="budget-item text-center">Department</th>
                                 <th class="budget-item text-center">College</th>
                                 <th class="budget-item text-center">Other</th>
@@ -149,7 +149,7 @@
                         <tfoot>
                             <tr>
                                 <th class="">Hardware Subtotals</th>
-                                <th class="budget-item text-center">${{model.hwArccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.hwDeeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.hwDepartmentTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.hwCollegeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.hwOtherTotal | number : 2}}</th>
@@ -157,11 +157,11 @@
                         </tfoot>
                         <tbody>
                             <tr ng-repeat="item in model.fullProposal.HardwareBudgetList">
-                                <td class="budget-name">{{item.ARCCHardwareName}}</td>
-                                <td class="budget-item">${{item.ARCCHardwareARCCBudget | number : 2}}</td>
-                                <td class="budget-item">${{item.ARCCHardwareDeptBudget | number : 2}}</td>
-                                <td class="budget-item">${{item.ARCCHardwareCollegeBudget | number : 2}}</td>
-                                <td class="budget-item">${{item.ARCCHardwareOtherBudget | number : 2}}</td>
+                                <td class="budget-name">{{item.DeeHardwareName}}</td>
+                                <td class="budget-item">${{item.DeeHardwareDeeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeHardwareDeptBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeHardwareCollegeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeHardwareOtherBudget | number : 2}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -170,7 +170,7 @@
                         <thead>
                             <tr>
                                 <th class="budget-name">Software</th>
-                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Dee Family Technology</th>
                                 <th class="budget-item text-center">Department</th>
                                 <th class="budget-item text-center">College</th>
                                 <th class="budget-item text-center">Other</th>
@@ -179,7 +179,7 @@
                         <tfoot>
                             <tr>
                                 <th class="">Software Subtotals</th>
-                                <th class="budget-item text-center">${{model.swArccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.swDeeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.swDepartmentTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.swCollegeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.swOtherTotal | number : 2}}</th>
@@ -187,11 +187,11 @@
                         </tfoot>
                         <tbody>
                             <tr ng-repeat="item in model.fullProposal.SoftwareBudgetList">
-                                <td class="budget-name">{{item.softwareName}}</td>
-                                <td class="budget-item">${{item.arcc | number : 2}}</td>
-                                <td class="budget-item">${{item.department | number : 2}}</td>
-                                <td class="budget-item">${{item.college | number : 2}}</td>
-                                <td class="budget-item">${{item.other | number : 2}}</td>
+                                <td class="budget-name">{{item.DeeSoftwareName}}</td>
+                                <td class="budget-item">${{item.DeeSoftwareDeeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeSoftwareDeptBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeSoftwareCollegeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeSoftwareOtherBudget | number : 2}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -200,30 +200,28 @@
                         <thead>
                             <tr>
                                 <th class="budget-name">Other (including facilities and installation)</th>
-                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Dee Family Technology</th>
                                 <th class="budget-item text-center">Department</th>
                                 <th class="budget-item text-center">College</th>
                                 <th class="budget-item text-center">Other</th>
-                                <th class="budget-button">Add/Remove</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th class="">Other Subtotals</th>
-                                <th class="budget-item text-center">${{model.oArccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.oDeeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.oDepartmentTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.oCollegeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.oOtherTotal | number : 2}}</th>
-                                <th class="budget-button"></th>
                             </tr>
                         </tfoot>
                         <tbody>
                             <tr ng-repeat="item in model.fullProposal.OtherBudgetList">
-                                <td class="budget-name">{{item.OtherName}}</td>
-                                <td class="budget-item">${{item.arcc | number : 2}}</td>
-                                <td class="budget-item">${{item.department | number : 2}}</td>
-                                <td class="budget-item">${{item.college | number : 2}}</td>
-                                <td class="budget-item">${{item.other | number : 2}}</td>
+                                <td class="budget-name">{{item.DeeOtherName}}</td>
+                                <td class="budget-item">${{item.DeeOtherDeeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeOtherDeptBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeOtherCollegeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.DeeOtherOtherBudget | number : 2}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -232,7 +230,7 @@
                         <thead>
                             <tr>
                                 <th class="grand-total">Grand Totals:</th>
-                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Dee Family Technology</th>
                                 <th class="budget-item text-center">Department</th>
                                 <th class="budget-item text-center">College</th>
                                 <th class="budget-item text-center">Other</th>
@@ -241,7 +239,7 @@
                         <tbody>
                             <tr class="info">
                                 <th class="grand-total">${{model.grandTotal | number : 2}}</th>
-                                <th class="budget-item text-center">${{model.arccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.deeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.departmentTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.collegeTotal | number : 2}}</th>
                                 <th class="budget-item text-center">${{model.otherTotal | number : 2}}</th>
@@ -268,7 +266,7 @@
                         <div>
                             <span class="proposalViewOnlyText">
                                 <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
-                                <br />{{::model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent}}
+                                <br />{{model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent | formatPercent}}
                             </span>
                         </div>
                     </div>

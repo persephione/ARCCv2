@@ -9,6 +9,13 @@ namespace ARCCv2.Business.DatabaseQueries
     public class DeeQueries : BusinessBase
     {
         /// <summary>
+        /// Checks if a proposal exists in db by comparing proposal name and director - tina
+        /// </summary>
+        /// <param name="id">unique primary key</param>
+        /// <returns>true or false</returns>
+        public bool DoesProposalExist(int id) => Uow.DeeProposalRepository.GetById(id) != null ? true : false;
+
+        /// <summary>
         /// Checks if there's already a duplicate of the exact proposal in db using unique primary key - tina
         /// </summary>
         /// <param name="proposalName">name of proposal</param>

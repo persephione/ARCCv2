@@ -33,7 +33,7 @@ namespace ARCCv2.Business.Managers
             if (deeProposal.DeeProposalID != 0)
             {
                 // check if proposal exists in db
-                var proposalExists = arccQueries.DoesProposalExist(deeProposal.DeeProposalID);
+                var proposalExists = deeQueries.DoesProposalExist(deeProposal.DeeProposalID);
 
                 if (proposalExists)
                 {

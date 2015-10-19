@@ -297,7 +297,7 @@
                         <div>
                             <span class="proposalViewOnlyText">
                                 <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
-                                <br />{{::model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent}}
+                                <br />{{model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent | formatPercent}}
                             </span>
                         </div>
                     </div>

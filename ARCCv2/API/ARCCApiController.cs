@@ -20,8 +20,8 @@ namespace ARCCv2.API
         public ProposalStatus proposalStatus => _proposalStatus ?? (_proposalStatus = new ProposalStatus());
 
 
-        protected List<ProposalListView> CreateProposalListViews(List<Models.ARCCProposal> arccProposals = null,
-                                                        List<ARCCv2.Models.DeeProposal> deeProposals = null)
+        protected List<ProposalListView> CreateProposalListViewsForScoring(List<Models.ARCCProposal> arccProposals = null,
+                                                        List<Models.DeeProposal> deeProposals = null)
         {
             var allProposals = new List<ProposalListView>();
             if (arccProposals != null)
@@ -49,6 +49,59 @@ namespace ARCCv2.API
                     newViewProposal.LastUpdatedDate = dee.DeeLastUpdatedDate;
                     newViewProposal.Type = "Dee";
                     newViewProposal.Status = dee.DeeApproval ? proposalStatus.isFalse : proposalStatus.isTrue;
+                    allProposals.Add(newViewProposal);
+                }
+            }
+
+            return allProposals;
+        }
+
+        protected List<ProposalListView> CreateProposalListViewsForUserDashboard(List<Models.ARCCProposal> arccProposals = null,
+                                                        List<Models.DeeProposal> deeProposals = null)
+        {
+            var allProposals = new List<ProposalListView>();
+            if (arccProposals != null)
+            {
+                foreach (var arcc in arccProposals)
+                {
+                    var newViewProposal = new ProposalListView();
+                    newViewProposal.ProposalID = arcc.ARCCProposalID;
+                    newViewProposal.ProposalName = arcc.ARCCName;
+                    newViewProposal.LastUpdatedDate = arcc.ARCCLastUpdatedDate;
+                    newViewProposal.Type = "ARCC";
+
+                    if (arcc.ARCCSubmitted == false)
+                        newViewProposal.Status = proposalStatus.notSubmitted;
+                    else if (arcc.ARCCSubmitted == true && arcc.ARCCScored == false)
+                        newViewProposal.Status = proposalStatus.submitted;
+                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == true)
+                        newViewProposal.Status = proposalStatus.approved;
+                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == false)
+                        newViewProposal.Status = proposalStatus.notApproved;
+
+                    allProposals.Add(newViewProposal);
+                }
+            }
+
+            if (deeProposals != null)
+            {
+                foreach (var dee in deeProposals)
+                {
+                    var newViewProposal = new ProposalListView();
+                    newViewProposal.ProposalID = dee.DeeProposalID;
+                    newViewProposal.ProposalName = dee.DeeName;
+                    newViewProposal.LastUpdatedDate = dee.DeeLastUpdatedDate;
+                    newViewProposal.Type = "Dee";
+
+                    if (dee.DeeSubmitted == false)
+                        newViewProposal.Status = proposalStatus.notSubmitted;
+                    else if (dee.DeeSubmitted == true && dee.DeeScored == false)
+                        newViewProposal.Status = proposalStatus.submitted;
+                    else if (dee.DeeScored == true && dee.DeeApproval == true)
+                        newViewProposal.Status = proposalStatus.approved;
+                    else if (dee.DeeScored == true && dee.DeeApproval == false)
+                        newViewProposal.Status = proposalStatus.notApproved;
+
                     allProposals.Add(newViewProposal);
                 }
             }

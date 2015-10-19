@@ -240,10 +240,10 @@
     <Content Include="Scripts\App\Directives\dcCheck.js" />
     <Content Include="Scripts\App\Directives\dcCheckList.js" />
     <Content Include="Scripts\App\Directives\dcFocus.js" />
-    <Content Include="Scripts\App\Directives\dcFormatCurrency.js" />
     <Content Include="Scripts\App\Directives\dcHighlightMessage.js" />
     <Content Include="Scripts\App\Directives\dcLock.js" />
     <Content Include="Scripts\App\Directives\dcNumbersOnly.js" />
+    <Content Include="Scripts\App\Directives\formatPercent.js" />
     <Content Include="Scripts\App\Filters\filter.js" />
     <Content Include="Scripts\App\Services\arccProposal.js" />
     <Content Include="Scripts\App\Services\dateValidation.js" />

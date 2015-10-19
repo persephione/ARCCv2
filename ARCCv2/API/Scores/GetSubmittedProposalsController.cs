@@ -18,7 +18,7 @@ namespace ARCCv2.API.Scores
             var arccProposals = GetSubmittedARCCProposals();
             var deeProposals = GetSubmittedDeeProposals();
 
-            return CreateProposalListViews(arccProposals, deeProposals);
+            return CreateProposalListViewsForScoring(arccProposals, deeProposals);
         }
 
         protected List<Models.ARCCProposal> GetSubmittedARCCProposals() => arccManager.GetSubmittedARCCProposals();
