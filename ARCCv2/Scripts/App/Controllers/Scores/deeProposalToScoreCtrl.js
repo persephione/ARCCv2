@@ -24,8 +24,8 @@
         $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
 
-        $scope.goHome = function () {
-            $location.path('/Home/Welcome');
+        $scope.goToScoreList = function () {
+            $location.path('/Home/ScoringDashboard');
         };
 
         // get proposal id from params
