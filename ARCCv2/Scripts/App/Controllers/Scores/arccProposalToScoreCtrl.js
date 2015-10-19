@@ -28,7 +28,8 @@
         $scope.model.fullProposal.Id = parameters.get("proposalId");
 
         // query db for proposal
-        arccProposal.GetARCCProposals.Get($scope.model.fullProposal.Id).then(function (result) {
+        //arccProposal.GetARCCProposals.Get($scope.model.fullProposal.Id).then(function (result) {
+        arccProposal.GetARCCProposals.Get(1).then(function (result) {
             $scope.model.fullProposal = result;
 
             // set the arcc score proposal id to the current arcc proposal

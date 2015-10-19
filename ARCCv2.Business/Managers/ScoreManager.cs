@@ -29,7 +29,7 @@ namespace ARCCv2.Business.Managers
         /// <param name="scoreID">unique score id</param>
         /// <param name="user">user editing or saving object</param>
         /// <returns>Number of records saved in db</returns>
-        public int SaveOrUpdateARCCScore(ARCCScore arccScore, User user)  // TODO: Remove comments after testing ----------//
+        public int SaveOrUpdateARCCScore(ARCCScore arccScore, User user)
         {
             // check if it's a new or existing record
             if (arccScore.ARCCScoreID == 0)
@@ -37,7 +37,7 @@ namespace ARCCv2.Business.Managers
                 arccScore.UserID = user.UserID;
                 arccScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
                 arccScore.ScoreLastUpdatedDate = DateTime.Now;
-                //Uow.ARCCScoreRepository.Add(arccScore);
+                Uow.ARCCScoreRepository.Add(arccScore);
             }
             else
             {
@@ -48,13 +48,12 @@ namespace ARCCv2.Business.Managers
 
                     arccScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
                     arccScore.ScoreLastUpdatedDate = DateTime.Now;
-                    //Uow.ARCCScoreRepository.Update(arccScore);
+                    Uow.ARCCScoreRepository.Update(arccScore);
                 }
                 else
                     return 0;
             }
-            //return Uow.SaveChanges();
-            return 0;
+            return Uow.SaveChanges();
         }
 
         /// <summary>
@@ -77,7 +76,7 @@ namespace ARCCv2.Business.Managers
         /// <param name="scoreID">unique score id</param>
         /// <param name="user">user editing or saving object</param>
         /// <returns>Number of records saved in db</returns>  
-        public int SaveOrUpdateDeeScore(DeeScore deeScore, User user) // TODO: Remove comments after testing ----------//
+        public int SaveOrUpdateDeeScore(DeeScore deeScore, User user)
         {
             // check if it's a new or existing record
             if (deeScore.DeeScoreID == 0)
@@ -85,7 +84,7 @@ namespace ARCCv2.Business.Managers
                 deeScore.UserID = user.UserID;
                 deeScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
                 deeScore.ScoreLastUpdatedDate = DateTime.Now;
-                //Uow.DeeScoreRepository.Add(deeScore);
+                Uow.DeeScoreRepository.Add(deeScore);
             }
             else
             {
@@ -95,13 +94,12 @@ namespace ARCCv2.Business.Managers
                 {
                     deeScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;
                     deeScore.ScoreLastUpdatedDate = DateTime.Now;
-                    //Uow.DeeScoreRepository.Update(deeScore);
+                    Uow.DeeScoreRepository.Update(deeScore);
                 }
                 else
                     return 0;
             }
-            //return Uow.SaveChanges();
-            return 0;
+            return Uow.SaveChanges();
         }
     }
 }

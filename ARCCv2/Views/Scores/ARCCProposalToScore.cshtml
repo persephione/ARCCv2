@@ -1,58 +1,419 @@
-﻿<style>
-    
-</style>
-<div class="row">
-    <div class="col-lg-8">
-            Proposal ID: {{::model.fullProposal.ARCCProposal.ARCCProposalID}}<br />
-            Proposal Name: {{::model.fullProposal.ARCCProposal.ARCCName}}<br />
-            Director: {{::model.fullProposal.ARCCProposal.ARCCDirector}}<br />
-            Department: {{::model.fullProposal.ARCCProposal.ARCCDepartment}}<br />
-            College: {{::model.fullProposal.ARCCProposal.ARCCCollege}}<br />
-            Username: {{::model.fullProposal.ARCCProposal.ARCCUsername}}<br />
-            Email: {{::model.fullProposal.ARCCProposal.ARCCEmail}}<br />
-            Extension: {{::model.fullProposal.ARCCProposal.ARCCExtension}}<br />
-            OtherMembers: {{::model.fullProposal.ARCCProposal.ARCCOtherMembers}}<br />
-            ARCCRepSignature: {{::model.fullProposal.ARCCProposal.ARCCRepSignature}}<br />
-            ARCCRepComments: {{::model.fullProposal.ARCCProposal.ARCCRepComments}}<br />
-            ChairSignature: {{::model.fullProposal.ARCCProposal.ARCCChairSignature}}<br />
-            ChairComments: {{::model.fullProposal.ARCCProposal.ARCCChairComments}}<br />
-            DeanSignature: {{::model.fullProposal.ARCCProposal.ARCCDeanSignature}}<br />
-            DeanComments: {{::model.fullProposal.ARCCProposal.ARCCDeanComments}}<br />
-            ITSignature: {{::model.fullProposal.ARCCProposal.ARCCITSignature}}<br />
-            ITComments: {{::model.fullProposal.ARCCProposal.ARCCITComments}}<br />
-            Justification: {{::model.fullProposal.ARCCProposal.ARCCJustification}}<br />
-            JustificationAttach: {{::model.fullProposal.ARCCProposal.ARCCJustificationAttach}}<br />
-            AdditionalResources: {{::model.fullProposal.ARCCProposal.ARCCAdditionalResources}}<br />
-            ARCCReplacementEquipment: {{::model.fullProposal.ARCCProposal.ARCCReplacementEquipment}}<br />
-            ARCCReplacementProjectName: {{::model.fullProposal.ARCCProposal.ARCCReplacementProjectName}}<br />
-            ARCCReplacementARCCYear: {{::model.fullProposal.ARCCProposal.ARCCReplacementARCCYear}}<br />
-            PartiallyFunded: {{::model.fullProposal.ARCCProposal.ARCCPartiallyFunded}}<br />
-            PartiallyFundedPercent: {{::model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent}}<br />
-            LastUpdatedBy: {{::model.fullProposal.ARCCProposal.ARCCLastUpdatedBy}}<br />
-            LastUpdatedDate: {{::model.fullProposal.ARCCProposal.ARCCLastUpdatedDate}}
-            <br /><br />
+﻿<div class="row">
+    <div class="col-lg-6">
 
-            --- HARDWARE ---
-            <div ng-repeat="hardware in model.fullProposal.HardwareBudgetList">
-                Hardware: {{hardware.ARCCHardwareName}}
-            </div>
-            <br />
-
-            --- SOFTWARE ---
-            <div ng-repeat="software in model.proposal.SoftwareBudgetList">
-                Software: {{software.ARCCSoftwareName}}
-            </div>
-            <br />
-
-            --- OTHER ---
-            <div ng-repeat="other in model.proposal.OtherBudgetList">
-                OTHER: {{other.ARCCOtherName}}
-            </div>
-            <br />
-
-            <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('scoring')">Score</button>
-            <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton" ng-click="togglePanels('approval')">Approve</button>
+        <div class="col-lg-12" style="margin-top: 50px">
+            <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton pull-right" ng-click="togglePanels('approval')">Approve</button>
+            <button ng-show="!proposalIsArchived && !isScoringActive && !isApprovalActive" class="weberButton pull-right" ng-click="togglePanels('scoring')">Score</button>
         </div>
+
+        <div class="col-lg-12" style="margin-top:50px">
+            @*-- General Information --*@
+            <div class="panel proposalPanel">
+                <div class="panel-heading proposalPanelHeading">
+                    General Information:
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label for="ARCCName">*Proposal Title:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCName}}<br /><br /></span>
+
+                            <label for="ARCCDirector">*Project Director:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCDirector}}<br /><br /></span>
+
+                            <label for="ARCCDepartment">*Department:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCDepartment}}<br /><br /></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="ARCCCollege">*College:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCCollege}}<br /><br /></span>
+                            <label for="ARCCEmail">*E-Mail:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCEmail}}<br /><br /></span>
+
+                            <label for="ARCCExtension">Extension:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCExtension}}<br /><br /></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label for="ARCCOtherMembers">Other Team Members:</label>
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCOtherMembers}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- ARCC Rep Signature --*@
+            <div class="panel proposalPanel width90 center-block">
+                <div class="proposalPanelSubHeading">
+                    ARCC Representative (required)
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    I have read the proposal and discussed it with the Project Director ({{model.fullProposal.ARCCProposal.ARCCDirector}}).
+                </div>
+                <div class="form-horizontal proposalPanelBody">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="RepSignature">ARCC Representative Signature</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCRepSignature}}<br /><br /></span>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="RepComments">ARCC Representative Comments</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCRepComments}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- Dept Chair Signature --*@
+            <div class="panel proposalPanel width90 center-block">
+                <div class="proposalPanelSubHeading">
+                    Department Chair (required)
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    The Department has reviewed this project within the context of overall information technology planning
+                    within the Department. If the budget page indicates financial support from the Department, I agree to
+                    commit those funds to this project.
+                </div>
+                <div class="form-horizontal proposalPanelBody">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ChairSignature">Department Chair Signature</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCChairSignature}}<br /><br /></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ChairComments">Department Chair Comments</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCChairComments}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- College Dean Signature --*@
+            <div class="panel proposalPanel width90 center-block">
+                <div class="proposalPanelSubHeading">
+                    College Dean (required for matching funds from the college)
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    I have reviewed this project. If the budget page indicates financial support from the College, I
+                    agree to commit those funds to this project.
+                </div>
+                <div class="form-horizontal proposalPanelBody">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="DeanSignature">College Dean Signature</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCDeanSignature}}<br /><br /></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="DeanComments">Department Chair Comments</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCDeanComments}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- IT Representative Signature --*@
+            <div class="panel proposalPanel width90 center-block">
+                <div class="proposalPanelSubHeading">
+                    IT Representative
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    For certain projects an IT expert's signature is required. You must contact the appropriate individual
+                    if you are implementing MULTIMEDIA, NETWORKING, OR OTHER CLASSROOM TECHNOLOGY INSTALLATIONS (contact
+                    Bob King at <a href="mailto:rking@weber.edu">rking@weber.edu</a> or x6865).<br />
+                    I have read the proposal and discussed it with the Project Director ({{model.fullProposal.ARCCProposal.ARCCDirector}}).
+                </div>
+                <div class="form-horizontal proposalPanelBody">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ITSignature">IT Representative Signature</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCITSignature}}<br /><br /></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ITComments">IT Representative Comments</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCITComments}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- Justification --*@
+            <div class="panel proposalPanel">
+                <div class="panel-heading proposalPanelHeading">
+                    Justification
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCJustification}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- Budget Tables --*@
+            <div class="panel proposalPanel">
+                <div class="panel-heading proposalPanelHeading">
+                    Budget
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="budget-name">Hardware</th>
+                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Department</th>
+                                <th class="budget-item text-center">College</th>
+                                <th class="budget-item text-center">Other</th>
+                                <th class="budget-button">Add/Remove</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="">Hardware Subtotals</th>
+                                <th class="budget-item text-center">${{model.hwArccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.hwDepartmentTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.hwCollegeTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.hwOtherTotal | number : 2}}</th>
+                                <th class="budget-button"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.hardwareQuickEntry.hardwareName" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-button">
+                                    <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.hardwareName.length < 1">
+                                        <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                                    </button>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="item in model.fullProposal.HardwareBudgetList">
+                                <td class="budget-name">{{item.ARCCHardwareName}}</td>
+                                <td class="budget-item">${{item.ARCCHardwareARCCBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.ARCCHardwareDeptBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.ARCCHardwareCollegeBudget | number : 2}}</td>
+                                <td class="budget-item">${{item.ARCCHardwareOtherBudget | number : 2}}</td>
+                                <td class="budget-button">
+                                    <button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">
+                                        <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="budget-name">Software</th>
+                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Department</th>
+                                <th class="budget-item text-center">College</th>
+                                <th class="budget-item text-center">Other</th>
+                                <th class="budget-button">Add/Remove</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="">Software Subtotals</th>
+                                <th class="budget-item text-center">${{model.swArccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.swDepartmentTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.swCollegeTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.swOtherTotal | number : 2}}</th>
+                                <th class="budget-button"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.softwareName" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-button">
+                                    <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.fullProposal.ARCCProposal.softwareQuickEntry.softwareName.length < 1">
+                                        <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                                    </button>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="item in model.fullProposal.SoftwareBudgetList">
+                                <td class="budget-name">{{item.softwareName}}</td>
+                                <td class="budget-item">${{item.arcc | number : 2}}</td>
+                                <td class="budget-item">${{item.department | number : 2}}</td>
+                                <td class="budget-item">${{item.college | number : 2}}</td>
+                                <td class="budget-item">${{item.other | number : 2}}</td>
+                                <td class="budget-button">
+                                    <button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)">
+                                        <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="budget-name">Other (including facilities and installation)</th>
+                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Department</th>
+                                <th class="budget-item text-center">College</th>
+                                <th class="budget-item text-center">Other</th>
+                                <th class="budget-button">Add/Remove</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="">Other Subtotals</th>
+                                <th class="budget-item text-center">${{model.oArccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.oDepartmentTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.oCollegeTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.oOtherTotal | number : 2}}</th>
+                                <th class="budget-button"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.otherName" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                                <th class="budget-button">
+                                    <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.fullProposal.ARCCProposal.otherQuickEntry.otherName.length < 1">
+                                        <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                                    </button>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="item in model.fullProposal.OtherBudgetList">
+                                <td class="budget-name">{{item.OtherName}}</td>
+                                <td class="budget-item">${{item.arcc | number : 2}}</td>
+                                <td class="budget-item">${{item.department | number : 2}}</td>
+                                <td class="budget-item">${{item.college | number : 2}}</td>
+                                <td class="budget-item">${{item.other | number : 2}}</td>
+                                <td class="budget-button">
+                                    <button type="button" class="btn btn-default" ng-click="removeOtherItem(item)">
+                                        <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="grand-total">Grand Totals:</th>
+                                <th class="budget-item text-center">ARCC</th>
+                                <th class="budget-item text-center">Department</th>
+                                <th class="budget-item text-center">College</th>
+                                <th class="budget-item text-center">Other</th>
+                                <th class="budget-button"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="info">
+                                <th class="grand-total">${{model.grandTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.arccTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.departmentTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.collegeTotal | number : 2}}</th>
+                                <th class="budget-item text-center">${{model.otherTotal | number : 2}}</th>
+                                <th class="budget-button"></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            @*-- Funding Information --*@
+            <div class="panel proposalPanel">
+                <div class="panel-heading proposalPanelHeading">
+                    Funding Information
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label" for="PartialPercentage">Can this project be completed if it is partially funded?</label>
+                            <div class="col-lg-6">
+                                <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCPartiallyFunded}}<br /><br /></span>
+                            </div>
+
+                        </div>
+                        <div>
+                            <span class="proposalViewOnlyText">
+                                <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
+                                <br />{{::model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- Additional Resources --*@
+            <div class="panel proposalPanel">
+                <div class="panel-heading proposalPanelHeading">
+                    Additional Resources
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    Please describe what other resources will be required to implement this project:<br />
+                    (Additional resources may include needs such as Academic Computing technical support or hardware installation
+                    through Electronic Services.
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCAdditionalResources}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*-- Replacement Equipment --*@
+            <div class="panel proposalPanel">
+                <div class="panel-heading proposalPanelHeading">
+                    Replacement Equipment
+                </div>
+                <div class="panel-body proposalPanelBody">
+                    Please indicate if any of the requested equipment is replacement of items previously purchased with ARCC
+                    funding.<br />
+                    (If possible, please list the ARCC project year and project name.)
+                </div>
+                <div class="form-horizontal proposalPanelBody">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ReplacementEquipment">Requesting Replacement</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementEquipment}}<br /><br /></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ReplacementProjectName">Project Name</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementProjectName}}<br /><br /></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
+                        <div class="col-lg-7">
+                            <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementARCCYear}}<br /><br /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2"></div>
 
     @*-- Scoring Partial View Panel --*@
     <div class="col-lg-4 {{slideClass}}" ng-hide="!isScoringActive" style="border-left:1px solid #CCCCCC;">
@@ -74,5 +435,7 @@
         {{model.successMessage}}
     </div>
 </div>
+
+
 
 
