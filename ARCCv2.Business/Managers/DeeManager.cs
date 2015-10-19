@@ -26,8 +26,6 @@ namespace ARCCv2.Business.Managers
 
                 if (proposalExists)
                 {
-                    //deeProposal.DeeUsername = user; // remove this after testing 
-                    deeProposal.DeeUsername = "tina";
                     deeProposal.DeeLastUpdatedDate = DateTime.Now;
                     //deeProposal.ARCCLastUpdatedBy = user;
                     deeProposal.DeeLastUpdatedBy = "tina"; // remove this after testing            
@@ -41,6 +39,8 @@ namespace ARCCv2.Business.Managers
 
                 if (!duplicate)
                 {
+                    //deeProposal.DeeUsername = user; // remove this after testing 
+                    deeProposal.DeeUsername = "tina";
                     deeProposal.DeeLastUpdatedDate = DateTime.Now;
                     //deeProposal.DeeLastUpdatedBy = user;
                     deeProposal.DeeLastUpdatedBy = "tina"; // remove this after testing
@@ -66,6 +66,10 @@ namespace ARCCv2.Business.Managers
 
         public int SaveOrUpdateHardwareBudget(DeeHardwareBudget hardwareBudget)
         {
+            hardwareBudget.DeeHardwareLastUpdatedDate = DateTime.Now;
+            //hardwareBudget.DeeHardwareLastUpdatedBy = user;
+            hardwareBudget.DeeHardwareLastUpdatedBy = "tina"; // remove this after testing
+
             // check if it's new or existing
             if (hardwareBudget.DeeHardwareBudgetID == 0)
                 Uow.DeeHardwareBudgetRepository.Add(hardwareBudget);
@@ -76,6 +80,10 @@ namespace ARCCv2.Business.Managers
 
         public int SaveOrUpdateSoftwareBudget(DeeSoftwareBudget softwareBudget)
         {
+            softwareBudget.DeeSoftwareLastUpdatedDate = DateTime.Now;
+            //softwareBudget.DeeSoftwareLastUpdatedBy = user;
+            softwareBudget.DeeSoftwareLastUpdatedBy = "tina"; // remove this after testing
+
             // check if it's new or existing
             if (softwareBudget.DeeSoftwareBudgetID == 0)
                 Uow.DeeSoftwareBudgetRepository.Add(softwareBudget);
@@ -86,6 +94,10 @@ namespace ARCCv2.Business.Managers
 
         public int SaveOrUpdateOtherBudget(DeeOtherBudget otherBudget)
         {
+            otherBudget.DeeOtherLastUpdatedDate = DateTime.Now;
+            //otherBudget.DeeOtherLastUpdatedBy = user;
+            otherBudget.DeeOtherLastUpdatedBy = "tina"; // remove this after testing
+
             // check if it's new or existing
             if (otherBudget.DeeOtherBudgetID == 0)
                 Uow.DeeOtherBudgetRepository.Add(otherBudget);

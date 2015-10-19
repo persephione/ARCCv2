@@ -13,25 +13,25 @@
             <div class="row">
                 <div class="col-lg-6 form-group">
                     <label for="ARCCName">*Proposal Title:</label>
-                    <input class="form-control" type="text" ng-model="model.arccName" required />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCName" required />
                     <label for="ARCCDirector">*Project Director:</label>
-                    <input class="form-control" type="text" ng-model="model.arccDirector" required />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCDirector" required />
                     <label for="ARCCDepartment">*Department:</label>
-                    <input class="form-control" type="text" ng-model="model.arccDepartment" required />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCDepartment" required />
                 </div>
                 <div class="col-lg-6 form-group">
                     <label for="ARCCCollege">*College:</label>
-                    <input class="form-control" type="text" ng-model="model.arccCollege" required />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCCollege" required />
                     <label for="ARCCEmail">*E-Mail:</label>
-                    <input class="form-control" type="text" ng-model="model.arccEmail" required />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCEmail" required />
                     <label for="ARCCExtension">Extension:</label>
-                    <input class="form-control" type="text" ng-model="model.arccExtension" />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCExtension" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <label for="ARCCOtherMembers">Other Team Members:</label>
-                    <input class="form-control" type="text" ng-model="model.arccOtherMembers" />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.ARCCProposal.ARCCOtherMembers" />
                 </div>
             </div>
         </div>
@@ -80,21 +80,21 @@
             ARCC Representative (required)
         </div>
         <div class="panel-body proposalPanelBody">
-            I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
+            I have read the proposal and discussed it with the Project Director ({{model.fullProposal.ARCCProposal.ARCCDirector}}).
         </div>
         <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="RepSignature">ARCC Representative Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="RepSignature"
-                           placeholder="ARCC Representative Signature" ng-model="model.arccRepSignature" />
+                           placeholder="ARCC Representative Signature" ng-model="model.fullProposal.ARCCProposal.ARCCRepSignature" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="RepComments">ARCC Representative Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="RepComments"
-                              placeholder="Comments" ng-model="model.arccRepComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.ARCCProposal.ARCCRepComments" />
                 </div>
             </div>
         </div>
@@ -115,14 +115,14 @@
                 <label class="col-lg-4 control-label" for="ChairSignature">Department Chair Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="ChairSignature"
-                           placeholder="Department Chair Signature" ng-model="model.arccChairSignature" />
+                           placeholder="Department Chair Signature" ng-model="model.fullProposal.ARCCProposal.ARCCChairSignature" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ChairComments">Department Chair Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="ChairComments"
-                              placeholder="Comments" ng-model="model.arccChairComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.ARCCProposal.ARCCChairComments" />
                 </div>
             </div>
         </div>
@@ -142,14 +142,14 @@
                 <label class="col-lg-4 control-label" for="DeanSignature">College Dean Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="DeanSignature"
-                           placeholder="College Dean Signature" ng-model="model.arccDeanSignature" />
+                           placeholder="College Dean Signature" ng-model="model.fullProposal.ARCCProposal.ARCCDeanSignature" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-lg-4 control-label" for="DeanComments">Department Chair Comments</label>
+                <label class="col-lg-4 control-label" for="DeanComments">College Dean Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="DeanComments"
-                              placeholder="Comments" ng-model="model.arccDeanComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.ARCCProposal.ARCCDeanComments" />
                 </div>
             </div>
         </div>
@@ -164,21 +164,21 @@
             For certain projects an IT expert's signature is required. You must contact the appropriate individual
             if you are implementing MULTIMEDIA, NETWORKING, OR OTHER CLASSROOM TECHNOLOGY INSTALLATIONS (contact
             Bob King at <a href="mailto:rking@weber.edu">rking@weber.edu</a> or x6865).<br />
-            I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
+            I have read the proposal and discussed it with the Project Director ({{model.fullProposal.ARCCProposal.ARCCDirector}}).
         </div>
         <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ITSignature">IT Representative Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="ITSignature"
-                           placeholder="College Dean Signature" ng-model="model.arccITSignature" />
+                           placeholder="IT Representative Signature" ng-model="model.fullProposal.ARCCProposal.ARCCITSignature" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ITComments">IT Representative Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="ITComments"
-                              placeholder="Comments" ng-model="model.arccITComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.ARCCProposal.ARCCITComments" />
                 </div>
             </div>
         </div>
@@ -192,7 +192,7 @@
         <div class="panel-body proposalPanelBody">
             <div class="form-group">
                 <div class="col-lg-12">
-                    <textarea class="form-control" ng-model="model.arccJustification"
+                    <textarea class="form-control" ng-model="model.fullProposal.ARCCProposal.ARCCJustification"
                               placeholder="Enter Proposal Justification"></textarea>
                 </div>
             </div>
@@ -228,23 +228,23 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.hardwareQuickEntry.hardwareName" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.hardwareQuickEntry.ARCCHardwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareARCCBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.hardwareName.length < 1">
+                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.ARCCHardwareName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
-                    <tr ng-repeat="item in model.hardwareList">
-                        <td class="budget-name">{{item.hardwareName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
+                    <tr ng-repeat="item in model.fullProposal.HardwareBudgetList">
+                        <td class="budget-name">{{item.ARCCHardwareName}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareARCCBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareOtherBudget | number : 2}}</td>
                         <td class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
@@ -277,23 +277,23 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.softwareQuickEntry.softwareName" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.softwareQuickEntry.ARCCSoftwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareARCCBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.softwareQuickEntry.softwareName.length < 1">
+                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.softwareQuickEntry.ARCCSoftwareName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
-                    <tr ng-repeat="item in model.softwareList">
-                        <td class="budget-name">{{item.softwareName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
+                    <tr ng-repeat="item in model.fullProposal.SoftwareBudgetList">
+                        <td class="budget-name">{{item.ARCCSoftwareName}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareARCCBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareOtherBudget | number : 2}}</td>
                         <td class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
@@ -326,23 +326,23 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.otherQuickEntry.otherName" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.otherQuickEntry.ARCCOtherName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCOtherARCCBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCOtherDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCOtherCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCBudgetOther" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.otherQuickEntry.otherName.length < 1">
+                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.otherQuickEntry.ARCCOtherName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
-                    <tr ng-repeat="item in model.otherList">
-                        <td class="budget-name">{{item.otherName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
+                    <tr ng-repeat="item in model.fullProposal.OtherBudgetList">
+                        <td class="budget-name">{{item.ARCCOtherName}}</td>
+                        <td class="budget-item">${{item.ARCCOtherARCCBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCOtherDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCOtherCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCBudgetOther | number : 2}}</td>
                         <td class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeOtherItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
@@ -389,23 +389,23 @@
                     <div class="col-lg-6">
                         <div class="btn-group" role="group" id="PartialFunding">
                             <button type="button" class="btn"
-                                    ng-click="model.arccPartiallyFunded = true"
-                                    ng-class="{'btn-default': !model.arccPartiallyFunded, 'btn-success': model.arccPartiallyFunded }">
+                                    ng-click="model.fullProposal.ARCCProposal.ARCCPartiallyFunded = true"
+                                    ng-class="{'btn-default': !model.fullProposal.ARCCProposal.ARCCPartiallyFunded, 'btn-success': model.fullProposal.ARCCProposal.ARCCPartiallyFunded }">
                                 Yes
                             </button>
                             <button type="button" class="btn"
-                                    ng-click="model.arccPartiallyFunded = false"
-                                    ng-class="{'btn-default': model.arccPartiallyFunded, 'btn-success': !model.arccPartiallyFunded }">
+                                    ng-click="model.fullProposal.ARCCProposal.ARCCPartiallyFunded = false"
+                                    ng-class="{'btn-default': model.fullProposal.ARCCProposal.ARCCPartiallyFunded, 'btn-success': !model.fullProposal.ARCCProposal.ARCCPartiallyFunded }">
                                 No
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="form-group" ng-show="model.arccPartiallyFunded">
+                <div class="form-group" ng-show="model.fullProposal.ARCCProposal.ARCCPartiallyFunded">
                     <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
                     <div class="col-lg-6">
                         <input type="number" class="form-control" id="PartialPercentage"
-                               placeholder="Enter an acceptable percentage" ng-model="model.arccPartiallyFundedPercent" />
+                               placeholder="Enter an acceptable percentage" ng-model="model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent" />
                     </div>
                 </div>
             </div>
@@ -423,7 +423,7 @@
             through Electronic Services.
             <div class="form-group">
                 <div class="col-lg-12">
-                    <textarea class="form-control" ng-model="model.arccAdditionalResources"
+                    <textarea class="form-control" ng-model="model.fullProposal.ARCCProposal.ARCCAdditionalResources"
                               placeholder="Enter Additional Required Resources"></textarea>
                 </div>
             </div>
@@ -446,13 +446,13 @@
                 <div class="col-lg-7">
                     <div class="btn-group" role="group" id="ReplacementEquipment">
                         <button type="button" class="btn"
-                                ng-click="model.arccReplacementEquipment = true"
-                                ng-class="{'btn-default': !model.arccReplacementEquipment, 'btn-success': model.arccReplacementEquipment }">
+                                ng-click="model.fullProposal.ARCCProposal.ARCCReplacementEquipment = true"
+                                ng-class="{'btn-default': !model.fullProposal.ARCCProposal.ARCCReplacementEquipment, 'btn-success': model.fullProposal.ARCCProposal.ARCCReplacementEquipment }">
                             Yes
                         </button>
                         <button type="button" class="btn"
-                                ng-click="model.arccReplacementEquipment = false"
-                                ng-class="{'btn-default': model.arccReplacementEquipment, 'btn-success': !model.arccReplacementEquipment }">
+                                ng-click="model.fullProposal.ARCCProposal.ARCCReplacementEquipment = false"
+                                ng-class="{'btn-default': model.fullProposal.ARCCProposal.ARCCReplacementEquipment, 'btn-success': !model.fullProposal.ARCCProposal.ARCCReplacementEquipment }">
                             No
                         </button>
                     </div>
@@ -462,14 +462,14 @@
                 <label class="col-lg-4 control-label" for="ReplacementProjectName">Project Name</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="ReplacementProjectName"
-                           placeholder="Previous Project Name" ng-model="model.arccReplacementProjectName" />
+                           placeholder="Previous Project Name" ng-model="model.fullProposal.ARCCProposal.ARCCReplacementProjectName" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
                 <div class="col-lg-7">
                     <input type="number" class="form-control" id="ReplacementARCCYear"
-                           placeholder="Previous Project Year" ng-model="model.arccReplacementARCCYear" />
+                           placeholder="Previous Project Year" ng-model="model.fullProposal.ARCCProposal.ARCCReplacementARCCYear" />
                 </div>
             </div>
         </div>
@@ -478,19 +478,24 @@
     @*-- Action Buttons --*@
     <div class="row">
         <div class="col-lg-12 center-block" style="margin-top:50px">
-            <button class="weberButton weberButtonGreen" ng-click="">Save</button>
-            <button class="weberButton weberButtonGreen" ng-click="">Save and Submit</button>
-            <button class="weberButton weberButtonRed" ng-click="">Cancel</button>
+            <button class="weberButton weberButtonGreen" ng-click="save(false)">Save</button>
+            <button class="weberButton weberButtonGreen" ng-click="save(true)">Save and Submit</button>
+            <button class="weberButton weberButtonRed" ng-click="cancel()">Cancel</button>
         </div>
     </div>
 
 
     <div class="container divBorder">
+        <br />
         @*-- Error Message --*@
-        <div class="alert text-center" data-ng-class="'alert-error'" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
-            <i class="close" data-ng-click="resetNewForm()">×</i>
-            <i data-ng-class="'error-small-icon-c'"></i>
-            <strong>{{model.errorMessage}}</strong><br />
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="alert alert-danger text-center" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
+                    <i class="close" data-ng-click="resetNewForm()">×</i>
+                    <i data-ng-class="'error-small-icon-c'"></i>
+                    <strong>{{model.errorMessage}}</strong><br />
+                </div>
+            </div>
         </div>
     </div>
 </div>

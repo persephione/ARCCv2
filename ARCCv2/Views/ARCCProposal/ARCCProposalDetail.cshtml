@@ -232,7 +232,7 @@
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
-                        <th class="budget-button">Add/Remove</th>
+                        <th ng-if="!viewOnly" class="budget-button">Add/Remove</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -242,18 +242,18 @@
                         <th class="budget-item text-center">${{model.hwDepartmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.hwCollegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.hwOtherTotal | number : 2}}</th>
-                        <th class="budget-button"></th>
+                        <th ng-if="!viewOnly" class="budget-button"></th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.hardwareQuickEntry.hardwareName" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                    <tr ng-if="!viewOnly">
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.hardwareQuickEntry.ARCCHardwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareARCCBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.ARCCHardwareOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.hardwareName.length < 1">
+                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.ARCCHardwareName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
@@ -264,7 +264,7 @@
                         <td class="budget-item">${{item.ARCCHardwareDeptBudget | number : 2}}</td>
                         <td class="budget-item">${{item.ARCCHardwareCollegeBudget | number : 2}}</td>
                         <td class="budget-item">${{item.ARCCHardwareOtherBudget | number : 2}}</td>
-                        <td class="budget-button">
+                        <td ng-if="!viewOnly" class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
                             </button>
@@ -281,7 +281,7 @@
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
-                        <th class="budget-button">Add/Remove</th>
+                        <th ng-if="!viewOnly" class="budget-button">Add/Remove</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -291,29 +291,29 @@
                         <th class="budget-item text-center">${{model.swDepartmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.swCollegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.swOtherTotal | number : 2}}</th>
-                        <th class="budget-button"></th>
+                        <th ng-if="!viewOnly" class="budget-button"></th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.softwareName" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                    <tr ng-if="!viewOnly">
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.softwareQuickEntry.ARCCSoftwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareARCCBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.ARCCSoftwareOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.fullProposal.ARCCProposal.softwareQuickEntry.softwareName.length < 1">
+                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.softwareQuickEntry.ARCCSoftwareName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
                     <tr ng-repeat="item in model.fullProposal.SoftwareBudgetList">
-                        <td class="budget-name">{{item.softwareName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
-                        <td class="budget-button">
+                        <td class="budget-name">{{item.ARCCSoftwareName}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareARCCBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCSoftwareOtherBudget | number : 2}}</td>
+                        <td ng-if="!viewOnly" class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
                             </button>
@@ -330,7 +330,7 @@
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
-                        <th class="budget-button">Add/Remove</th>
+                        <th ng-if="!viewOnly" class="budget-button">Add/Remove</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -340,29 +340,29 @@
                         <th class="budget-item text-center">${{model.oDepartmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.oCollegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.oOtherTotal | number : 2}}</th>
-                        <th class="budget-button"></th>
+                        <th ng-if="!viewOnly" class="budget-button"></th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.otherName" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                    <tr ng-if="!viewOnly">
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.otherQuickEntry.ARCCOtherName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCOtherARCCBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCOtherDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCOtherCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.ARCCBudgetOther" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.fullProposal.ARCCProposal.otherQuickEntry.otherName.length < 1">
+                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.otherQuickEntry.ARCCOtherName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
                     <tr ng-repeat="item in model.fullProposal.OtherBudgetList">
-                        <td class="budget-name">{{item.OtherName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
-                        <td class="budget-button">
+                        <td class="budget-name">{{item.ARCCOtherName}}</td>
+                        <td class="budget-item">${{item.ARCCOtherARCCBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCOtherDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCOtherCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCBudgetOther | number : 2}}</td>
+                        <td ng-if="!viewOnly" class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeOtherItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
                             </button>
@@ -379,7 +379,7 @@
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
-                        <th class="budget-button"></th>
+                        <th ng-if="!viewOnly" class="budget-button"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -389,7 +389,7 @@
                         <th class="budget-item text-center">${{model.departmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.collegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.otherTotal | number : 2}}</th>
-                        <th class="budget-button"></th>
+                        <th ng-if="!viewOnly" class="budget-button"></th>
                     </tr>
                 </tbody>
             </table>
@@ -421,7 +421,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6" ng-if="viewOnly">
-                        <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCPartiallyFunded}}<br /><br /></span>
+                        <span class="proposalViewOnlyText"><br />{{ARCCPartiallyFunded}}<br /><br /></span>
                     </div>
 
                 </div>
@@ -487,7 +487,7 @@
                             No
                         </button>
                     </div>
-                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementEquipment}}<br /><br /></span>
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{ARCCReplacementEquipment}}<br /><br /></span>
                 </div>
             </div>
             <div class="form-group">
@@ -515,17 +515,21 @@
             <button ng-if="!viewOnly" class="weberButton weberButtonGreen" ng-click="save(false)">Save</button>
             <button ng-if="!viewOnly" class="weberButton weberButtonGreen" ng-click="save(true)">Save and Submit</button>
             <button ng-if="!viewOnly" class="weberButton weberButtonRed" ng-click="cancel()">Cancel</button>
-            <button ng-if="viewOnly" class="weberButton" ng-click="close()">Close</button>
+            <button ng-if="viewOnly" class="weberButton" ng-click="cancel()">Close</button>
          </div>
     </div>
 
 
     <div class="container divBorder">
         @*-- Error Message --*@
-        <div class="alert text-center" data-ng-class="'alert-error'" ng-if="model.fullProposal.ARCCProposal.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
-            <i class="close" data-ng-click="resetNewForm()">×</i>
-            <i data-ng-class="'error-small-icon-c'"></i>
-            <strong>{{model.errorMessage}}</strong><br />
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="alert alert-danger text-center" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
+                    <i class="close" data-ng-click="resetNewForm()">×</i>
+                    <i data-ng-class="'error-small-icon-c'"></i>
+                    <strong>{{model.errorMessage}}</strong><br />
+                </div>
+            </div>
         </div>
     </div>
 </div>

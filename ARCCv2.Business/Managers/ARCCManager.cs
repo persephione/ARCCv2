@@ -43,8 +43,6 @@ namespace ARCCv2.Business.Managers
 
                 if (proposalExists)
                 {
-                    //arccProposal.ARCCUsername = user; // remove this after testing 
-                    arccProposal.ARCCUsername = "tina";
                     arccProposal.ARCCLastUpdatedDate = DateTime.Now;
                     //arccProposal.ARCCLastUpdatedBy = user;
                     arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing            
@@ -58,6 +56,8 @@ namespace ARCCv2.Business.Managers
 
                 if (!duplicate)
                 {
+                    //arccProposal.ARCCUsername = user; // remove this after testing 
+                    arccProposal.ARCCUsername = "tina";
                     arccProposal.ARCCLastUpdatedDate = DateTime.Now;
                     //arccProposal.ARCCLastUpdatedBy = user;
                     arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing
@@ -80,16 +80,25 @@ namespace ARCCv2.Business.Managers
 
         public int SaveOrUpdateHardwareBudget(ARCCHardwareBudget hardwareBudget)
         {
+            hardwareBudget.ARCCHardwareLastUpdatedDate = DateTime.Now;
+            //hardwareBudget.ARCCHardwareLastUpdatedBy = user;
+            hardwareBudget.ARCCHardwareLastUpdatedBy = "tina"; // remove this after testing
+
             // check if it's new or existing
-            if(hardwareBudget.ARCCHardwareBudgetID == 0)
+            if (hardwareBudget.ARCCHardwareBudgetID == 0)
                 Uow.ARCCHardwareBudgetRepository.Add(hardwareBudget);
             else
                 Uow.ARCCHardwareBudgetRepository.Update(hardwareBudget);
+
             return Uow.SaveChanges();
         }
 
         public int SaveOrUpdateSoftwareBudget(ARCCSoftwareBudget softwareBudget)
         {
+            softwareBudget.ARCCSoftwareLastUpdatedDate = DateTime.Now;
+            //softwareBudget.ARCCSoftwareLastUpdatedBy = user;
+            softwareBudget.ARCCSoftwareLastUpdatedBy = "tina"; // remove this after testing
+
             // check if it's new or existing
             if (softwareBudget.ARCCSoftwareBudgetID == 0)
                 Uow.ARCCSoftwareBudgetRepository.Add(softwareBudget);
@@ -100,6 +109,10 @@ namespace ARCCv2.Business.Managers
 
         public int SaveOrUpdateOtherBudget(ARCCOtherBudget otherBudget)
         {
+            otherBudget.ARCCOtherLastUpdatedDate = DateTime.Now;
+            //otherBudget.ARCCOtherLastUpdatedBy = user;
+            otherBudget.ARCCOtherLastUpdatedBy = "tina"; // remove this after testing
+
             // check if it's new or existing
             if (otherBudget.ARCCOtherBudgetID == 0)
                 Uow.ARCCOtherBudgetRepository.Add(otherBudget);
