@@ -13,25 +13,28 @@
             <div class="row">
                 <div class="col-lg-6 form-group">
                     <label for="DeeName">*Proposal Title:</label>
-                    <input class="form-control" type="text" ng-model="model.deeName" required />
-                    <label for="ARCCDirector">*Project Director:</label>
-                    <input class="form-control" type="text" ng-model="model.arccDirector" required />
-                    <label for="ARCCDepartment">*Department:</label>
-                    <input class="form-control" type="text" ng-model="model.arccDepartment" required />
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeName" ng-required />
+
+                    <label for="DeeDirector">*Project Director:</label>
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeDirector" ng-required />
+
+                    <label for="DeeDepartment">*Department:</label>
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeDepartment" ng-required />
                 </div>
                 <div class="col-lg-6 form-group">
-                    <label for="ARCCCollege">*College:</label>
-                    <input class="form-control" type="text" ng-model="model.arccCollege" required />
-                    <label for="ARCCEmail">*E-Mail:</label>
-                    <input class="form-control" type="text" ng-model="model.arccEmail" required />
-                    <label for="ARCCExtension">Extension:</label>
-                    <input class="form-control" type="text" ng-model="model.arccExtension" />
+                    <label for="DeeCollege">*College:</label>
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeCollege" ng-required />
+                    <label for="DeeEmail">*E-Mail:</label>
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeEmail" ng-required />
+
+                    <label for="DeeExtension">Extension:</label>
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeExtension" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <label for="ARCCOtherMembers">Other Team Members:</label>
-                    <input class="form-control" type="text" ng-model="model.arccOtherMembers" />
+                    <label for="DeeOtherMembers">Other Team Members:</label>
+                    <input class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeOtherMembers" />
                 </div>
             </div>
         </div>
@@ -46,7 +49,7 @@
             <ol>
                 <li>Please complete each section in the space provided. The justification section should not exceed 1000 words.</li>
                 <li>
-                    You are required to obtain the signature of an ARCC representative for your college, indicating that she/he is
+                    You are required to obtain the signature of an Dee representative for your college, indicating that she/he is
                     familiar with the proposal, and can speak to it during funding deliberations.
                 </li>
                 <li>
@@ -59,27 +62,28 @@
         </div>
     </div>
 
-    @*-- ARCC Rep Signature --*@
+    @*-- Dee Rep Signature --*@
     <div class="panel proposalPanel width90 center-block">
         <div class="proposalPanelSubHeading">
-            ARCC Representative (required)
+            Dee Representative (required)
         </div>
         <div class="panel-body proposalPanelBody">
-            I have read the proposal and discussed it with the Project Director ({{model.arccDirector}}).
+            I have read the proposal and discussed it with the Project Director ({{model.fullProposal.DeeProposal.DeeDirector}}).
         </div>
         <div class="form-horizontal proposalPanelBody">
             <div class="form-group">
-                <label class="col-lg-4 control-label" for="RepSignature">ARCC Representative Signature</label>
+                <label class="col-lg-4 control-label" for="RepSignature">Dee Representative Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="RepSignature"
-                           placeholder="ARCC Representative Signature" ng-model="model.arccRepSignature" />
+                           placeholder="Dee Representative Signature" ng-model="model.fullProposal.DeeProposal.DeeRepSignature" />
+
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-lg-4 control-label" for="RepComments">ARCC Representative Comments</label>
+                <label class="col-lg-4 control-label" for="RepComments">Dee Representative Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="RepComments"
-                              placeholder="Comments" ng-model="model.arccRepComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.DeeProposal.DeeRepComments" />
                 </div>
             </div>
         </div>
@@ -100,14 +104,14 @@
                 <label class="col-lg-4 control-label" for="ChairSignature">Department Chair Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="ChairSignature"
-                           placeholder="Department Chair Signature" ng-model="model.arccChairSignature" />
+                           placeholder="Department Chair Signature" ng-model="model.fullProposal.DeeProposal.DeeChairSignature" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="ChairComments">Department Chair Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="ChairComments"
-                              placeholder="Comments" ng-model="model.arccChairComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.DeeProposal.DeeChairComments" />
                 </div>
             </div>
         </div>
@@ -127,14 +131,14 @@
                 <label class="col-lg-4 control-label" for="DeanSignature">College Dean Signature</label>
                 <div class="col-lg-7">
                     <input type="text" class="form-control" id="DeanSignature"
-                           placeholder="College Dean Signature" ng-model="model.arccDeanSignature" />
+                           placeholder="College Dean Signature" ng-model="model.fullProposal.DeeProposal.DeeDeanSignature" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-4 control-label" for="DeanComments">Department Chair Comments</label>
                 <div class="col-lg-7">
                     <textarea class="form-control" id="DeanComments"
-                              placeholder="Comments" ng-model="model.arccDeanComments" />
+                              placeholder="Comments" ng-model="model.fullProposal.DeeProposal.DeeDeanComments" />
                 </div>
             </div>
         </div>
@@ -146,27 +150,9 @@
             Justification
         </div>
         <div class="panel-body proposalPanelBody">
-            //TODO
+            {{::model.fullProposal.DeeProposal.DeeJustification}}
         </div>
     </div>
-
-
-    @*-- Timeline --*@
-    <div class="panel proposalPanel">
-    <div class="panel-heading proposalPanelHeading">
-        Timeline
-    </div>
-    <div class="panel-body proposalPanelBody">
-        If funded, when will this project be implemented?
-        <div class="form-group">
-            <div class="col-lg-12">
-                <textarea class="form-control" ng-model="model.arccAdditionalResources"
-                          placeholder="Enter Text Here"></textarea>
-            </div>
-        </div>
-    </div>
-</div>
-
 
     @*-- Budget Tables --*@
     <div class="panel proposalPanel">
@@ -178,7 +164,7 @@
                 <thead>
                     <tr>
                         <th class="budget-name">Hardware</th>
-                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Dee Family Technology</th>
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
@@ -188,7 +174,7 @@
                 <tfoot>
                     <tr>
                         <th class="">Hardware Subtotals</th>
-                        <th class="budget-item text-center">${{model.hwArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwDeeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.hwDepartmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.hwCollegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.hwOtherTotal | number : 2}}</th>
@@ -197,23 +183,23 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.hardwareQuickEntry.hardwareName" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.hardwareQuickEntry.DeeHardwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.DeeHardwareDeeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.DeeHardwareDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.DeeHardwareCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.hardwareQuickEntry.DeeHardwareOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.hardwareName.length < 1">
+                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.DeeHardwareName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
-                    <tr ng-repeat="item in model.hardwareList">
-                        <td class="budget-name">{{item.hardwareName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
+                    <tr ng-repeat="item in model.fullProposal.HardwareBudgetList">
+                        <td class="budget-name">{{item.DeeHardwareName}}</td>
+                        <td class="budget-item">${{item.DeeHardwareDeeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeHardwareDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeHardwareCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeHardwareOtherBudget | number : 2}}</td>
                         <td class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
@@ -227,7 +213,7 @@
                 <thead>
                     <tr>
                         <th class="budget-name">Software</th>
-                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Dee Family Technology</th>
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
@@ -237,7 +223,7 @@
                 <tfoot>
                     <tr>
                         <th class="">Software Subtotals</th>
-                        <th class="budget-item text-center">${{model.swArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swDeeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.swDepartmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.swCollegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.swOtherTotal | number : 2}}</th>
@@ -246,23 +232,23 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.softwareQuickEntry.softwareName" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.softwareQuickEntry.DeeSoftwareName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.DeeSoftwareDeeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.DeeSoftwareDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.DeeSoftwareCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.softwareQuickEntry.DeeSoftwareOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.softwareQuickEntry.softwareName.length < 1">
+                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.softwareQuickEntry.DeeSoftwareName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
-                    <tr ng-repeat="item in model.softwareList">
-                        <td class="budget-name">{{item.softwareName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
+                    <tr ng-repeat="item in model.fullProposal.SoftwareBudgetList">
+                        <td class="budget-name">{{item.DeeSoftwareName}}</td>
+                        <td class="budget-item">${{item.DeeSoftwareDeeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeSoftwareDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeSoftwareCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeSoftwareOtherBudget | number : 2}}</td>
                         <td class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
@@ -276,7 +262,7 @@
                 <thead>
                     <tr>
                         <th class="budget-name">Other (including facilities and installation)</th>
-                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Dee Family Technology</th>
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
@@ -286,7 +272,7 @@
                 <tfoot>
                     <tr>
                         <th class="">Other Subtotals</th>
-                        <th class="budget-item text-center">${{model.oArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oDeeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.oDepartmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.oCollegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.oOtherTotal | number : 2}}</th>
@@ -295,23 +281,23 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.otherQuickEntry.otherName" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
-                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-name"><input type="text" class="budget-name" ng-model="model.otherQuickEntry.DeeOtherName" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.DeeOtherDeeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.DeeOtherDeptBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.DeeOtherCollegeBudget" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input type="number" class="budget-item" ng-model="model.otherQuickEntry.DeeOtherOtherBudget" dc-format-currency="dc-format-currency" /></th>
                         <th class="budget-button">
-                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.otherQuickEntry.otherName.length < 1">
+                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.otherQuickEntry.DeeOtherName.length < 1">
                                 <span class="glyphicon glyphicon-plus" style="color:green"></span>
                             </button>
                         </th>
                     </tr>
-                    <tr ng-repeat="item in model.otherList">
-                        <td class="budget-name">{{item.otherName}}</td>
-                        <td class="budget-item">${{item.arcc | number : 2}}</td>
-                        <td class="budget-item">${{item.department | number : 2}}</td>
-                        <td class="budget-item">${{item.college | number : 2}}</td>
-                        <td class="budget-item">${{item.other | number : 2}}</td>
+                    <tr ng-repeat="item in model.fullProposal.OtherBudgetList">
+                        <td class="budget-name">{{item.DeeOtherName}}</td>
+                        <td class="budget-item">${{item.DeeOtherDeeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeOtherDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeOtherCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.DeeOtherOtherBudget | number : 2}}</td>
                         <td class="budget-button">
                             <button type="button" class="btn btn-default" ng-click="removeOtherItem(item)">
                                 <span class="glyphicon glyphicon-remove" style="color:red"></span>
@@ -325,7 +311,7 @@
                 <thead>
                     <tr>
                         <th class="grand-total">Grand Totals:</th>
-                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Dee Family Technology</th>
                         <th class="budget-item text-center">Department</th>
                         <th class="budget-item text-center">College</th>
                         <th class="budget-item text-center">Other</th>
@@ -335,7 +321,7 @@
                 <tbody>
                     <tr class="info">
                         <th class="grand-total">${{model.grandTotal | number : 2}}</th>
-                        <th class="budget-item text-center">${{model.arccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.deeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.departmentTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.collegeTotal | number : 2}}</th>
                         <th class="budget-item text-center">${{model.otherTotal | number : 2}}</th>
@@ -355,26 +341,27 @@
             <div class="form-horizontal">
                 <div class="form-group">
                     <label class="col-lg-5 control-label" for="PartialPercentage">Can this project be completed if it is partially funded?</label>
+
                     <div class="col-lg-6">
                         <div class="btn-group" role="group" id="PartialFunding">
                             <button type="button" class="btn"
-                                    ng-click="model.arccPartiallyFunded = true"
-                                    ng-class="{'btn-default': !model.arccPartiallyFunded, 'btn-success': model.arccPartiallyFunded }">
+                                    ng-click="model.fullProposal.DeeProposal.ARCCPartiallyFunded = true"
+                                    ng-class="{'btn-default': !model.fullProposal.ARCCPartiallyFunded, 'btn-success': model.fullProposal.DeeProposal.ARCCPartiallyFunded }">
                                 Yes
                             </button>
                             <button type="button" class="btn"
-                                    ng-click="model.arccPartiallyFunded = false"
-                                    ng-class="{'btn-default': model.arccPartiallyFunded, 'btn-success': !model.arccPartiallyFunded }">
+                                    ng-click="model.fullProposal.DeeProposal.ARCCPartiallyFunded = false"
+                                    ng-class="{'btn-default': model.fullProposal.DeeProposal.ARCCPartiallyFunded, 'btn-success': !model.fullProposal.DeeProposal.ARCCPartiallyFunded }">
                                 No
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="form-group" ng-show="model.arccPartiallyFunded">
+                <div class="form-group" ng-show="model.fullProposal.DeeProposal.ARCCPartiallyFunded">
                     <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
                     <div class="col-lg-6">
                         <input type="number" class="form-control" id="PartialPercentage"
-                               placeholder="Enter an acceptable percentage" ng-model="model.arccPartiallyFundedPercent" />
+                               placeholder="Enter an acceptable percentage" ng-model="model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent" />
                     </div>
                 </div>
             </div>
@@ -384,17 +371,17 @@
     @*-- Action Buttons --*@
     <div class="row">
         <div class="col-lg-12 center-block" style="margin-top:50px">
-            <button class="weberButton weberButtonGreen" ng-click="">Save</button>
-            <button class="weberButton weberButtonGreen" ng-click="">Save and Submit</button>
-            <button class="weberButton weberButtonRed" ng-click="">Cancel</button>
+            <button class="weberButton weberButtonGreen" ng-click="save(false)">Save</button>
+            <button class="weberButton weberButtonGreen" ng-click="save(true)">Save and Submit</button>
+            <button class="weberButton weberButtonRed" ng-click="cancel()">Cancel</button>
         </div>
     </div>
 
 
     <div class="container divBorder">
         @*-- Error Message --*@
-        <div class="alert text-center" data-ng-class="'alert-error'" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
-            <i class="close" data-ng-click="resetNewForm()">×</i>
+        <div class="alert alert-danger text-center" data-ng-class="'alert-error'" ng-if="model.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
+            <i class="close" data-ng-click="cancel()">×</i>
             <i data-ng-class="'error-small-icon-c'"></i>
             <strong>{{model.errorMessage}}</strong><br />
         </div>

@@ -2,14 +2,14 @@
     '$scope', '$filter', '$location', 'arccProposal',
     function ($scope, $filter, $location, arccProposal) {
         $scope.model = {
-            hardwareQuickEntry: { ARCCHardwareName: '', ARCCHardwareARCCBudget: 0.0, ARCCHardwareDeptBudget: 0.0, ARCCHardwareCollegeBudget: 0.0, ARCCHardwareOtherBudget: 0.0 },
-            softwareQuickEntry: { ARCCSoftwareName: '', ARCCSoftwareARCCBudget: 0.0, ARCCSoftwareDeptBudget: 0.0, ARCCSoftwareCollegeBudget: 0.0, ARCCSoftwareOtherBudget: 0.0 },
-            otherQuickEntry: { ARCCOtherName: '', ARCCOtherARCCBudget: 0.0, ARCCOtherDeptBudget: 0.0, ARCCOtherCollegeBudget: 0.0, ARCCBudgetOther: 0.0 },
             fullProposal: {
                 HardwareBudgetList: [],
                 SoftwareBudgetList: [],
                 OtherBudgetList: [],
             },
+            hardwareQuickEntry: { ARCCHardwareName: '', ARCCHardwareARCCBudget: 0.0, ARCCHardwareDeptBudget: 0.0, ARCCHardwareCollegeBudget: 0.0, ARCCHardwareOtherBudget: 0.0 },
+            softwareQuickEntry: { ARCCSoftwareName: '', ARCCSoftwareARCCBudget: 0.0, ARCCSoftwareDeptBudget: 0.0, ARCCSoftwareCollegeBudget: 0.0, ARCCSoftwareOtherBudget: 0.0 },
+            otherQuickEntry: { ARCCOtherName: '', ARCCOtherARCCBudget: 0.0, ARCCOtherDeptBudget: 0.0, ARCCOtherCollegeBudget: 0.0, ARCCBudgetOther: 0.0 },
             hwArccTotal: 0.0,
             hwDepartmentTotal: 0.0,
             hwCollegeTotal: 0.0,
