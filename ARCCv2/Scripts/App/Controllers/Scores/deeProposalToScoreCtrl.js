@@ -17,6 +17,7 @@
             warningMessage: '',
             successMessage: ''
         };
+        $scope.ARCCPartiallyFunded = '';
         $scope.form = {};
         $scope.proposalIsArchived = false;
         $scope.isScoringActive = false;
@@ -32,6 +33,9 @@
 
             // set the dee score proposal id to the current dee proposal
             $scope.model.DeeScore.DeeProposalID = $scope.model.fullProposal.DeeProposal.DeeProposalID;
+
+            // set text on View
+            $scope.ARCCPartiallyFunded = $scope.model.fullProposal.DeeProposal.ARCCPartiallyFunded === true ? 'Yes' : 'No';
 
             // if proposal has already been scored, remove action buttons
             if ($scope.model.fullProposal.DeeProposal.DeeApproval === true)

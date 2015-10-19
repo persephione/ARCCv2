@@ -42,8 +42,6 @@ namespace ARCCv2.Data.Configuration
                 .HasMaxLength(200);
             this.Property(t => t.ARCCReplacementProjectName)
                 .HasMaxLength(200);
-            this.Property(t => t.ARCCReplacementARCCYear)
-                .HasMaxLength(10);
             this.Property(t => t.ARCCLastUpdatedBy)
                 .HasMaxLength(50);
 
