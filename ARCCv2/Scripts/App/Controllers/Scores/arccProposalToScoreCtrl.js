@@ -19,6 +19,7 @@
             successMessage: ''
         };
         $scope.ARCCPartiallyFunded = '';
+
         $scope.form = {};
         $scope.proposalIsArchived = false;
         $scope.isScoringActive = false;
@@ -37,6 +38,7 @@
 
             // set text on View
             $scope.ARCCPartiallyFunded = $scope.model.fullProposal.ARCCProposal.ARCCPartiallyFunded === true ? 'Yes' : 'No';
+            $scope.ARCCReplacementEquipment = $scope.model.fullProposal.ARCCProposal.ARCCReplacementEquipment === true ? 'Yes' : 'No';
 
             // if proposal has already been scored, remove action buttons
             if ($scope.model.fullProposal.ARCCProposal.ARCCScored === true)
