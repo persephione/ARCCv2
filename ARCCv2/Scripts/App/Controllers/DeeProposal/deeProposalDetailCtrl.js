@@ -2,15 +2,15 @@
     '$scope', '$filter', '$location', 'parameters', '$modal', '$timeout', 'deeProposal',
     function ($scope, $filter, $location, parameters, $modal, $timeout, deeProposal) {
         $scope.model = {
-            proposal: {}
+            fullProposal: {}
         };
 
         // get proposal id from params
-        $scope.model.proposal.Id = parameters.get("proposalId");
+        $scope.model.fullProposal.Id = parameters.get("proposalId");
 
         // get proposal from db
-        deeProposal.GetDeeProposals.Get($scope.model.proposal.Id).then(function (result) {
-            $scope.model.proposal = result;
+        deeProposal.GetDeeProposals.Get($scope.model.fullProposal.Id).then(function (result) {
+            $scope.model.fullProposal = result;
         });
 
 

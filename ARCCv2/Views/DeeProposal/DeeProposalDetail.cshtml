@@ -1,4 +1,421 @@
-﻿<div class="row" style="width:99vw !important">
+﻿<div class="form container">
+    <div class="alert alert-warning center-block" style="font-size:18px" ng-if="viewOnly">
+        This proposal has been submitted. You are in View Only mode.
+    </div>
+
+    @*-- General Information --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            General Information:
+        </div>
+        <div class="panel-body proposalPanelBody">
+            <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label for="DeeName">*Proposal Title:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeName" ng-required />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeName}}<br /><br /></span>
+
+                    <label for="DeeDirector">*Project Director:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeDirector" ng-required />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeDirector}}<br /><br /></span>
+
+                    <label for="DeeDepartment">*Department:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeDepartment" ng-required />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeDepartment}}<br /><br /></span>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label for="DeeCollege">*College:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeCollege" ng-required />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeCollege}}<br /><br /></span>
+                    <label for="DeeEmail">*E-Mail:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeEmail" ng-required />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeEmail}}<br /><br /></span>
+
+                    <label for="DeeExtension">Extension:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeExtension" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeExtension}}<br /><br /></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label for="DeeOtherMembers">Other Team Members:</label>
+                    <input ng-if="!viewOnly" class="form-control" type="text" ng-model="model.fullProposal.DeeProposal.DeeOtherMembers" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeOtherMembers}}<br /><br /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*-- Instructions --*@
+    <div class="panel panel-default" ng-hide="viewOnly">
+        <div class="panel-heading proposalPanelHeading">
+            Instructions:
+        </div>
+        <div class="panel-body proposalPanelBody">
+            <ol>
+                <li>Please complete each section in the space provided. The justification section should not exceed 1000 words.</li>
+                <li>
+                    You are required to obtain the signature of an ARCC representative for your college, indicating that she/he is
+                    familiar with the proposal, and can speak to it during funding deliberations.
+                </li>
+                <li>
+                    Your department chair’s signature is also required, indicating that she/he supports the proposal, and that the
+                    proposal is in keeping with departmental goals related to information technology and its applications to the
+                    academic mission of the institution. Your Chair’s signature also indicates her/his commitment to help support
+                    the project financially if so indicated on the budget page.
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    @*-- Dee Rep Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            ARCC Representative (required)
+        </div>
+        <div class="panel-body proposalPanelBody">
+            I have read the proposal and discussed it with the Project Director ({{model.fullProposal.DeeProposal.DeeDirector}}).
+        </div>
+        <div class="form-horizontal proposalPanelBody">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="RepSignature">ARCC Representative Signature</label>
+                <div class="col-lg-7">
+                    <input ng-if="!viewOnly" type="text" class="form-control" id="RepSignature"
+                           placeholder="ARCC Representative Signature" ng-model="model.fullProposal.DeeProposal.DeeRepSignature" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeRepSignature}}<br /><br /></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="RepComments">ARCC Representative Comments</label>
+                <div class="col-lg-7">
+                    <textarea ng-if="!viewOnly" class="form-control" id="RepComments"
+                              placeholder="Comments" ng-model="model.fullProposal.DeeProposal.DeeRepComments" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeRepComments}}<br /><br /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*-- Dept Chair Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            Department Chair (required)
+        </div>
+        <div class="panel-body proposalPanelBody">
+            The Department has reviewed this project within the context of overall information technology planning
+            within the Department. If the budget page indicates financial support from the Department, I agree to
+            commit those funds to this project.
+        </div>
+        <div class="form-horizontal proposalPanelBody">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ChairSignature">Department Chair Signature</label>
+                <div class="col-lg-7">
+                    <input ng-if="!viewOnly" type="text" class="form-control" id="ChairSignature"
+                           placeholder="Department Chair Signature" ng-model="model.fullProposal.DeeProposal.DeeChairSignature" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeChairSignature}}<br /><br /></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="ChairComments">Department Chair Comments</label>
+                <div class="col-lg-7">
+                    <textarea ng-if="!viewOnly" class="form-control" id="ChairComments"
+                              placeholder="Comments" ng-model="model.fullProposal.DeeProposal.DeeChairComments" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeChairComments}}<br /><br /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*-- College Dean Signature --*@
+    <div class="panel proposalPanel width90 center-block">
+        <div class="proposalPanelSubHeading">
+            College Dean (required for matching funds from the college)
+        </div>
+        <div class="panel-body proposalPanelBody">
+            I have reviewed this project. If the budget page indicates financial support from the College, I
+            agree to commit those funds to this project.
+        </div>
+        <div class="form-horizontal proposalPanelBody">
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="DeanSignature">College Dean Signature</label>
+                <div class="col-lg-7">
+                    <input ng-if="!viewOnly" type="text" class="form-control" id="DeanSignature"
+                           placeholder="College Dean Signature" ng-model="model.fullProposal.DeeProposal.DeeDeanSignature" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeDeanSignature}}<br /><br /></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label" for="DeanComments">Department Chair Comments</label>
+                <div class="col-lg-7">
+                    <textarea ng-if="!viewOnly" class="form-control" id="DeanComments"
+                              placeholder="Comments" ng-model="model.fullProposal.DeeProposal.DeeDeanComments" />
+                    <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.DeeProposal.DeeDeanComments}}<br /><br /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*-- Justification --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Justification
+        </div>
+        <div class="panel-body proposalPanelBody">
+            {{::model.fullProposal.DeeProposal.DeeJustification}}
+        </div>
+    </div>
+
+    @*-- Budget Tables --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Budget
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="budget-name">Hardware</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button">Add/Remove</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="">Hardware Subtotals</th>
+                        <th class="budget-item text-center">${{model.hwArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwDepartmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwCollegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.hwOtherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.hardwareQuickEntry.hardwareName" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.hardwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-button">
+                            <button class="btn btn-default" ng-click="addHardwareQuickEntry()" ng-disabled="model.hardwareQuickEntry.hardwareName.length < 1">
+                                <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                            </button>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="item in model.fullProposal.HardwareBudgetList">
+                        <td class="budget-name">{{item.ARCCHardwareName}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareARCCBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareDeptBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareCollegeBudget | number : 2}}</td>
+                        <td class="budget-item">${{item.ARCCHardwareOtherBudget | number : 2}}</td>
+                        <td class="budget-button">
+                            <button type="button" class="btn btn-default" ng-click="removeHardwareItem(item)">
+                                <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="budget-name">Software</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button">Add/Remove</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="">Software Subtotals</th>
+                        <th class="budget-item text-center">${{model.swArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swDepartmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swCollegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.swOtherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.softwareName" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.softwareQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-button">
+                            <button class="btn btn-default" ng-click="addSoftwareQuickEntry()" ng-disabled="model.fullProposal.ARCCProposal.softwareQuickEntry.softwareName.length < 1">
+                                <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                            </button>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="item in model.fullProposal.SoftwareBudgetList">
+                        <td class="budget-name">{{item.softwareName}}</td>
+                        <td class="budget-item">${{item.arcc | number : 2}}</td>
+                        <td class="budget-item">${{item.department | number : 2}}</td>
+                        <td class="budget-item">${{item.college | number : 2}}</td>
+                        <td class="budget-item">${{item.other | number : 2}}</td>
+                        <td class="budget-button">
+                            <button type="button" class="btn btn-default" ng-click="removeSoftwareItem(item)">
+                                <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="budget-name">Other (including facilities and installation)</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button">Add/Remove</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="">Other Subtotals</th>
+                        <th class="budget-item text-center">${{model.oArccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oDepartmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oCollegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.oOtherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th class="budget-name"><input ng-if="!viewOnly" type="text" class="budget-name" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.otherName" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.arcc" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.department" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.college" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-item">$<input ng-if="!viewOnly" type="number" class="budget-item" ng-model="model.fullProposal.ARCCProposal.otherQuickEntry.other" dc-format-currency="dc-format-currency" /></th>
+                        <th class="budget-button">
+                            <button class="btn btn-default" ng-click="addOtherQuickEntry()" ng-disabled="model.fullProposal.ARCCProposal.otherQuickEntry.otherName.length < 1">
+                                <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                            </button>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="item in model.fullProposal.OtherBudgetList">
+                        <td class="budget-name">{{item.OtherName}}</td>
+                        <td class="budget-item">${{item.arcc | number : 2}}</td>
+                        <td class="budget-item">${{item.department | number : 2}}</td>
+                        <td class="budget-item">${{item.college | number : 2}}</td>
+                        <td class="budget-item">${{item.other | number : 2}}</td>
+                        <td class="budget-button">
+                            <button type="button" class="btn btn-default" ng-click="removeOtherItem(item)">
+                                <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="grand-total">Grand Totals:</th>
+                        <th class="budget-item text-center">ARCC</th>
+                        <th class="budget-item text-center">Department</th>
+                        <th class="budget-item text-center">College</th>
+                        <th class="budget-item text-center">Other</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="info">
+                        <th class="grand-total">${{model.grandTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.arccTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.departmentTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.collegeTotal | number : 2}}</th>
+                        <th class="budget-item text-center">${{model.otherTotal | number : 2}}</th>
+                        <th class="budget-button"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*-- Funding Information --*@
+    <div class="panel proposalPanel">
+        <div class="panel-heading proposalPanelHeading">
+            Funding Information
+        </div>
+        <div class="panel-body proposalPanelBody">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-5 control-label" for="PartialPercentage">Can this project be completed if it is partially funded?</label>
+
+                    <div class="col-lg-6" ng-if="!viewOnly">
+                        <div class="btn-group" role="group" id="PartialFunding">
+                            <button type="button" class="btn"
+                                    ng-click="model.fullProposal.DeeProposal.DeePartiallyFunded = true"
+                                    ng-class="{'btn-default': !model.fullProposal.ARCCPartiallyFunded, 'btn-success': model.fullProposal.DeeProposal.ARCCPartiallyFunded }">
+                                Yes
+                            </button>
+                            <button type="button" class="btn"
+                                    ng-click="model.fullProposal.DeeProposal.ARCCPartiallyFunded = false"
+                                    ng-class="{'btn-default': model.fullProposal.DeeProposal.ARCCPartiallyFunded, 'btn-success': !model.fullProposal.DeeProposal.ARCCPartiallyFunded }">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" ng-if="viewOnly">
+                        <span class="proposalViewOnlyText"><br />{{::model.fullProposal.DeeProposal.ARCCPartiallyFunded}}<br /><br /></span>
+                    </div>
+
+                </div>
+                <div ng-if="!viewOnly" class="form-group" ng-show="model.fullProposal.DeeProposal.ARCCPartiallyFunded">
+                    <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
+                    <div class="col-lg-6">
+                        <input ng-if="!viewOnly" type="number" class="form-control" id="PartialPercentage"
+                               placeholder="Enter an acceptable percentage" ng-model="model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent" />
+                    </div>
+                </div>
+                <div ng-if="viewOnly">
+                    <span class="proposalViewOnlyText">
+                        <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
+                        <br />{{::model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*-- Action Buttons --*@
+    <div class="row">
+        <div class="col-lg-12 center-block" style="margin-top:50px">
+            <button ng-if="!viewOnly" class="weberButton weberButtonGreen" ng-click="save(false)">Save</button>
+            <button ng-if="!viewOnly" class="weberButton weberButtonGreen" ng-click="save(true)">Save and Submit</button>
+            <button ng-if="!viewOnly" class="weberButton weberButtonRed" ng-click="cancel()">Cancel</button>
+            <button ng-if="viewOnly" class="weberButton" ng-click="close()">Close</button>
+        </div>
+    </div>
+
+
+    <div class="container divBorder">
+        @*-- Error Message --*@
+        <div class="alert text-center" data-ng-class="'alert-error'" ng-if="model.fullProposal.ARCCProposal.errorMessage.length > 0" style="margin-left:50px !important; width:350px;">
+            <i class="close" data-ng-click="resetNewForm()">×</i>
+            <i data-ng-class="'error-small-icon-c'"></i>
+            <strong>{{model.errorMessage}}</strong><br />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*<div class="row" style="width:99vw !important">
     <div class="col-lg-12">
         Proposal ID: {{::model.proposal.DeeProposal.DeeProposalID}}<br />
         Proposal Name: {{::model.proposal.DeeProposal.DeeName}}<br />
@@ -46,6 +463,6 @@
         <br />
 
     </div>
-</div>
+</div>*@
 
 

@@ -43,6 +43,8 @@ namespace ARCCv2.Business.Managers
 
                 if (proposalExists)
                 {
+                    //arccProposal.ARCCUsername = user; // remove this after testing 
+                    arccProposal.ARCCUsername = "tina";
                     arccProposal.ARCCLastUpdatedDate = DateTime.Now;
                     //arccProposal.ARCCLastUpdatedBy = user;
                     arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing            

@@ -26,6 +26,8 @@ namespace ARCCv2.Business.Managers
 
                 if (proposalExists)
                 {
+                    //deeProposal.DeeUsername = user; // remove this after testing 
+                    deeProposal.DeeUsername = "tina";
                     deeProposal.DeeLastUpdatedDate = DateTime.Now;
                     //deeProposal.ARCCLastUpdatedBy = user;
                     deeProposal.DeeLastUpdatedBy = "tina"; // remove this after testing            
