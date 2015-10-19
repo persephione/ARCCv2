@@ -10,6 +10,10 @@
         };
         var data = [];
 
+        $scope.goHome = function () {
+            $location.path('/Home/Welcome');
+        };
+
         // get data and populate list
         scores.GetSubmittedProposals.Get().then(function (result) {
 

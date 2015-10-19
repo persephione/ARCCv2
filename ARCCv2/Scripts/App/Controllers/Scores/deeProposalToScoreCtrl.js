@@ -24,6 +24,10 @@
         $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
 
+        $scope.goHome = function () {
+            $location.path('/Home/Welcome');
+        };
+
         // get proposal id from params
         $scope.model.fullProposal.Id = parameters.get("proposalId");
 

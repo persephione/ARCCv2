@@ -9,6 +9,10 @@
             setTableParams();
         });
 
+        $scope.goHome = function () {
+            $location.path('/Home/Welcome');
+        };
+
         // set the settings for ng-table
         var setTableParams = function () {
             $scope.tableParams = new ngTableParams({

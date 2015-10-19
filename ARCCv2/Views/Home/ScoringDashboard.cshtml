@@ -4,7 +4,9 @@
     </div>
 
     @* Status Button Bar -------------------------------------- *@
-    <div class="col-lg-8"></div>
+    <div class="col-lg-8">
+        <button class="weberButton" data-ng-click="goHome()">Home</button>
+    </div>
     <div class="col-lg-4 pull-right">
         <button class="weberButton" data-ng-click="setSelection(1, 'Ready To Score');" ng-class="{'weberButtonGreen': model.selected == 1}">
             Ready To Score
