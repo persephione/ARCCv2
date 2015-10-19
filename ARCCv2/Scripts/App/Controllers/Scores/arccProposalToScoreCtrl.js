@@ -40,10 +40,67 @@
             $scope.ARCCPartiallyFunded = $scope.model.fullProposal.ARCCProposal.ARCCPartiallyFunded === true ? 'Yes' : 'No';
             $scope.ARCCReplacementEquipment = $scope.model.fullProposal.ARCCProposal.ARCCReplacementEquipment === true ? 'Yes' : 'No';
 
+            // calculate budget table totals
+            updateHardwareTotals();
+            updateSoftwareTotals();
+            updateOtherTotals();
+            updateTotals();
+
             // if proposal has already been scored, remove action buttons
             if ($scope.model.fullProposal.ARCCProposal.ARCCScored === true)
                 $scope.proposalIsArchived = true;
         });
+
+        // calculations for budget table totals
+        var updateHardwareTotals = function () {
+            $scope.model.hwArccTotal = 0.0;
+            $scope.model.hwDepartmentTotal = 0.0;
+            $scope.model.hwCollegeTotal = 0.0;
+            $scope.model.hwOtherTotal = 0.0;
+            angular.forEach($scope.model.fullProposal.HardwareBudgetList, function (item) {
+                $scope.model.hwArccTotal += item.ARCCHardwareARCCBudget;
+                $scope.model.hwDepartmentTotal += item.ARCCHardwareDeptBudget;
+                $scope.model.hwCollegeTotal += item.ARCCHardwareCollegeBudget;
+                $scope.model.hwOtherTotal += item.ARCCHardwareOtherBudget;
+            });
+            updateTotals();
+        };
+
+        var updateSoftwareTotals = function () {
+            $scope.model.swArccTotal = 0.0;
+            $scope.model.swDepartmentTotal = 0.0;
+            $scope.model.swCollegeTotal = 0.0;
+            $scope.model.swOtherTotal = 0.0;
+            angular.forEach($scope.model.fullProposal.SoftwareBudgetList, function (item) {
+                $scope.model.swArccTotal += item.ARCCSoftwareARCCBudget;
+                $scope.model.swDepartmentTotal += item.ARCCSoftwareDeptBudget;
+                $scope.model.swCollegeTotal += item.ARCCSoftwareCollegeBudget;
+                $scope.model.swOtherTotal += item.ARCCSoftwareOtherBudget;
+            });
+            updateTotals();
+        };
+
+        var updateOtherTotals = function () {
+            $scope.model.oArccTotal = 0.0;
+            $scope.model.oDepartmentTotal = 0.0;
+            $scope.model.oCollegeTotal = 0.0;
+            $scope.model.oOtherTotal = 0.0;
+            angular.forEach($scope.model.fullProposal.OtherBudgetList, function (item) {
+                $scope.model.oArccTotal += item.ARCCOtherARCCBudget;
+                $scope.model.oDepartmentTotal += item.ARCCOtherDeptBudget;
+                $scope.model.oCollegeTotal += item.ARCCOtherCollegeBudget;
+                $scope.model.oOtherTotal += item.ARCCBudgetOther;
+            });
+            updateTotals();
+        };
+
+        var updateTotals = function () {
+            $scope.model.arccTotal = $scope.model.hwArccTotal + $scope.model.swArccTotal + $scope.model.oArccTotal;
+            $scope.model.departmentTotal = $scope.model.hwDepartmentTotal + $scope.model.swDepartmentTotal + $scope.model.oDepartmentTotal;
+            $scope.model.collegeTotal = $scope.model.hwCollegeTotal + $scope.model.swCollegeTotal + $scope.model.oCollegeTotal;
+            $scope.model.otherTotal = $scope.model.hwOtherTotal + $scope.model.swOtherTotal + $scope.model.oOtherTotal;
+            $scope.model.grandTotal = $scope.model.arccTotal + $scope.model.departmentTotal + $scope.model.collegeTotal + $scope.model.otherTotal;
+        };
 
         // toggle the scoring and approval panels
         $scope.togglePanels = function (status) {

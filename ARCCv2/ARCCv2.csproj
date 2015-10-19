@@ -142,6 +142,7 @@
     <Compile Include="API\DeeProposal\SaveOrUpdateDeeProposalController.cs" />
     <Compile Include="API\Scores\GetARCCScoresController.cs" />
     <Compile Include="API\Scores\GetDeeScoresController.cs" />
+    <Compile Include="API\Scores\GetSubmittedProposalsController.cs" />
     <Compile Include="API\Shared\GetProposalsController.cs" />
     <Compile Include="API\Scores\SaveOrUpdateARCCScoreController.cs" />
     <Compile Include="API\DeeProposal\GetDeeProposalsController.cs" />
@@ -388,6 +389,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\App\Dialogs\" />
+    <Folder Include="Views\GetSubmittedProposals\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,6 +1,6 @@
 ﻿angular.module('App').controller('scoringDashboardCtrl', [
-    '$scope', '$filter', '$location', 'ngTableParams', 'scores', 'parameters', 'shared',
-    function ($scope, $filter, $location, ngTableParams, scores, parameters, shared) {
+    '$scope', '$filter', '$location', 'ngTableParams', 'scores', 'parameters',
+    function ($scope, $filter, $location, ngTableParams, scores, parameters) {
         $scope.model = {
             selected: 1,
             status: 'Ready to Score',
@@ -11,7 +11,7 @@
         var data = [];
 
         // get data and populate list
-        shared.GetProposals.Get().then(function (result) {
+        scores.GetSubmittedProposals.Get().then(function (result) {
 
             // set the lists for the View
             angular.forEach(result, function (proposal) {
@@ -28,7 +28,6 @@
                 // initial list will display Ready to Score
                 data = $scope.model.readyToScoreList;
             });
-
 
             setTableParams();
         });

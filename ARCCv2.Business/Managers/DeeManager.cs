@@ -7,9 +7,20 @@ namespace ARCCv2.Business.Managers
 {
     public class DeeManager : BusinessBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public List<DeeProposal> GetDeeProposals(string userName = "") =>
             userName.Length < 1 ? Uow.DeeProposalRepository.GetAll().ToList() :
             deeQueries.GetAllProposalsForUser(userName)?.OrderBy(x => x.DeeProposalID).ToList() ?? null;
+
+        /// <summary>
+        /// Gets submitted dee proposals. - tina
+        /// </summary>
+        /// <returns>list of dee proposal records</returns>
+        public List<DeeProposal> GetSubmittedDeeProposals() => Uow.DeeProposalRepository.GetAll().Where(x => x.DeeSubmitted == true).ToList();
 
         /// <summary>
         /// Saves new or existing dee proposal record to db - tina

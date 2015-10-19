@@ -22,6 +22,12 @@ namespace ARCCv2.Business.Managers
         }
 
         /// <summary>
+        /// Gets submitted arcc proposals for specific user, or if userName is empty will get all of them. - tina
+        /// </summary>
+        /// <returns>list of arcc proposal records</returns>
+        public List<ARCCProposal> GetSubmittedARCCProposals() => Uow.ARCCProposalRepository.GetAll().Where(x => x.ARCCSubmitted == true).ToList();
+
+        /// <summary>
         /// Gets one arcc proposal by unique id - tina
         /// </summary>
         /// <param name="id">primary key</param>

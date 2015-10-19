@@ -5,7 +5,6 @@ namespace ARCCv2.API.Scores
 {
     public class GetProposalsController : ARCCApiController
     {
-
         public List<ProposalListView> Get()
         {
             var arccProposals = GetAllARCCProposals();
