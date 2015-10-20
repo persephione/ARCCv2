@@ -24,6 +24,17 @@ namespace ARCCv2.Business.Managers
         }
 
         /// <summary>
+        /// Looks up an arcc score record for user id and proposal. - tina
+        /// </summary>
+        /// <param name="userID">user id for user</param>
+        /// <param name="proposalID">proposal id</param>
+        /// <returns>ARCCScore record or null</returns>
+        public ARCCScore GetARCCScoreForProposal(int userID, int proposalID) =>
+            Uow.ARCCScoreRepository.GetAll()
+            .Where(x => x.ARCCProposalID == proposalID)
+            .Where(x => x.UserID == userID).FirstOrDefault();
+
+        /// <summary>
         /// Saves a new or edits an existing arcc score record - tina
         /// </summary>
         /// <param name="scoreID">unique score id</param>
@@ -71,6 +82,17 @@ namespace ARCCv2.Business.Managers
         }
 
         /// <summary>
+        /// Looks up a dee score record for user id and proposal. - tina
+        /// </summary>
+        /// <param name="userID">user id for user</param>
+        /// <param name="proposalID">proposal id</param>
+        /// <returns>DeeScore record or null</returns>
+        public DeeScore GetDeeScoreForProposal(int userID, int proposalID) => 
+            Uow.DeeScoreRepository.GetAll()
+            .Where(x => x.DeeProposalID == proposalID)
+            .Where(x => x.UserID == userID).FirstOrDefault();
+
+        /// <summary>
         /// Saves a new or edits an existing dee score record - tina
         /// </summary>
         /// <param name="scoreID">unique score id</param>
@@ -89,7 +111,7 @@ namespace ARCCv2.Business.Managers
             else
             {
                 // check if the record exists in db
-                var scoreExists = arccQueries.DoesScoreExist(deeScore.DeeScoreID);
+                var scoreExists = deeQueries.DoesScoreExist(deeScore.DeeScoreID);
                 if (scoreExists)
                 {
                     deeScore.ScoreLastUpdatedBy = user.UserFirstName + user.UserLastName;

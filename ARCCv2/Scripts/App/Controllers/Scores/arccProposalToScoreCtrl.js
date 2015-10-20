@@ -50,9 +50,24 @@
             updateOtherTotals();
             updateTotals();
 
-            // if proposal has already been scored, remove action buttons
+            // if proposal has already been approved/denied, remove action buttons
             if ($scope.model.fullProposal.ARCCProposal.ARCCScored === true)
                 $scope.proposalIsArchived = true;
+
+            // check to see if user has already scored proposal
+            var id = $scope.model.fullProposal.ARCCProposal.ARCCProposalID;
+            scores.GetARCCScores.Update(id).then(function (result) {
+                if (result != null) {
+                    $scope.model.ARCCScore = result;
+
+                    // move slider handles
+                    $("#slider1").slider('value', $scope.model.ARCCScore.ARCCScoreEducExp);
+                    $("#slider2").slider('value', $scope.model.ARCCScore.ARCCScoreInnovation);
+                    $("#slider3").slider('value', $scope.model.ARCCScore.ARCCScoreDissemination);
+                    $("#slider4").slider('value', $scope.model.ARCCScore.ARCCScoreEvaluation);
+                    $("#slider5").slider('value', $scope.model.ARCCScore.ARCCScoreSupport);
+                }
+            });
         });
 
         // calculations for budget table totals
@@ -276,9 +291,7 @@
                     // push the record into the list
                     $scope.model.arccProposalScoreList.push(memberScore);
                 });
-
             });
-            
         };
 
         // chair's decision to approve or deny proposal 

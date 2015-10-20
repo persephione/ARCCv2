@@ -65,6 +65,7 @@
     <Compile Include="Managers\DeeManager.cs" />
     <Compile Include="Managers\ScoreManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="POCO\SearchParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

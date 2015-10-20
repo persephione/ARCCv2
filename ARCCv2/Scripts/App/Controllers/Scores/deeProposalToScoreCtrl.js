@@ -47,9 +47,24 @@
             updateOtherTotals();
             updateTotals();
 
-            // if proposal has already been scored, remove action buttons
-            if ($scope.model.fullProposal.DeeProposal.DeeApproval === true)
+            // if proposal has already been approved/denied, remove action buttons
+            if ($scope.model.fullProposal.DeeProposal.DeeScored === true)
                 $scope.proposalIsArchived = true;
+
+            // check to see if user has already scored proposal
+            var id = $scope.model.fullProposal.DeeProposal.DeeProposalID;
+            scores.GetDeeScores.Update(id).then(function (result) {
+                if (result != null) {
+                    $scope.model.DeeScore = result;
+
+                    // move slider handles
+                    $("#slider1").slider('value', $scope.model.DeeScore.DeeScoreResearch);
+                    $("#slider2").slider('value', $scope.model.DeeScore.DeeScorePedagogy);
+                    $("#slider3").slider('value', $scope.model.DeeScore.DeeScoreSoftware);
+                    $("#slider4").slider('value', $scope.model.DeeScore.DeeScoreEvaluation);
+                    $("#slider5").slider('value', $scope.model.DeeScore.DeeScoreSupport);
+                }
+            });
         });
 
         // calculations for budget table totals
@@ -278,8 +293,8 @@
             $scope.model.fullProposal.DeeProposal.DeeScored = true;
             $scope.model.fullProposal.DeeProposal.DeeApproval = decision;
 
-            // udpate proposal with decision and save to db
-            scores.SaveOrUpdateDeeScore.Update($scope.model.fullProposal.DeeProposal).then(function (result) {
+            // update proposal with decision and save to db
+            deeProposal.SaveOrUpdateDeeProposal.Update($scope.model.fullProposal).then(function (result) {
 
                 // reset form
                 $scope.cancel();

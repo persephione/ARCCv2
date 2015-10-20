@@ -16,6 +16,13 @@ namespace ARCCv2.Business.DatabaseQueries
         public bool DoesProposalExist(int id) => Uow.DeeProposalRepository.GetById(id) != null ? true : false;
 
         /// <summary>
+        /// Checks if score exists in db - tina
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true or false</returns>
+        public bool DoesScoreExist(int id) => Uow.DeeScoreRepository.GetById(id) != null ? true : false;
+
+        /// <summary>
         /// Checks if there's already a duplicate of the exact proposal in db using unique primary key - tina
         /// </summary>
         /// <param name="proposalName">name of proposal</param>
