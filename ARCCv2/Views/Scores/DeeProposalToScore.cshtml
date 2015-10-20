@@ -290,7 +290,7 @@
                             </div>
 
                         </div>
-                        <div>
+                        <div  ng-show="model.fullProposal.DeeProposal.ARCCPartiallyFunded">
                             <span class="proposalViewOnlyText">
                                 <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
                                 <br />{{model.fullProposal.DeeProposal.ARCCPartiallyFundedPercent | formatPercent}}

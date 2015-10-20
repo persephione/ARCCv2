@@ -432,7 +432,7 @@
                                placeholder="Enter an acceptable percentage" ng-model="model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent" />
                     </div>
                 </div>
-                <div ng-if="viewOnly">
+                <div ng-if="viewOnly" ng-show="model.fullProposal.ARCCProposal.ARCCPartiallyFunded">
                     <span class="proposalViewOnlyText">
                         <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
                         <br />{{::model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent}}

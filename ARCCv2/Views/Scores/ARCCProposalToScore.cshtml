@@ -296,7 +296,7 @@
                             </div>
 
                         </div>
-                        <div>
+                        <div ng-show="model.fullProposal.ARCCProposal.ARCCPartiallyFunded">
                             <span class="proposalViewOnlyText">
                                 <label class="col-lg-5 control-label" for="PartialPercentage">What percentage of funding is needed?</label>
                                 <br />{{model.fullProposal.ARCCProposal.ARCCPartiallyFundedPercent | formatPercent}}
@@ -340,13 +340,13 @@
                             <span class="proposalViewOnlyText"><br />{{ARCCReplacementEquipment}}<br /><br /></span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show="model.fullProposal.ARCCProposal.ARCCReplacementEquipment">
                         <label class="col-lg-4 control-label" for="ReplacementProjectName">Project Name</label>
                         <div class="col-lg-7">
                             <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementProjectName}}<br /><br /></span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show="model.fullProposal.ARCCProposal.ARCCReplacementEquipment">
                         <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
                         <div class="col-lg-7">
                             <span class="proposalViewOnlyText"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementARCCYear}}<br /><br /></span>
