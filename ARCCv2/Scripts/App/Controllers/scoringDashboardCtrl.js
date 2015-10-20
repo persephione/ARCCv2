@@ -20,12 +20,13 @@
             // set the lists for the View
             angular.forEach(result, function (proposal) {
                 // if the user hasn't score an active proposal yet, then add proposal to this list
-                if(proposal.Status === 'Active') // TODO: haven't added CAS yet. add this filter after ----------------//
+                if(proposal.Status !== 'Approved' && proposal.Status !== 'Not Approved') // TODO: haven't added CAS yet. add this filter after ----------------//
                     $scope.model.readyToScoreList.push(proposal);
 
-                // then separate by active and archived
-                if (proposal.Status === 'Active')
+                // push all proposals that haven't been approved/denied yet into All Active
+                if (proposal.Status === 'Submitted - Pending Approval')
                     $scope.model.allActiveList.push(proposal);
+                // push the rest into Archived
                 else
                     $scope.model.allArchivedList.push(proposal);
 

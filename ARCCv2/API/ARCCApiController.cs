@@ -33,7 +33,14 @@ namespace ARCCv2.API
                     newViewProposal.ProposalName = arcc.ARCCName;
                     newViewProposal.LastUpdatedDate = arcc.ARCCLastUpdatedDate;
                     newViewProposal.Type = "ARCC";
-                    newViewProposal.Status = arcc.ARCCApproval ? proposalStatus.isFalse : proposalStatus.isTrue;
+
+                    if (arcc.ARCCScored == false)
+                        newViewProposal.Status = proposalStatus.submitted;
+                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == true)
+                        newViewProposal.Status = proposalStatus.approved;
+                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == false)
+                        newViewProposal.Status = proposalStatus.notApproved;
+
                     allProposals.Add(newViewProposal);
                 }
             }
@@ -48,7 +55,14 @@ namespace ARCCv2.API
                     newViewProposal.ProposalName = dee.DeeName;
                     newViewProposal.LastUpdatedDate = dee.DeeLastUpdatedDate;
                     newViewProposal.Type = "Dee";
-                    newViewProposal.Status = dee.DeeApproval ? proposalStatus.isFalse : proposalStatus.isTrue;
+
+                    if (dee.DeeScored == false)
+                        newViewProposal.Status = proposalStatus.submitted;
+                    else if (dee.DeeScored == true && dee.DeeApproval == true)
+                        newViewProposal.Status = proposalStatus.approved;
+                    else if (dee.DeeScored == true && dee.DeeApproval == false)
+                        newViewProposal.Status = proposalStatus.notApproved;
+
                     allProposals.Add(newViewProposal);
                 }
             }
