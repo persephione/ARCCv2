@@ -490,7 +490,7 @@
                     <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{ARCCReplacementEquipment}}<br /><br /></span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-hide="!model.fullProposal.ARCCProposal.ARCCReplacementEquipment">
                 <label class="col-lg-4 control-label" for="ReplacementProjectName">Project Name</label>
                 <div class="col-lg-7">
                     <input ng-if="!viewOnly" type="text" class="form-control" id="ReplacementProjectName"
@@ -498,7 +498,7 @@
                     <span class="proposalViewOnlyText" ng-if="viewOnly"><br />{{::model.fullProposal.ARCCProposal.ARCCReplacementProjectName}}<br /><br /></span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-hide="!model.fullProposal.ARCCProposal.ARCCReplacementEquipment">
                 <label class="col-lg-4 control-label" for="ReplacementARCCYear">Project Year</label>
                 <div class="col-lg-7">
                     <input ng-if="!viewOnly" type="number" class="form-control" id="ReplacementARCCYear"

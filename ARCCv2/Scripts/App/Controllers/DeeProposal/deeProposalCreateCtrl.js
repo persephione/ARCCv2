@@ -27,7 +27,8 @@
             collegeTotal: 0.0,
             otherTotal: 0.0,
             grandTotal: 0.0,
-            errorMessage: ''
+            errorMessage: '',
+            justification: 'Abstract'
         };
 
         $scope.addHardwareQuickEntry = function () {
@@ -149,7 +150,10 @@
             $location.path('/Home/UserDashboard');
         };
 
-
+        // used to navigate justification tabs
+        $scope.setJustification = function (item) {
+            $scope.model.justification = item;
+        };
 
         // user can either save or submit proposal
         $scope.save = function (submit) {

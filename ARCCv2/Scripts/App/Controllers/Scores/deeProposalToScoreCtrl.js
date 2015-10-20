@@ -15,7 +15,8 @@
             },
             deeProposalScoreList: [],
             warningMessage: '',
-            successMessage: ''
+            successMessage: '',
+            justification: 'Abstract'
         };
         $scope.ARCCPartiallyFunded = '';
         $scope.form = {};
@@ -284,6 +285,11 @@
                     $scope.model.deeProposalScoreList.push(memberScore);
                 });
             });
+        };
+
+        // used to navigate justification tabs
+        $scope.setJustification = function (item) {
+            $scope.model.justification = item;
         };
 
         // chair's decision to approve or deny proposal 

@@ -59,6 +59,15 @@ body {
 }
 .weberButtonRed:focus {outline:0 !important;}
 
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #492365 !important;
+}
+
+a {
+    color: #492365;
+    text-decoration: none;
+}
 
 /*Custom Table Hover*/
 .table-hover tbody tr:hover > td,

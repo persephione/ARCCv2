@@ -126,7 +126,32 @@
                     Justification
                 </div>
                 <div class="panel-body proposalPanelBody">
-                    {{::model.fullProposal.DeeProposal.DeeJustification}}
+                    <ul class="nav nav-pills">
+                        <li role="presentation" ng-class="{'active': (model.justification === 'Abstract')}"><a href="" ng-click="setJustification('Abstract')">Abstract</a></li>
+                        <li role="presentation" ng-class="{'active': (model.justification === 'Objectives/Goals')}"><a href="" ng-click="setJustification('Objectives/Goals')">Objectives/Goals</a></li>
+                        <li role="presentation" ng-class="{'active': (model.justification === 'Courses')}"><a href="" ng-click="setJustification('Courses')">Courses</a></li>
+                        <li role="presentation" ng-class="{'active': (model.justification === 'Success')}"><a href="" ng-click="setJustification('Success')">Success</a></li>
+                    </ul>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-show="model.justification === 'Abstract'">
+                            <h4>Abstract (project summary):</h4>
+                            <span>{{::model.fullProposal.DeeProposal.DeeAbstract}}</span>
+                        </div>
+                        <div class="col-lg-12" ng-show="model.justification === 'Objectives/Goals'">
+                            <h4>Objectives and goals of this project:</h4>
+                            <span>{{::model.fullProposal.DeeProposal.DeeObjectAndGoals}}</span>
+                        </div>
+                        <div class="col-lg-12" ng-show="model.justification === 'Courses'">
+                            <h4>Identify specific courses and/or programs that will directly benefit from this project:</h4>
+                            <span>(You may also want to describe how specific courses may be enhanced by this project.)</span>
+                            <span>{{::model.fullProposal.DeeProposal.DeeCoursesPrograms}}</span>
+                        </div>
+                        <div class="col-lg-12" ng-show="model.justification === 'Success'">
+                            <h4>Describe how the success of this project will be evaluated.</h4>
+                            <span>(If reports or publications are anticipated from this project, please indicate such.)</span>
+                            <span>{{::model.fullProposal.DeeProposal.DeeSuccess}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
