@@ -23,6 +23,7 @@
         $scope.proposalIsArchived = false;
         $scope.isScoringActive = false;
         $scope.isApprovalActive = false;
+        $scope.isScored = false;
         $scope.slideClass = 'slide-left';
 
         $scope.goToScoreList = function () {
@@ -209,8 +210,11 @@
             $scope.togglePanels('none');
         };
 
-        // save ARCCScore model to db
+        // save DeeScore model to db
         $scope.save = function () {
+
+            $scope.isScored = true;
+
             // calculate total
             $scope.model.DeeScore.DeeScoreTotal = $scope.model.DeeScore.DeeScoreResearch +
                                                     $scope.model.DeeScore.DeeScorePedagogy +

@@ -216,6 +216,8 @@
         // save ARCCScore model to db
         $scope.save = function () {
 
+            $scope.isScored = true;
+
             // calculate total
             $scope.model.ARCCScore.ARCCScoreTotal = $scope.model.ARCCScore.ARCCScoreEducExp +
                                                     $scope.model.ARCCScore.ARCCScoreInnovation +
