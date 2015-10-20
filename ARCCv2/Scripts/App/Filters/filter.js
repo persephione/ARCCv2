@@ -41,30 +41,6 @@ angular.module('App').filter('dcCurrency', ['numberFilter', function (numberFilt
     };
 }]);
 
-angular.module('App').filter('dcDepartment', function () {
-    return function(input) {
-        if (input !== undefined) {
-            if (angular.isNumber(input)) {
-                input = input.toString();
-            }
-            input = pad(input, 6);
-            input = input.substr(0, 2) + "-" + input.substr(2, 4);
-        }
-
-        return input;
-    };
-});
-
-angular.module('App').filter('dcContract', function () {
-    return function(input) {
-        if (angular.isNumber(input)) {
-            input = input.toString();
-        }
-        input = input.substr(0, 4) + "-" + input.substr(4, 4);
-        return input;
-    };
-});
-
 angular.module('App').filter('dcDate', ['dateFilter', function (dateFilter) {
     return function(input) {
         return dateFilter(input, 'MM/dd/yyyy');
@@ -78,17 +54,6 @@ angular.module('App').filter('dcAccount', function () {
         }
         input = pad(input, 9);
         input = input.substr(0, 2) + "-" + input.substr(2, 4) + "-" + input.substr(6, 3);
-        return input;
-    };
-});
-
-angular.module('App').filter('dcAccountingPeriod', function () {
-    return function(input) {
-        if (angular.isNumber(input)) {
-            input = input.toString();
-        }
-        input = pad(input, 6);
-        input = input.substr(0, 4) + "-" + input.substr(4, 2);
         return input;
     };
 });
@@ -147,18 +112,4 @@ angular.module('App').filter('dcPhoneNumber', function () {
     };
 
 
-});
-
-angular.module('App').filter('dcAccountingPayPeriod', function () {
-    return function (input) {
-        if (input === null) {
-            return '';
-        }
-        if (angular.isNumber(input)) {
-            input = input.toString();
-        }
-        input = pad(input, 6);
-        input = input.substr(0, 4) + "-" + input.substr(4, 2);
-        return input;
-    };
 });

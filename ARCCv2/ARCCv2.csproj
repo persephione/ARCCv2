@@ -235,13 +235,7 @@
     <Content Include="Scripts\App\Controllers\Scores\deeProposalToScoreCtrl.js" />
     <Content Include="Scripts\App\Controllers\scoringDashboardCtrl.js" />
     <Content Include="Scripts\App\Controllers\userDashboardCtrl.js" />
-    <Content Include="Scripts\App\Directives\dcBlur.js" />
-    <Content Include="Scripts\App\Directives\dcCenterModal.js" />
-    <Content Include="Scripts\App\Directives\dcCheck.js" />
-    <Content Include="Scripts\App\Directives\dcCheckList.js" />
     <Content Include="Scripts\App\Directives\dcFocus.js" />
-    <Content Include="Scripts\App\Directives\dcHighlightMessage.js" />
-    <Content Include="Scripts\App\Directives\dcLock.js" />
     <Content Include="Scripts\App\Directives\dcNumbersOnly.js" />
     <Content Include="Scripts\App\Directives\formatPercent.js" />
     <Content Include="Scripts\App\Filters\filter.js" />

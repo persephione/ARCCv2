@@ -9,11 +9,10 @@ namespace ARCCv2.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/Scripts").Include(
-                "~/Scripts/JQuery/jquery-{version}.js",
-                "~/Scripts/JQuery/jquery-migrate-{version}.js", //older IE support
-                "~/Scripts/JQuery/jquery-ui.js",
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/Angular/angular.js",
+                //"~/Scripts/JQuery/jquery-{version}.js",
+                //"~/Scripts/JQuery/jquery-migrate-{version}.js", //older IE support
+                //"~/Scripts/JQuery/jquery-ui.js",
+                //"~/Scripts/Angular/angular.js",
                 "~/Scripts/Angular/angular-animate.js",
                 "~/Scripts/Angular/angular-cookies.js",
                 "~/Scripts/Angular/angular-resource.js",
@@ -23,13 +22,6 @@ namespace ARCCv2.App_Start
                 "~/Scripts/angular-ui/ui-bootstrap.js",
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                 "~/Scripts/Bootstrap/bootstrap.js"
-                ));
-
-            bundles.Add(new StyleBundle("~/bundles/css").Include(
-                //"~/Content/app.css",
-                //"~/Content/wsu.css"
-                //"~/Content/bootstrap.css",
-                //"~/Content/bootstrap-theme.css"
                 ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
