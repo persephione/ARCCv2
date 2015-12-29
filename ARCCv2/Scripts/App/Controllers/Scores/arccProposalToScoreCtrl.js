@@ -58,7 +58,7 @@
             updateTotals();
 
             // if proposal has already been approved/denied, remove action buttons
-            if ($scope.model.fullProposal.ARCCProposal.ARCCScored === true)
+            if ($scope.model.fullProposal.ARCCProposal.Status > $scope.statusType[1].Id)
                 $scope.proposalIsArchived = true;
 
             // check to see if user has already scored proposal
