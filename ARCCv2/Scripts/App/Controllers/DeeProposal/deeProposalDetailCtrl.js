@@ -33,6 +33,13 @@
         $scope.ARCCPartiallyFunded = 'No';
         $scope.viewOnly = false;
 
+        $scope.statusType = [
+            { Id: 1, StatusDescription: 'Pending Submission' },
+            { Id: 2, StatusDescription: 'Submitted - Pending Approval' },
+            { Id: 3, StatusDescription: 'Approved' },
+            { Id: 4, StatusDescription: 'Not Approved' }
+        ];
+
         // get proposal id from params
         $scope.model.fullProposal.Id = parameters.get("proposalId");
 
@@ -41,7 +48,7 @@
             $scope.model.fullProposal = result;
 
             // set to view only if proposal has been submitted
-            $scope.viewOnly = $scope.model.fullProposal.DeeProposal.DeeSubmitted === true ? true : false;
+            $scope.viewOnly = $scope.model.fullProposal.DeeProposal.Status > 1 ? true : false;
 
             // set text on View
             if ($scope.model.fullProposal.DeeProposal.ARCCPartiallyFunded)
@@ -180,9 +187,11 @@
         // user can either save or submit proposal
         $scope.save = function (submit) {
 
+            $scope.model.fullProposal.DeeProposal.Status = $scope.statusType[0].Id; // set Status to Pending Submission
+
             // if user clicked on Save and Submit, then add the submitted date to proposal record
-            if (submit == true) {
-                $scope.model.fullProposal.DeeProposal.DeeSubmitted = true;
+            if (submit === true) {
+                $scope.model.fullProposal.DeeProposal.Status = $scope.statusType[1].Id; // set Status to Submitted - Pending Approval
                 $scope.model.fullProposal.DeeProposal.DeeSubmittedDate = new Date();
             }
 

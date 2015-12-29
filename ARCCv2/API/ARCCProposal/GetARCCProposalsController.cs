@@ -7,16 +7,6 @@ namespace ARCCv2.API
     public class GetARCCProposalsController : ARCCApiController
     {
         /// <summary>
-        /// Gets a list of all ARCC Proposals - tina
-        /// </summary>
-        /// <returns></returns>
-        //public List<ProposalListView> Get()
-        //{
-        //    var arccProposals = arccManager.GetARCCProposals();
-        //    return CreateProposalListViews(arccProposals);
-        //}
-
-        /// <summary>
         /// Gets one entire arcc proposal with all details including budget - tina
         /// </summary>
         /// <param name="id">unique primary key for proposal</param>
@@ -24,7 +14,7 @@ namespace ARCCv2.API
         public ARCCProposalDetail Get(int id)
         {
             var proposal = arccManager.GetARCCProposal(id);
-            return CreateARCCProposalDetail(proposal); 
+            return CreateARCCProposalDetail(proposal);
         }
 
         /// <summary>
@@ -34,16 +24,20 @@ namespace ARCCv2.API
         /// <returns></returns>
         public List<Models.ARCCProposal> Post([FromBody] string userName) => arccManager.GetARCCProposals(userName);
 
-
+        /// <summary>
+        /// Creates the POCO to return to the view that contains all of a proposal's detail - tina
+        /// </summary>
+        /// <param name="proposal">arcc proposal object</param>
+        /// <returns>ARCCProposalDetailPOCO</returns>
         protected ARCCProposalDetail CreateARCCProposalDetail(Models.ARCCProposal proposal)
         {
-            var tempProposalDetail = new ARCCProposalDetail();
-
-            tempProposalDetail.ARCCProposal = proposal;
-            tempProposalDetail.HardwareBudgetList = arccManager.GetHardwareBudgetsForProposal(proposal.ARCCProposalID);
-            tempProposalDetail.SoftwareBudgetList = arccManager.GetSoftwareBudgetsForProposal(proposal.ARCCProposalID);
-            tempProposalDetail.OtherBudgetList = arccManager.GetOtherBudgetsForProposal(proposal.ARCCProposalID);
-
+            var tempProposalDetail = new ARCCProposalDetail
+            {
+                ARCCProposal = proposal,
+                HardwareBudgetList = arccManager.GetHardwareBudgetsForProposal(proposal.ARCCProposalID),
+                SoftwareBudgetList = arccManager.GetSoftwareBudgetsForProposal(proposal.ARCCProposalID),
+                OtherBudgetList = arccManager.GetOtherBudgetsForProposal(proposal.ARCCProposalID)
+            };
             return tempProposalDetail;
         }
 

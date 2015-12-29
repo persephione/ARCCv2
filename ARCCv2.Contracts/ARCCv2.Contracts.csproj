@@ -54,6 +54,7 @@
     <Compile Include="Contracts\IDeeProposalRepository.cs" />
     <Compile Include="Contracts\IDeeScoreRepository.cs" />
     <Compile Include="Contracts\IDeeSoftwareBudgetRepository.cs" />
+    <Compile Include="Contracts\IStatusRepository.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="Contracts\IUserTypeRepository.cs" />
     <Compile Include="IARCCv2UOW.cs" />

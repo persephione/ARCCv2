@@ -11,59 +11,60 @@ namespace ARCCv2.API
         private DeeManager _deeManager;
         private ScoreManager _scoreManager;
         private UserManager _userManager;
-        private ProposalStatus _proposalStatus;
+        private LookupManager _lookupManager;
+        private Dictionary<int, string> _statusNames;
 
         public ARCCManager arccManager => _arccManager ?? (_arccManager = new ARCCManager());
         public DeeManager deeManager => _deeManager ?? (_deeManager = new DeeManager());
         public ScoreManager scoreManager => _scoreManager ?? (_scoreManager = new ScoreManager());
         public UserManager userManager => _userManager ?? (_userManager = new UserManager());
-        public ProposalStatus proposalStatus => _proposalStatus ?? (_proposalStatus = new ProposalStatus());
+        public LookupManager lookupManager => _lookupManager ?? (_lookupManager = new LookupManager());
 
 
-        protected List<ProposalListView> CreateProposalListViewsForScoring(List<Models.ARCCProposal> arccProposals = null,
-                                                        List<Models.DeeProposal> deeProposals = null)
+        protected List<ProposalListView> CreateProposalListViewsForScoring(HashSet<Models.ARCCProposal> arccProposals = null,
+                                                        HashSet<Models.DeeProposal> deeProposals = null)
         {
+            // get all the statuses
+            _statusNames = lookupManager.GetStatusNames();
+
             var allProposals = new List<ProposalListView>();
+
+
             if (arccProposals != null)
             {
                 foreach (var arcc in arccProposals)
                 {
-                    var newViewProposal = new ProposalListView();
-                    newViewProposal.ProposalID = arcc.ARCCProposalID;
-                    newViewProposal.ProposalName = arcc.ARCCName;
-                    newViewProposal.LastUpdatedDate = arcc.ARCCLastUpdatedDate;
-                    newViewProposal.Type = "ARCC";
+                    var status = (_statusNames.ContainsKey(arcc.Status))
+                        ? _statusNames[arcc.Status]
+                        : string.Empty;
 
-                    if (arcc.ARCCScored == false)
-                        newViewProposal.Status = proposalStatus.submitted;
-                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == true)
-                        newViewProposal.Status = proposalStatus.approved;
-                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == false)
-                        newViewProposal.Status = proposalStatus.notApproved;
-
-                    allProposals.Add(newViewProposal);
+                    allProposals.Add(new ProposalListView()
+                    {
+                        ProposalID = arcc.ARCCProposalID,
+                        ProposalName = arcc.ARCCName,
+                        LastUpdatedDate = arcc.ARCCLastUpdatedDate,
+                        Type = arcc.Type,
+                        Status = status
+                    }); 
                 }
             }
-
 
             if (deeProposals != null)
             {
                 foreach (var dee in deeProposals)
                 {
-                    var newViewProposal = new ProposalListView();
-                    newViewProposal.ProposalID = dee.DeeProposalID;
-                    newViewProposal.ProposalName = dee.DeeName;
-                    newViewProposal.LastUpdatedDate = dee.DeeLastUpdatedDate;
-                    newViewProposal.Type = "Dee";
+                    var status = (_statusNames.ContainsKey(dee.Status))
+                        ? _statusNames[dee.Status]
+                        : string.Empty;
 
-                    if (dee.DeeScored == false)
-                        newViewProposal.Status = proposalStatus.submitted;
-                    else if (dee.DeeScored == true && dee.DeeApproval == true)
-                        newViewProposal.Status = proposalStatus.approved;
-                    else if (dee.DeeScored == true && dee.DeeApproval == false)
-                        newViewProposal.Status = proposalStatus.notApproved;
-
-                    allProposals.Add(newViewProposal);
+                    allProposals.Add(new ProposalListView()
+                    { 
+                        ProposalID = dee.DeeProposalID,
+                        ProposalName = dee.DeeName,
+                        LastUpdatedDate = dee.DeeLastUpdatedDate,
+                        Type = dee.Type,
+                        Status = status
+                    });
                 }
             }
 
@@ -73,25 +74,26 @@ namespace ARCCv2.API
         protected List<ProposalListView> CreateProposalListViewsForUserDashboard(List<Models.ARCCProposal> arccProposals = null,
                                                         List<Models.DeeProposal> deeProposals = null)
         {
+            // get all the statuses
+            _statusNames = lookupManager.GetStatusNames();
+
             var allProposals = new List<ProposalListView>();
             if (arccProposals != null)
             {
                 foreach (var arcc in arccProposals)
                 {
-                    var newViewProposal = new ProposalListView();
-                    newViewProposal.ProposalID = arcc.ARCCProposalID;
-                    newViewProposal.ProposalName = arcc.ARCCName;
-                    newViewProposal.LastUpdatedDate = arcc.ARCCLastUpdatedDate;
-                    newViewProposal.Type = "ARCC";
+                    var status = (_statusNames.ContainsKey(arcc.Status))
+                        ? _statusNames[arcc.Status]
+                        : string.Empty;
 
-                    if (arcc.ARCCSubmitted == false)
-                        newViewProposal.Status = proposalStatus.notSubmitted;
-                    else if (arcc.ARCCSubmitted == true && arcc.ARCCScored == false)
-                        newViewProposal.Status = proposalStatus.submitted;
-                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == true)
-                        newViewProposal.Status = proposalStatus.approved;
-                    else if (arcc.ARCCScored == true && arcc.ARCCApproval == false)
-                        newViewProposal.Status = proposalStatus.notApproved;
+                    var newViewProposal = new ProposalListView
+                    {
+                        ProposalID = arcc.ARCCProposalID,
+                        ProposalName = arcc.ARCCName,
+                        LastUpdatedDate = arcc.ARCCLastUpdatedDate,
+                        Type = arcc.Type,
+                        Status = status
+                    };
 
                     allProposals.Add(newViewProposal);
                 }
@@ -101,25 +103,22 @@ namespace ARCCv2.API
             {
                 foreach (var dee in deeProposals)
                 {
-                    var newViewProposal = new ProposalListView();
-                    newViewProposal.ProposalID = dee.DeeProposalID;
-                    newViewProposal.ProposalName = dee.DeeName;
-                    newViewProposal.LastUpdatedDate = dee.DeeLastUpdatedDate;
-                    newViewProposal.Type = "Dee";
+                    var status = (_statusNames.ContainsKey(dee.Status))
+                        ? _statusNames[dee.Status]
+                        : string.Empty;
 
-                    if (dee.DeeSubmitted == false)
-                        newViewProposal.Status = proposalStatus.notSubmitted;
-                    else if (dee.DeeSubmitted == true && dee.DeeScored == false)
-                        newViewProposal.Status = proposalStatus.submitted;
-                    else if (dee.DeeScored == true && dee.DeeApproval == true)
-                        newViewProposal.Status = proposalStatus.approved;
-                    else if (dee.DeeScored == true && dee.DeeApproval == false)
-                        newViewProposal.Status = proposalStatus.notApproved;
+                    var newViewProposal = new ProposalListView
+                    {
+                        ProposalID = dee.DeeProposalID,
+                        ProposalName = dee.DeeName,
+                        LastUpdatedDate = dee.DeeLastUpdatedDate,
+                        Type = dee.Type,
+                        Status = status
+                    };
 
                     allProposals.Add(newViewProposal);
                 }
             }
-
             return allProposals;
         }
     }

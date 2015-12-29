@@ -2,6 +2,7 @@
 using ARCCv2.Business.Managers;
 using ARCCv2.Data;
 using System.Collections.Generic;
+using ARCCv2.Business.Helpers;
 
 namespace ARCCv2.Business
 {
@@ -38,6 +39,12 @@ namespace ARCCv2.Business
 
         private UserQueries _userQueries { get; set; }
         public UserQueries userQueries => _userQueries ?? (_userQueries = new UserQueries());
+
+        private SharedQueries _sharedQueries { get; set; }
+        public SharedQueries sharedQueries => _sharedQueries ?? (_sharedQueries = new SharedQueries());
+
+        private StatusTypes _statusTypes { get; set; }
+        public StatusTypes statusTypes => _statusTypes ?? (_statusTypes = new StatusTypes());
 
     }
 }

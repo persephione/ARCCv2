@@ -30,6 +30,13 @@
             errorMessage: ''
         };
 
+        $scope.statusType = [
+            { Id: 1, StatusDescription: 'Pending Submission' },
+            { Id: 2, StatusDescription: 'Submitted - Pending Approval' },
+            { Id: 3, StatusDescription: 'Approved' },
+            { Id: 4, StatusDescription: 'Not Approved' }
+        ];
+
         $scope.addHardwareQuickEntry = function () {
             if (isNotEmpty($scope.model.hardwareQuickEntry)) {
                 $scope.model.fullProposal.HardwareBudgetList.push(angular.copy($scope.model.hardwareQuickEntry));
@@ -153,10 +160,12 @@
         $scope.save = function (submit) {
 
             var savedText = submit == false ? 'saved.' : 'submitted.';
+            $scope.model.fullProposal.ARCCProposal.Status = $scope.statusType[0].Id; // set Status to Pending Submission
             $scope.model.fullProposal.ARCCProposal.ARCCReplacementARCCYear = parseInt($scope.model.fullProposal.ARCCProposal.ARCCReplacementARCCYear);
+
             // if user clicked on Save and Submit, then add the submitted date to proposal record
-            if (submit == true) {
-                $scope.model.fullProposal.ARCCProposal.ARCCSubmitted = true;
+            if (submit === true) {
+                $scope.model.fullProposal.ARCCProposal.Status = $scope.statusType[1].Id; // set Status to Submitted - Pending Approval
                 $scope.model.fullProposal.ARCCProposal.ARCCSubmittedDate = new Date();
             }
 

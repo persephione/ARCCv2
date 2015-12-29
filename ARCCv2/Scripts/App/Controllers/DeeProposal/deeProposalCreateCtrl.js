@@ -31,6 +31,13 @@
             justification: 'Abstract'
         };
 
+        $scope.statusType = [
+            { Id: 1, StatusDescription: 'Pending Submission' },
+            { Id: 2, StatusDescription: 'Submitted - Pending Approval' },
+            { Id: 3, StatusDescription: 'Approved' },
+            { Id: 4, StatusDescription: 'Not Approved' }
+        ];
+
         $scope.addHardwareQuickEntry = function () {
             if (isNotEmpty($scope.model.hardwareQuickEntry)) {
                 $scope.model.fullProposal.HardwareBudgetList.push(angular.copy($scope.model.hardwareQuickEntry));
@@ -159,10 +166,11 @@
         $scope.save = function (submit) {
 
             var savedText = submit == false ? 'saved.' : 'submitted.';
+            $scope.model.fullProposal.DeeProposal.Status = $scope.statusType[0].Id; // set Status to Pending Submission
 
             // if user clicked on Save and Submit, then add the submitted date to proposal record
-            if (submit == true) {
-                $scope.model.fullProposal.DeeProposal.DeeSubmitted = true;
+            if (submit === true) {
+                $scope.model.fullProposal.DeeProposal.Status = $scope.statusType[1].Id; // set Status to Submitted - Pending Approval
                 $scope.model.fullProposal.DeeProposal.DeeSubmittedDate = new Date();
             }
 

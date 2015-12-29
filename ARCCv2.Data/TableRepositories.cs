@@ -32,6 +32,7 @@ namespace ARCCv2.Data
                 {typeof(IDeeProposalRepository), dbContext => new DeeProposalRepository(dbContext)},
                 {typeof(IDeeScoreRepository), dbContext => new DeeScoreRepository(dbContext)},
                 {typeof(IDeeSoftwareBudgetRepository), dbContext => new DeeSoftwareBudgetRepository(dbContext)},
+                {typeof(IStatusRepository), dbContext => new StatusRepository(dbContext)},
                 {typeof(IUserRepository), dbContext => new UserRepository(dbContext)},
                 {typeof(IUserTypeRepository), dbContext => new UserTypeRepository(dbContext)},
             };

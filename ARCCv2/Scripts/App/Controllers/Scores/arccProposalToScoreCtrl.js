@@ -26,6 +26,13 @@
         $scope.isApprovalActive = false;
         $scope.slideClass = 'slide-left';
 
+        $scope.statusType = [
+            { Id: 1, StatusDescription: 'Pending Submission' },
+            { Id: 2, StatusDescription: 'Submitted - Pending Approval' },
+            { Id: 3, StatusDescription: 'Approved' },
+            { Id: 4, StatusDescription: 'Not Approved' }
+        ];
+
         $scope.goToScoreList = function () {
             $location.path('/Home/ScoringDashboard');
         };
@@ -299,11 +306,10 @@
         // chair's decision to approve or deny proposal 
         $scope.approval = function (decision) {
 
-            // add the decision and flag proposal as scored and archive it
-            $scope.model.fullProposal.ARCCProposal.ARCCScored = true;
-            $scope.model.fullProposal.ARCCProposal.ARCCApproval = decision;
+            // change the Status for the proposal depending on the decision and archive it
+            $scope.model.fullProposal.ARCCProposal.Status = (decision === true) ? $scope.statusType[2].Id : $scope.statusType[3].Id;
             
-            // udpate proposal with decision and save to db
+            // update proposal with decision and save to db
             arccProposal.SaveOrUpdateARCCProposal.Update($scope.model.fullProposal).then(function (result) {
 
                 // reset form

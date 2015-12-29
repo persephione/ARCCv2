@@ -26,6 +26,13 @@
         $scope.isScored = false;
         $scope.slideClass = 'slide-left';
 
+        $scope.statusType = [
+            { Id: 1, StatusDescription: 'Pending Submission' },
+            { Id: 2, StatusDescription: 'Submitted - Pending Approval' },
+            { Id: 3, StatusDescription: 'Approved' },
+            { Id: 4, StatusDescription: 'Not Approved' }
+        ];
+
         $scope.goToScoreList = function () {
             $location.path('/Home/ScoringDashboard');
         };
@@ -299,9 +306,8 @@
         // chair's decision to approve or deny proposal 
         $scope.approval = function (decision) {
 
-            // add the decision and flag proposal as scored and archive it
-            $scope.model.fullProposal.DeeProposal.DeeScored = true;
-            $scope.model.fullProposal.DeeProposal.DeeApproval = decision;
+            // change the Status for the proposal depending on the decision and archive it
+            $scope.model.fullProposal.DeeProposal.Status = (decision === true) ? $scope.statusType[2].Id : $scope.statusType[3].Id;
 
             // update proposal with decision and save to db
             deeProposal.SaveOrUpdateDeeProposal.Update($scope.model.fullProposal).then(function (result) {

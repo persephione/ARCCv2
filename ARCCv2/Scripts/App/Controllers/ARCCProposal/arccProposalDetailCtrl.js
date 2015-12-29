@@ -29,6 +29,13 @@
         $scope.ARCCPartiallyFunded = "No";
         $scope.ARCCReplacementEquipment = "No";
 
+        $scope.statusType = [
+            { Id: 1, StatusDescription: 'Pending Submission' },
+            { Id: 2, StatusDescription: 'Submitted - Pending Approval' },
+            { Id: 3, StatusDescription: 'Approved' },
+            { Id: 4, StatusDescription: 'Not Approved' }
+        ];
+
         // get proposal id from params
         $scope.model.fullProposal.Id = parameters.get("proposalId");
 
@@ -43,7 +50,7 @@
                 $scope.ARCCReplacementEquipment = "Yes";
 
             // set to view only if proposal has been submitted
-            $scope.viewOnly = $scope.model.fullProposal.ARCCProposal.ARCCSubmitted == true ? true : false;
+            $scope.viewOnly = $scope.model.fullProposal.ARCCProposal.Status > 1 ? true : false;
 
             // compute budget totals
             updateHardwareTotals();
@@ -180,10 +187,12 @@
         $scope.save = function (submit) {
 
             var savedText = submit == false ? 'saved.' : 'submitted.';
+            $scope.model.fullProposal.ARCCProposal.Status = $scope.statusType[0].Id; // set Status to Pending Submission
             $scope.model.fullProposal.ARCCProposal.ARCCReplacementARCCYear = parseInt($scope.model.fullProposal.ARCCProposal.ARCCReplacementARCCYear);
+
             // if user clicked on Save and Submit, then add the submitted date to proposal record
-            if (submit == true) {
-                $scope.model.fullProposal.ARCCProposal.ARCCSubmitted = true;
+            if (submit === true) {
+                $scope.model.fullProposal.ARCCProposal.Status = $scope.statusType[1].Id; // set Status to Submitted - Pending Approval
                 $scope.model.fullProposal.ARCCProposal.ARCCSubmittedDate = new Date();
             }
 

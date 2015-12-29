@@ -1,9 +1,8 @@
-﻿using ARCCv2.Data;
-using ARCCv2.Models;
+﻿using ARCCv2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using ARCCv2.Business.Helpers;
 
 namespace ARCCv2.Business.Managers
 {
@@ -25,7 +24,8 @@ namespace ARCCv2.Business.Managers
         /// Gets submitted arcc proposals for specific user, or if userName is empty will get all of them. - tina
         /// </summary>
         /// <returns>list of arcc proposal records</returns>
-        public List<ARCCProposal> GetSubmittedARCCProposals() => Uow.ARCCProposalRepository.GetAll().Where(x => x.ARCCSubmitted == true).ToList();
+        public HashSet<ARCCProposal> GetSubmittedARCCProposals() => 
+            Uow.ARCCProposalRepository.GetAll().Where(x => x.Status >= statusTypes.SubmittedPendingApproval).ToHashSet();
 
         /// <summary>
         /// Gets one arcc proposal by unique id - tina
@@ -51,7 +51,7 @@ namespace ARCCv2.Business.Managers
                 {
                     arccProposal.ARCCLastUpdatedDate = DateTime.Now;
                     //arccProposal.ARCCLastUpdatedBy = user;
-                    arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing            
+                    arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing        
                     Uow.ARCCProposalRepository.Update(arccProposal);
                 }  
             }
@@ -67,6 +67,7 @@ namespace ARCCv2.Business.Managers
                     arccProposal.ARCCLastUpdatedDate = DateTime.Now;
                     //arccProposal.ARCCLastUpdatedBy = user;
                     arccProposal.ARCCLastUpdatedBy = "tina"; // remove this after testing
+                    arccProposal.Type = "ARCC";
                     Uow.ARCCProposalRepository.Add(arccProposal);
                 }
             }

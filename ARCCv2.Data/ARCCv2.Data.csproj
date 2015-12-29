@@ -59,6 +59,7 @@
     <Compile Include="Configuration\DeeProposalMap.cs" />
     <Compile Include="Configuration\DeeScoreMap.cs" />
     <Compile Include="Configuration\DeeSoftwareBudgetMap.cs" />
+    <Compile Include="Configuration\StatusMap.cs" />
     <Compile Include="Configuration\UserMap.cs" />
     <Compile Include="Configuration\UserTypeMap.cs" />
     <Compile Include="EFRepository.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Repositories\DeeProposalRepository.cs" />
     <Compile Include="Repositories\DeeScoreRepository.cs" />
     <Compile Include="Repositories\DeeSoftwareBudgetRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserTypeRepository.cs" />
     <Compile Include="StoredProcedureContexts.cs" />

@@ -6,10 +6,7 @@ namespace ARCCv2.Models
     {
         public int DeeProposalID { get; set; }
         public string DeeName { get; set; }
-        public bool DeeSubmitted { get; set; }
         public DateTime? DeeSubmittedDate { get; set; }
-        public bool DeeScored { get; set; }
-        public bool DeeApproval { get; set; }
         public string DeeDirector { get; set; }
         public string DeeDepartment { get; set; }
         public string DeeCollege { get; set; }
@@ -33,5 +30,7 @@ namespace ARCCv2.Models
         public int ARCCPartiallyFundedPercent { get; set; }
         public string DeeLastUpdatedBy { get; set; }
         public DateTime DeeLastUpdatedDate { get; set; }
+        public int Status { get; set; }
+        public string Type { get; set; }
     }
 }

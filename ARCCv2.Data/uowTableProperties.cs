@@ -15,6 +15,7 @@ namespace ARCCv2.Data
         public IDeeProposalRepository DeeProposalRepository { get { return GetRepo<IDeeProposalRepository>(); } }
         public IDeeScoreRepository DeeScoreRepository { get { return GetRepo<IDeeScoreRepository>(); } }
         public IDeeSoftwareBudgetRepository DeeSoftwareBudgetRepository { get { return GetRepo<IDeeSoftwareBudgetRepository>(); } }
+        public IStatusRepository StatusRepository { get { return GetRepo<IStatusRepository>(); } }
         public IUserRepository UserRepository { get { return GetRepo<IUserRepository>(); } }
         public IUserTypeRepository UserTypeRepository { get { return GetRepo<IUserTypeRepository>(); } }
     }

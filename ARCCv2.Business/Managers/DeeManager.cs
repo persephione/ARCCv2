@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ARCCv2.Business.Helpers;
 
 namespace ARCCv2.Business.Managers
 {
@@ -20,7 +21,8 @@ namespace ARCCv2.Business.Managers
         /// Gets submitted dee proposals. - tina
         /// </summary>
         /// <returns>list of dee proposal records</returns>
-        public List<DeeProposal> GetSubmittedDeeProposals() => Uow.DeeProposalRepository.GetAll().Where(x => x.DeeSubmitted == true).ToList();
+        public HashSet<DeeProposal> GetSubmittedDeeProposals() => 
+            Uow.DeeProposalRepository.GetAll().Where(x => x.Status >= statusTypes.SubmittedPendingApproval).ToHashSet();
 
         /// <summary>
         /// Saves new or existing dee proposal record to db - tina
@@ -39,7 +41,7 @@ namespace ARCCv2.Business.Managers
                 {
                     deeProposal.DeeLastUpdatedDate = DateTime.Now;
                     //deeProposal.ARCCLastUpdatedBy = user;
-                    deeProposal.DeeLastUpdatedBy = "tina"; // remove this after testing            
+                    deeProposal.DeeLastUpdatedBy = "tina"; // remove this after testing  
                     Uow.DeeProposalRepository.Update(deeProposal);
                 }
             }
@@ -55,6 +57,7 @@ namespace ARCCv2.Business.Managers
                     deeProposal.DeeLastUpdatedDate = DateTime.Now;
                     //deeProposal.DeeLastUpdatedBy = user;
                     deeProposal.DeeLastUpdatedBy = "tina"; // remove this after testing
+                    deeProposal.Type = "Dee";
                     Uow.DeeProposalRepository.Add(deeProposal);
                 }
             }
@@ -73,7 +76,6 @@ namespace ARCCv2.Business.Managers
 
         public List<DeeOtherBudget> GetOtherBudgetsForProposal(int proposalID) =>
             deeQueries.GetAllOtherBudgetForProposal(proposalID).ToList();
-
 
         public int SaveOrUpdateHardwareBudget(DeeHardwareBudget hardwareBudget)
         {

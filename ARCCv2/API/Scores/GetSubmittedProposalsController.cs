@@ -15,14 +15,10 @@ namespace ARCCv2.API.Scores
         /// <returns>List of ProposalListView objects</returns>
         public List<ProposalListView> Get()
         {
-            var arccProposals = GetSubmittedARCCProposals();
-            var deeProposals = GetSubmittedDeeProposals();
+            var arccProposals = arccManager.GetSubmittedARCCProposals();
+            var deeProposals = deeManager.GetSubmittedDeeProposals();
 
             return CreateProposalListViewsForScoring(arccProposals, deeProposals);
         }
-
-        protected List<Models.ARCCProposal> GetSubmittedARCCProposals() => arccManager.GetSubmittedARCCProposals();
-
-        protected List<Models.DeeProposal> GetSubmittedDeeProposals() => deeManager.GetSubmittedDeeProposals();
     }
 }

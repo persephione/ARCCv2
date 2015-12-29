@@ -51,6 +51,7 @@
     <Compile Include="DeeScore.cs" />
     <Compile Include="DeeSoftwareBudget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserType.cs" />
   </ItemGroup>

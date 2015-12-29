@@ -19,6 +19,7 @@ namespace ARCCv2.Data
             modelBuilder.Configurations.Add(new DeeProposalMap());
             modelBuilder.Configurations.Add(new DeeScoreMap());
             modelBuilder.Configurations.Add(new DeeSoftwareBudgetMap());
+            modelBuilder.Configurations.Add(new StatusMap());
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new UserTypeMap());
         }
