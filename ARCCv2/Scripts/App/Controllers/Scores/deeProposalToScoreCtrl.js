@@ -145,13 +145,13 @@
                 });
             }
             else if (status === 'approval') {
+                $scope.getApprovalFormData();
                 $scope.slideClass = 'slide-left';
 
                 // delay for animations
                 angular.element(document).ready(function () {
                     $timeout(function () {
                         $scope.isApprovalActive = true;
-                        $scope.getApprovalFormData();
                     }, 400);
                 });
             }
@@ -269,33 +269,35 @@
                 $scope.model.successMessage = '';
 
                 committeeMembers = result;
-            });
 
-            // get all scores for proposal
-            scores.GetDeeScores.Get($scope.model.fullProposal.DeeProposal.DeeProposalID).then(function (result) {
-                scoreListFromDB = result;
+                // get all scores for proposal
+                scores.GetDeeScores.Get($scope.model.fullProposal.DeeProposal.DeeProposalID).then(function (result) {
+                    scoreListFromDB = result;
 
-                // create the score list to return to the View
-                angular.forEach(committeeMembers, function (member) {
-                    var memberScore = {};
-                    memberScore.UserName = member.UserFirstName + " " + member.UserLastName;
+                    // create the score list to return to the View
+                    angular.forEach(committeeMembers, function (member) {
+                        var memberScore = {};
+                        memberScore.UserName = member.UserFirstName + " " + member.UserLastName;
 
-                    // if the member has submitted a score for the proposal, add it to the list to return to View
-                    angular.forEach(scoreListFromDB, function (score) {
-                        if (member.UserID === score.UserID) {
-                            memberScore.DeeScoreResearch = score.DeeScoreResearch;
-                            memberScore.DeeScorePedagogy = score.DeeScorePedagogy;
-                            memberScore.DeeScoreSoftware = score.DeeScoreSoftware;
-                            memberScore.DeeScoreEvaluation = score.DeeScoreEvaluation;
-                            memberScore.DeeScoreSupport = score.DeeScoreSupport;
-                            memberScore.DeeScoreTotal = score.DeeScoreTotal;
-                        }
+                        // if the member has submitted a score for the proposal, add it to the list to return to View
+                        angular.forEach(scoreListFromDB, function (score) {
+                            if (member.UserID === score.UserID) {
+                                memberScore.DeeScoreResearch = score.DeeScoreResearch;
+                                memberScore.DeeScorePedagogy = score.DeeScorePedagogy;
+                                memberScore.DeeScoreSoftware = score.DeeScoreSoftware;
+                                memberScore.DeeScoreEvaluation = score.DeeScoreEvaluation;
+                                memberScore.DeeScoreSupport = score.DeeScoreSupport;
+                                memberScore.DeeScoreTotal = score.DeeScoreTotal;
+                            }
+                        });
+
+                        // push the record into the list
+                        $scope.model.deeProposalScoreList.push(memberScore);
                     });
-
-                    // push the record into the list
-                    $scope.model.deeProposalScoreList.push(memberScore);
                 });
             });
+
+            
         };
 
         // used to navigate justification tabs

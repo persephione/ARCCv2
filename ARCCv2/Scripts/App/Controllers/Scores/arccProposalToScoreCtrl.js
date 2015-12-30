@@ -150,13 +150,13 @@
                 });
             }
             else if (status === 'approval') {
+                $scope.getApprovalFormData();
                 $scope.slideClass = 'slide-left';
 
                 // delay for animations
                 angular.element(document).ready(function () {
                     $timeout(function () {
                         $scope.isApprovalActive = true;
-                        $scope.getApprovalFormData();
                     }, 400);
                 });
             }
@@ -270,37 +270,38 @@
                 $scope.model.successMessage = '';
 
                 committeeMembers = result;
-            });
 
-            // get all scores for proposal
-            scores.GetARCCScores.Get($scope.model.fullProposal.ARCCProposal.ARCCProposalID).then(function (result) {
-                // just in case messages are currently displayed, remove them
-                $scope.model.warningMessage = '';
-                $scope.model.successMessage = '';
+                // get all scores for proposal
+                scores.GetARCCScores.Get($scope.model.fullProposal.ARCCProposal.ARCCProposalID).then(function (result) {
+                    // just in case messages are currently displayed, remove them
+                    $scope.model.warningMessage = '';
+                    $scope.model.successMessage = '';
 
-                scoreListFromDB = result;
+                    scoreListFromDB = result;
 
-                // create the score list to return to the View
-                angular.forEach(committeeMembers, function (member) {
-                    var memberScore = {};
-                    memberScore.UserName = member.UserFirstName + " " + member.UserLastName;
+                    // create the score list to return to the View
+                    angular.forEach(committeeMembers, function (member) {
+                        var memberScore = {};
+                        memberScore.UserName = member.UserFirstName + " " + member.UserLastName;
 
-                    // if the member has submitted a score for the proposal, add it to the list to return to View
-                    angular.forEach(scoreListFromDB, function (score) {
-                        if (member.UserID === score.UserID) {
-                            memberScore.ARCCScoreEducExp = score.ARCCScoreEducExp;
-                            memberScore.ARCCScoreInnovation = score.ARCCScoreInnovation;
-                            memberScore.ARCCScoreDissemination = score.ARCCScoreDissemination;
-                            memberScore.ARCCScoreEvaluation = score.ARCCScoreEvaluation;
-                            memberScore.ARCCScoreSupport = score.ARCCScoreSupport;
-                            memberScore.ARCCScoreTotal = score.ARCCScoreTotal;
-                        }
+                        // if the member has submitted a score for the proposal, add it to the list to return to View
+                        angular.forEach(scoreListFromDB, function (score) {
+                            if (member.UserID === score.UserID) {
+                                memberScore.ARCCScoreEducExp = score.ARCCScoreEducExp;
+                                memberScore.ARCCScoreInnovation = score.ARCCScoreInnovation;
+                                memberScore.ARCCScoreDissemination = score.ARCCScoreDissemination;
+                                memberScore.ARCCScoreEvaluation = score.ARCCScoreEvaluation;
+                                memberScore.ARCCScoreSupport = score.ARCCScoreSupport;
+                                memberScore.ARCCScoreTotal = score.ARCCScoreTotal;
+                            }
+                        });
+
+                        // push the record into the list
+                        $scope.model.arccProposalScoreList.push(memberScore);
                     });
-
-                    // push the record into the list
-                    $scope.model.arccProposalScoreList.push(memberScore);
                 });
-            });
+
+            });  
         };
 
         // chair's decision to approve or deny proposal 
