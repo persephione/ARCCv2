@@ -27,9 +27,9 @@ namespace ARCCv2.Models
         public string ARCCAdditionalResources { get; set; }
         public bool ARCCReplacementEquipment { get; set; }
         public string ARCCReplacementProjectName { get; set; }
-        public int ARCCReplacementARCCYear { get; set; }
+        public int? ARCCReplacementARCCYear { get; set; }
         public bool ARCCPartiallyFunded { get; set; }
-        public int ARCCPartiallyFundedPercent { get; set; }
+        public int? ARCCPartiallyFundedPercent { get; set; }
         public string ARCCLastUpdatedBy { get; set; }
         public DateTime ARCCLastUpdatedDate { get; set; }
         public int Status { get; set; }
